@@ -1,14 +1,13 @@
 {
     "name": "hp/web_sistem_kp",
+    "description": "Project Pembuatan Sistem KP Prodi IF Itera",
     "authors": [
         {
             "name": "Afdi Fauzul Bahar",
             "email": "45322055+afdi11@users.noreply.github.com"
         }
     ],
-    "require-dev": {
-        "laravel/ui": "^2.0"
-    },
     "require": {
+        "laravel/installer": "^3.0"
     }
 }
