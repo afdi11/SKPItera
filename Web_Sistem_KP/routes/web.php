@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +17,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('login', function () {
-    return view('login');
-});
+Auth::routes();
 
-Route::get('register', function () {
-    return view('register');
-});
-
-Route::get('mahasiswa/instansi', 'MahasiswaInstansi@index');
+Route::get('/home', 'HomeController@index')->name('home');

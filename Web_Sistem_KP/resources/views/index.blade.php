@@ -21,8 +21,8 @@
         <div class="col-6 col-s-12 menu">
             <h4>Website Resmi Kerja Praktik Teknik Informatika
                 Institut Teknologi Sumatera</h4>
-            <button type="button"><a href="../../authentification/login/code/login.php">Login</a></button>
-            <button type="button"><a href="../../authentification/register/code/register.php">Register</a></button>
+            <button type="button"><a href="login">Login</a></button>
+            <button type="button"><a href="register">Register</a></button>
         </div>
 
         <div class="col-6 col-s-12 content">

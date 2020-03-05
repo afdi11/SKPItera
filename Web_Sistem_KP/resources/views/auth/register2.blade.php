@@ -3,8 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="../css/mhs_pengajuan.css" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/register.css')}}" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -17,39 +16,29 @@
         <h1>Institut Teknologi Sumatera</h1>
     </div>
 
-    <div class="nav-bar">
-        <nav class="navbar navbar-custom navbar-static-top">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dhiko JangJaya Putra</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-
     <div class="row">
-        <div class="col-3 col-s-3 menu">
-            <ul>
-                <li><a href="home_page.php">Beranda</a></li>
-                <li><a href="mhs_daftar.php">Daftar</a></li>
-                <li><a href="mhs_referensi.php">Referensi</a></li>
-                <li><a href="mhs_unduh.php">Unduh Form</a></li>
-                <li><a href="mhs_upload.php">Upload</a></li>
-                <li><a href="mhs_pengajuan.php">Pengajuan Seminar</a></li>
-            </ul>
-        </div>
-
-        <div class="col-9 col-s-9 content">
-
+        <div class="col-6 col-s-12 content">
+            <h3>REGISTER</h3>
             <form class="col-12 col-s-12 form" action="#">
+
+                <h4>Data Diri</h4>
+                <div class="form-group">
+                    <label for="nama">Nama:</label>
+                    <input type="namespace" class="form-control" id="nama" placeholder="Enter Name" name="nama">
+                </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                    <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
                 </div>
                 <div class="form-group">
                     <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                    <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">
+                        <Re-Type></Re-Type>Re-Type Password
+                    </label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter Re-Type Password" name="pswd">
                 </div>
                 <div class="form-group form-check">
                     <label class="form-check-label">
