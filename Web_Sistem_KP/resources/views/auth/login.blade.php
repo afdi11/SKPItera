@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.awal')
 
 @section('content')
     <div class="row">
         <div class="col-6 col-s-12 content">
             <h3>LOGIN</h3>
             <form class="col-12 col-s-12 form" method="POST" action="{{ route('login') }}">
-
+            @csrf
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Enter email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -31,6 +31,11 @@
                 </div>
                 <div>Not have an Account?<a href="register"> Register</br></a></div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                @if (Route::has('password.request'))
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                @endif
             </form>
 
         </div>
