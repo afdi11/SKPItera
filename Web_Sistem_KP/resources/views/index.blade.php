@@ -1,49 +1,63 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.awal.index')
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="{{asset('/css/home_page.css')}}" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+@section('content')
+<div class="header">
+    <h1>Institut Teknologi Sumatera</h1>
+</div>
 
-<body>
-
-    <div class="header">
-        <h1>Institut Teknologi Sumatera</h1>
-    </div>
-
-    <div class="row">
-        <div class="col-6 col-s-12 menu">
+<div class="row">
+    @guest
+        <form class="col-6 col-s-12 form" action="login">
             <h4>Website Resmi Kerja Praktik Teknik Informatika
                 Institut Teknologi Sumatera</h4>
-            <button type="button"><a href="login">Login</a></button>
-            <button type="button"><a href="register">Register</a></button>
-        </div>
-
-        <div class="col-6 col-s-12 content">
-
-            <div class="col-9 col-12 content_satu">
-                <div class="col-3 col-s-12 semester">
-                    <p>Foto-Foto Kerja Praktik</p>
-                </div>
+            <button class="btn btn-primary" type="submit">Login</a></button>
+        </form>
+    @else
+        <form class="col-6 col-s-12 form" action="logout" method="POST">
+            <h4>Website Resmi Kerja Praktik Teknik Informatika
+                    Institut Teknologi Sumatera</h4>
+            <div class="row">
+                <span class="glyphicon glyphicon-user"></span>
+                {{ Auth::user()->name }} 
+                @csrf
+                <button class="btn btn-primary" type="submit">Logout</a></button>
             </div>
+        </form>
+    @endguest
+
+    <div class="col-6 col-s-12 content">
+
+        <div class="col-9 col-12 content_satu">
+            <div class="col-9 col-s-12 foto_alur_kp">
+                <img src="{{ asset('/requirement/alur_kp.png') }}" alt="Foto Alur KP">
+                <p>Info Alur Kerja Praktik</p>
+            </div>
+            
+            <a href="{{ asset('/requirement/file_persetujuan.docx') }}">Unduh Surat Persetujuan</a>
         </div>
     </div>
-
-    <div class="info_kp">
-        <p>Info Kerja Praktik</p>
-        <h2>Ini Info Tentang Kerja Praktik</h2>
-    </div>
-
-    <div class="footer">
-        <p><i class="fa fa-copyright" aria-hidden="true"></i> Copyright</p>
-    </div>
-
-</body>
-
-</html>
+</div>
+<div class="info_kp">
+    <h4>Info Tempat Kerja Praktik</h4>
+    <table class=" table table-hover">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Instansi</th>
+                <th>Alamat</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($instansi as $p)
+            <tr>
+                <td>{{$p->id}}</td>
+                <td>{{$p->nama}}</td>
+                <td>{{$p->alamat}}</td>
+                <td>{{$p->email}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+@endsection

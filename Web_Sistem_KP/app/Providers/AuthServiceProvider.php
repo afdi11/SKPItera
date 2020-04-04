@@ -25,6 +25,25 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Gate::define('register-users',function($user){
+            return $user->hasRole('koordinator');
+        });
+
+        Gate::define('manage-users',function($user){
+            return $user->hasAnyRoles(['koordinator','dosen pembimbing']);
+        });
+
+        Gate::define('mahasiswa',function($user){
+            return $user->hasRole('mahasiswa');
+        });
+
+        Gate::define('edit-users',function($user){
+            return $user->hasRole('koordinator');
+        });
+
+        Gate::define('delete-users',function($user){
+            return $user->hasRole('koordinator');
+        });
         //
     }
 }

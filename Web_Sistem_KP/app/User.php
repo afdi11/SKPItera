@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','dosen',
     ];
 
     /**
@@ -36,4 +36,34 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles(){
+        return $this->belongsToMany('App\Role');
+    }
+
+    public function hasRole($role){
+        if($this->roles()->where('name',$role)->first()){
+            return true;
+        }
+        return false;
+    }
+
+    public function hasAnyRoles($roles){
+        if($this->roles()->whereIn('name',$roles)->first()){
+            return true;
+        }
+        return false;
+    }
+
+    public function Mahasiswa()
+    {
+        if($this->hasRole('mahasiswa'))
+    	return $this->belongsTo('App\Mahasiswa');
+    }
+
+    public function Dosen()
+    {
+        if($this->hasRole('dosen pembimbing'))
+    	return $this->belongsTo('App\Dosen');
+    }
 }

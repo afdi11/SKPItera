@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koordinator | Kerja Praktik</title>
     <link rel="stylesheet" href="{{asset('css/koor/home_page.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/koor/koor_dopem.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/koor/koor_cetak.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/koor/koor_laporan.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/koor/koor_mhs.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/koor/koor_validasi.css')}}" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -26,7 +31,19 @@
             </div>
         </nav>
     </div>
+    <div class="row">
+        <div class="col-3 col-s-12 menu">
+            <ul>
+                <li><a href="{{route('koor.index')}}">Home</a></li>
+                <li><a href="{{route('koor.user.index')}}">Mahasiswa</a></li>
+                <li><a href="{{route('koor.laporan.index')}}">Laporan</a></li>
+                <li><a href="{{route('koor.cetak.index')}}">Cetak Nilai</a></li>
+                <li><a href="{{route('koor.validasi.index')}}">Validasi</a></li>
+                <li><a href="{{route('koor.dopem.index')}}">Dosen Pembimbing</a></li>
+            </ul>
+        </div>
     @yield('content')
+    </div>
     <div class="footer">
         <p><i class="fa fa-copyright" aria-hidden="true"></i> Copyright</p>
     </div>

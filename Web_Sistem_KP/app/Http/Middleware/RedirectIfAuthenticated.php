@@ -20,8 +20,16 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
             return redirect(RouteServiceProvider::HOME);
-        }
-
+        }/*
+        $user = $request->user();
+        if($user){
+            if($user->isMhs()){
+                return redirect('mahasiswa');
+            }else if($user->isDosen()){
+                return redirect('dosen');
+            }
+            return redirect('koor');
+        }*/
         return $next($request);
     }
 }

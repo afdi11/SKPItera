@@ -18,8 +18,8 @@ class CreateDosensTable extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('name',50);
-            $table->string('NIP/NRK',25)->unique()->nullable();
-            $table->string('Kontak Person',13)->nullable();
+            $table->string('NIP_NRK',25)->unique()->nullable();
+            $table->string('Kontak_Person',13)->nullable();
             $table->timestamps();
         });
     }
