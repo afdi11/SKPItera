@@ -33,7 +33,7 @@ Route::namespace('koor')->prefix('koor')->name('koor.')->middleware('can:manage-
     Route::resource('/laporan','LaporanController',['only'=>'index']);
     Route::resource('/cetak','CetakController',['only'=>'index']);
     Route::resource('/validasi','ValidasiController',['only'=>'index']);
-    Route::resource('/dopem','DopemController',['except'=>['store']]);
+    Route::resource('/dopem','DopemController',['except'=>['store','create','destroy','update','edit']]);
 });
 
 Route::namespace('mahasiswa')->prefix('mahasiswa')->middleware('can:mahasiswa')->name('mahasiswa.')->group(function(){

@@ -44,6 +44,21 @@
         </div>
     @yield('content')
     </div>
+    <div id="dataModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Dosen Pembimbing</h4>
+                </div>
+                <div class="modal-body" id="employee_detail">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="footer">
         <p><i class="fa fa-copyright" aria-hidden="true"></i> Copyright</p>
     </div>
@@ -51,3 +66,23 @@
 </body>
 
 </html>
+<script>
+    $(document).ready(function() {
+        $('.modal-show').click(function(event){
+        event.preventDefault();
+        var me = $(this),
+                employee_id=me.attr("id"),
+                url=me.attr('href');
+        $.ajax({
+            url: url,
+            data: {
+                employee_id: employee_id
+            },
+            success: function(data) {
+                $('#employee_detail').html(data);
+                $('#dataModal').modal("show");
+            }
+        });
+        });
+    });
+</script>
