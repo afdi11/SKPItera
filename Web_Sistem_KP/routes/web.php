@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +36,7 @@ Route::namespace('koor')->prefix('koor')->name('koor.')->middleware('can:manage-
     Route::resource('/cetak','CetakController',['only'=>'index']);
     Route::resource('/validasi','ValidasiController',['only'=>'index']);
     Route::resource('/dopem','DopemController',['except'=>['store','create','destroy','update','edit']]);
+    Route::resource('/mahasiswa','MhsController',['only'=>['show','index']]);
 });
 
 Route::namespace('mahasiswa')->prefix('mahasiswa')->middleware('can:mahasiswa')->name('mahasiswa.')->group(function(){

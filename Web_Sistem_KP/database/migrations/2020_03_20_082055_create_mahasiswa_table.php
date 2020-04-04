@@ -22,7 +22,7 @@ class CreateMahasiswaTable extends Migration
             $table->bigInteger('dosen_id')->unsigned()->nullable();
             $table->string('nim',8)->unique()->nullable();
             $table->string('alamat',255)->nullable();
-            $table->string('Kontak Person',13)->nullable();
+            $table->string('Kontak_Person',13)->nullable();
             $table->timestamps();
         });
     }

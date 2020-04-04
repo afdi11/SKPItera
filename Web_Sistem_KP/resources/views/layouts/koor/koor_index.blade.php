@@ -35,7 +35,7 @@
         <div class="col-3 col-s-12 menu">
             <ul>
                 <li><a href="{{route('koor.index')}}">Home</a></li>
-                <li><a href="{{route('koor.user.index')}}">Mahasiswa</a></li>
+                <li><a href="{{route('koor.mahasiswa.index')}}">Mahasiswa</a></li>
                 <li><a href="{{route('koor.laporan.index')}}">Laporan</a></li>
                 <li><a href="{{route('koor.cetak.index')}}">Cetak Nilai</a></li>
                 <li><a href="{{route('koor.validasi.index')}}">Validasi</a></li>
@@ -44,35 +44,37 @@
         </div>
     @yield('content')
     </div>
-    <div id="dataModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Dosen Pembimbing</h4>
-                </div>
-                <div class="modal-body" id="employee_detail">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+</body>
+<div class="footer">
+    <p><i class="fa fa-copyright" aria-hidden="true"></i> Copyright</p>
+</div>
+</html>
+<div id="dataModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="modal-title">Dopem</h4>
+            </div>
+            <div class="modal-body" id="employee_detail">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
-    <div class="footer">
-        <p><i class="fa fa-copyright" aria-hidden="true"></i> Copyright</p>
-    </div>
+</div>
 
-</body>
-
-</html>
 <script>
+    //Dosen Pembimbing
     $(document).ready(function() {
         $('.modal-show').click(function(event){
         event.preventDefault();
         var me = $(this),
                 employee_id=me.attr("id"),
-                url=me.attr('href');
+                url=me.attr('href'),
+                title=me.attr('title');
+        $('#modal-title').text(title);
         $.ajax({
             url: url,
             data: {
@@ -85,4 +87,27 @@
         });
         });
     });
+
+    //Mahasiswa
+    $(document).ready(function() {
+        $('.view_data_lihat').click(function(event){
+        event.preventDefault();
+        var me = $(this),
+                employee_id=me.attr("id"),
+                url=me.attr('href'),
+                title=me.attr('title');
+        $('#modal-title').text(title);
+        $.ajax({
+            url: url,
+            data: {
+                employee_id: employee_id
+            },
+            success: function(data) {
+                $('#employee_detail').html(data);
+                $('#dataModal').modal("show");
+            }
+        });
+        });
+    });
+
 </script>
