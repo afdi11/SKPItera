@@ -10,11 +10,11 @@ class Dosen extends Model
 
     public function users()
     {
-    	return $this->hasOne('App\User');
+        return $this->hasOne('App\User');
     }
 
     public function mahasiswa()
     {
-    	return $this->hasMany('App\Mahasiswa');
+        return $this->hasMany('App\Mahasiswa');
     }
 }
