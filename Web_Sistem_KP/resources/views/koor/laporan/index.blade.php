@@ -1,4 +1,4 @@
-@extends('layouts.koor_laporan_index')
+@extends('layouts.koor.koor_laporan_index')
 
 @section('content')
 <div class="container">

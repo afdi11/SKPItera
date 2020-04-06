@@ -1,4 +1,4 @@
-@extends('layouts.koor_cetak_index')
+@extends('layouts.koor.koor_cetak_index')
 
 @section('content')
 <div class="container">
