@@ -24,6 +24,14 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        
+        Gate::define('validasi',function($user){
+            return $user->unVerified();
+        });
+
+        Gate::define('assign',function($mahasiswa){
+            return $mahasiswa->unAssign();
+        });
 
         Gate::define('register-users',function($user){
             return $user->hasRole('koordinator');

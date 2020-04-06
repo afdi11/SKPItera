@@ -17,10 +17,9 @@
             <h4>Website Resmi Kerja Praktik Teknik Informatika
                     Institut Teknologi Sumatera</h4>
             <div class="row">
-                <span class="glyphicon glyphicon-user"></span>
-                {{ Auth::user()->name }} 
                 @csrf
-                <button class="btn btn-primary" type="submit">Logout</a></button>
+                <a href="login" class="btn btn-primary">Home</a>
+                <button class="btn btn-primary" type="submit">Logout</button>
             </div>
         </form>
     @endguest

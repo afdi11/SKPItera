@@ -25,8 +25,13 @@
         <nav class="navbar navbar-custom navbar-static-top">
             <div class="container-fluid">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="home"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
-                    <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
+                    <li><a>
+                        <form action="{{ route('logout') }}" method="POST">
+                            <span class="glyphicon glyphicon-log-out"></span>
+                            <input type="submit" value=" Logout"></input>
+                        </form>
+                    </a></li>
                 </ul>
             </div>
         </nav>
@@ -60,6 +65,23 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="validasiModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"> Data Mahasiswa</h4>
+            </div>
+            <div class="modal-body" id="validasi_detail">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>
@@ -110,4 +132,26 @@
         });
     });
 
+    //editValidasi
+    $(document).ready(function() {
+        $('.edit').click(function(event){
+        event.preventDefault();
+        var me = $(this),
+                employee_id=me.attr("id"),
+                url=me.attr('href'),
+                title=me.attr('title'),
+                fungsi=me.attr=('validasi');
+        $('#modal-title').text(title);
+        $.ajax({
+            url: url,
+            data: {
+                employee_id: employee_id
+            },
+            success: function(data) {
+                $('#validasi_detail').html(data);
+                $('#validasiModal').modal("show");
+            }
+        });
+        });
+    });
 </script>

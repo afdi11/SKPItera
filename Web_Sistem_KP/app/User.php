@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','dosen',
+        'name', 'email', 'password'
     ];
 
     /**
@@ -57,7 +57,7 @@ class User extends Authenticatable
 
     public function Mahasiswa()
     {
-        if($this->hasRole('mahasiswa'))
+        //if($this->hasRole('mahasiswa'))
     	return $this->belongsTo('App\Mahasiswa');
     }
 
@@ -65,5 +65,11 @@ class User extends Authenticatable
     {
         if($this->hasRole('dosen pembimbing'))
     	return $this->belongsTo('App\Dosen');
+    }
+    public function unVerified()
+    {
+        if($this->whereNull('email_verified_at'))
+            return true;
+        return false;
     }
 }

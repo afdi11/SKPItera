@@ -18,6 +18,7 @@ class CreateDosensTable extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('name',50);
+            $table->bigInteger('users_id')->unsigned()->nullable();
             $table->string('NIP_NRK',25)->unique()->nullable();
             $table->string('Kontak_Person',13)->nullable();
             $table->timestamps();

@@ -32,4 +32,11 @@ class Mahasiswa extends Model
     {
         return $this->hasMany('App\Laporan');
     }
+
+    public function unAssign()
+    {
+        if($this->whereNull('dosen_id')->first)
+            return true;
+        return false;
+    }
 }

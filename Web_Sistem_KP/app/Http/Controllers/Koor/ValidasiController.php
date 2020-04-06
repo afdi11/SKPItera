@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Koor;
 
 use App\Http\Controllers\Controller;
+use App\Mahasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ValidasiController extends Controller
 {
@@ -16,8 +18,14 @@ class ValidasiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('koor.validasi.index');
+    {   
+        $mahasiswa= DB::table('mahasiswa')
+            ->join('users','users.id','=','mahasiswa.user_id')
+            ->select('users.*','mahasiswa.*')
+            ->whereNull('mahasiswa.dosen_id')
+            ->orWhereNull('users.email_verified_at')
+            ->get();
+        return view('koor.validasi.index')->with('result',$mahasiswa);
     }
 
     /**
@@ -49,7 +57,8 @@ class ValidasiController extends Controller
      */
     public function show($id)
     {
-        //
+        $model = Mahasiswa::findOrFail($id);
+        return view('koor.mahasiswa.koor_mhs_lihat', compact('model'));
     }
 
     /**
@@ -60,7 +69,7 @@ class ValidasiController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('koor.validasi.koor_validasi_validasi');
     }
 
     /**

@@ -27,10 +27,9 @@ class MahasiswaTableSeeder extends Seeder
                 }
 
                 $mhs=Mahasiswa::create([
-                    'name'=> $user->name,
-                    'email'=>$user->email,
                     'instansi_id'=>$instansi_id,
-                    'dosen_id'=>$dosen_id
+                    'dosen_id'=>$dosen_id,
+                    'user_id'=>$user->id,
                 ]);
             }
         }

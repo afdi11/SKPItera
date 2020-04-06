@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\koor;
 
+use App\Dosen;
 use App\Http\Controllers\Controller;
 use App\Mahasiswa;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class MhsController extends Controller
+class AssignController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,8 @@ class MhsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $mahasiswa= DB::table('mahasiswa')
-            ->join('users','users.id','=','mahasiswa.user_id')
-            ->select('users.*','mahasiswa.*')
-            ->get();
-        return view('koor.mahasiswa.koor_mhs')->with('result',$mahasiswa);
+    {
+        //
     }
 
     /**
@@ -51,15 +47,9 @@ class MhsController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //$model = Mahasiswa::findOrFail($id);
-        $model = DB::table('mahasiswa')
-            ->where('mahasiswa.id',$id)
-            ->join('users','users.id','=','mahasiswa.user_id')
-            ->select('users.*','mahasiswa.*')
-            ->get()->first();
-        return view('koor.mahasiswa.koor_mhs_lihat', compact('model'));
+        //
     }
 
     /**
@@ -68,9 +58,12 @@ class MhsController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $mhs = Mahasiswa::findOrFail($id);
+        $user = User::findOrFail($mhs->user_id);
+        $dopem = Dosen::all();
+        return view('koor.validasi.koor_validasi_assign',compact('mhs','user','dopem'));
     }
 
     /**

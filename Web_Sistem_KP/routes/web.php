@@ -34,9 +34,10 @@ Route::namespace('koor')->prefix('koor')->name('koor.')->middleware('can:manage-
     Route::resource('/','KoorController',['only'=>'index']);
     Route::resource('/laporan','LaporanController',['only'=>'index']);
     Route::resource('/cetak','CetakController',['only'=>'index']);
-    Route::resource('/validasi','ValidasiController',['only'=>'index']);
+    Route::resource('/validasi','ValidasiController',['only'=>['index','show','store','edit','update']]);
     Route::resource('/dopem','DopemController',['except'=>['store','create','destroy','update','edit']]);
-    Route::resource('/mahasiswa','MhsController',['only'=>['show','index']]);
+    Route::resource('/mahasiswa','MhsController',['only'=>['show','index','update']]);
+    Route::resource('/assign','AssignController',['only'=>['edit','update']]);
 });
 
 Route::namespace('mahasiswa')->prefix('mahasiswa')->middleware('can:mahasiswa')->name('mahasiswa.')->group(function(){
