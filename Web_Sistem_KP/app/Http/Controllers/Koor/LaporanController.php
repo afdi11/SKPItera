@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Koor;
 
 use App\Http\Controllers\Controller;
+use App\Laporan;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -17,7 +18,8 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        return view('koor.laporan.index');
+        $row=Laporan::all();
+        return view('koor.laporan.index', compact('row'));
     }
 
     /**

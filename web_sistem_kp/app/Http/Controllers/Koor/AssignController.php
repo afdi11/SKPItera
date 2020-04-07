@@ -62,8 +62,9 @@ class AssignController extends Controller
     {
         $mhs = Mahasiswa::findOrFail($id);
         $user = User::findOrFail($mhs->user_id);
+        $pembimbing = Dosen::where('id',$user->mahasiswa->dosen_id)->first();
         $dopem = Dosen::all();
-        return view('koor.validasi.koor_validasi_assign',compact('mhs','user','dopem'));
+        return view('koor.validasi.koor_validasi_assign',compact('pembimbing','user','dopem'));
     }
 
     /**
@@ -73,9 +74,11 @@ class AssignController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $user=Mahasiswa::findOrFail($id);
+        $user->dosen_id=$request->dosen_id;
+        $user->save();
     }
 
     /**

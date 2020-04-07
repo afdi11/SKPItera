@@ -57,8 +57,8 @@ class User extends Authenticatable
 
     public function Mahasiswa()
     {
-        //if($this->hasRole('mahasiswa'))
-    	return $this->belongsTo('App\Mahasiswa');
+        if($this->hasRole('mahasiswa'))
+    	return $this->hasOne('App\Mahasiswa');
     }
 
     public function Dosen()

@@ -87,6 +87,23 @@
     </div>
 </div>
 
+<div id="assignModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"> Data Mahasiswa</h4>
+            </div>
+            <div class="modal-body" id="assign_detail">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="modal-btn-save">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
     //Dosen Pembimbing
     $(document).ready(function() {
@@ -140,7 +157,7 @@
                 employee_id=me.attr("id"),
                 url=me.attr('href'),
                 title=me.attr('title'),
-                fungsi=me.attr=('validasi');
+                fungsi=me.attr=('fungsi');
         $('#modal-title').text(title);
         $.ajax({
             url: url,
@@ -154,4 +171,55 @@
         });
         });
     });
+
+    //assignDopem
+    $(document).ready(function() {
+        $('.assign').click(function(event){
+        event.preventDefault();
+        var me = $(this),
+                employee_id=me.attr("id"),
+                url=me.attr('href'),
+                title=me.attr('title'),
+                fungsi=me.attr=('fungsi');
+        $('#modal-title').text(title);
+        $.ajax({
+            url: url,
+            data: {
+                employee_id: employee_id
+            },
+            success: function(data) {
+                $('#assign_detail').html(data);
+                $('#assignModal').modal("show");
+            }
+        });
+        });
+    });
+
+    //submit
+    $('#modal-btn-save').click(function(event){
+        event.preventDefault();
+        var me = $('#assign_detail form'),
+                action = me.attr('action');
+        $.ajax({
+            url: action,
+            method:'PUT',
+            data: me.serialize(),
+            success: function(response) {
+                me.trigger('reset');
+                $('#assignModal').modal("hide");
+                $('#datatables').dataTables().ajax.reload();
+
+                swal({
+                    type:'success',
+                    title:'Success!',
+                    text:'Data has been saved!'
+                });
+            },
+            error: function(xhr){
+                var errors = xhr.responseJSON;
+                console.log(errors);
+            }
+        });
+    });
+
 </script>

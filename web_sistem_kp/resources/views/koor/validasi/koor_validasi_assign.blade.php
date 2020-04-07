@@ -6,11 +6,26 @@
         </tr>
         <tr>
             <td width="30%"><label>Dosen Pembimbing</label></td>  
-            <td width="70%"><select placeholder="Assign Dosen Pembimbing">
-                @foreach($dopem as $p)
-                        <option value="{{$p->id}}" @if($p->id == $mhs->dosen_id) selected @endif>{{$p->name}}</option>
-                @endforeach
-                </select>
+            <td width="70%">
+                @if($user->mahasiswa->dosen_id != NULL)
+                    {{$pembimbing->name}}
+                @else
+                    Belum ada
+                @endif
+            </td>
+        </tr>  
+        <tr>
+            <td width="30%"><label>Ubah Dosen Pembimbing</label></td>  
+            <td width="70%">
+                <form action= "{{route('koor.assign.update',$user->mahasiswa->id)}}" method="POST">
+                @csrf    
+                {{method_field('PUT')}}
+                    <select id="dosen_id" name="dosen_id" placeholder="Assign Dosen Pembimbing">
+                        @foreach($dopem as $p)
+                                <option value="{{$p->id}}" @if($p->id == $user->mahasiswa->dosen_id) selected @endif>{{$p->name}}</option>
+                        @endforeach
+                    </select>
+                </form>
             </td>
         </tr>  
     </table>
