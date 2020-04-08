@@ -43,6 +43,9 @@ class LoginController extends Controller
         if(Auth::user()->hasRole('koordinator')){
             $this->redirectTo = route('koor.index');
             return $this->redirectTo;
+        }else if(Auth::user()->hasRole('mahasiswa')){
+            $this->redirectTo = route('mahasiswa.index');
+            return $this->redirectTo;
         }
         $this->redirectTo = RouteServiceProvider::HOME;
         return $this->redirectTo;

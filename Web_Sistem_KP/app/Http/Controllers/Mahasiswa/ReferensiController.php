@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Mahasiswa;
 
 use App\Http\Controllers\Controller;
+use App\Instansi;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class ReferensiController extends Controller
      */
     public function index()
     {
-        return view('mahasiswa.mhs_unduh');
+        $instansi=Instansi::all();
+        return view('mahasiswa.mhs_referensi',compact('instansi'));
     }
 
     /**
