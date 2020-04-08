@@ -42,8 +42,8 @@
                 <li><a href="{{route('dosen.index')}}">Beranda</a></li>
                 <li><a href="{{route('dosen.mahasiswa.index')}}">Mahasiswa</a></li>
                 <li><a href="{{route('dosen.laporan.index')}}">Laporan</a></li>
-                <li><a href="{{route('dosen.nilai.index')}}">Nilai</a></li>
-                <li><a href="{{route('dosen.seminar.index')}}">Jadwal Seminar</a></li>
+                <li><a href="#">Nilai</a></li>
+                <li><a href="#">Jadwal Seminar</a></li>
             </ul>
         </div>
         @yield('content')
