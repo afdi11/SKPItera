@@ -31,8 +31,7 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::namespace('koor')->prefix('koor')->name('koor.')->middleware('can:manage-users')->group(function(){
+Route::namespace('koor')->prefix('koor')->name('koor.')->middleware('can:koordinator')->group(function(){
     Route::resource('/user','UserController',['except'=>['show','store']]);
     Route::resource('/','KoorController',['only'=>'index']);
     Route::resource('/laporan','LaporanController',['only'=>['index','show']]);
@@ -49,5 +48,9 @@ Route::namespace('mahasiswa')->prefix('mahasiswa')->middleware('can:mahasiswa')-
     Route::resource('/seminar','SeminarController',['only'=>'index']);
     Route::resource('/referensi','ReferensiController',['only'=>'index']);
     Route::resource('/unduh','UnduhController',['only'=>'index']);
-    Route::resource('/upload','UploadController',['only'=>'index']);
+    Route::resource('/upload','UploadController',['only'=>['index','laporan']]);
+});
+
+Route::namespace('dosen')->prefix('dosen')->middleware('can:dosen')->name('dosen.')->group(function(){
+    Route::resource('/','DosenController',['only'=>'index']);
 });

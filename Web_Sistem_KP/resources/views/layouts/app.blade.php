@@ -60,7 +60,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    @can('manage-users')
+                                    @can('koordinator')
                                     <a class="dropdown-item" href="{{route('koor.user.index')}}">
                                         {{__('User Management')}}
                                     </a>
@@ -68,7 +68,11 @@
                                         {{__('Dashboard')}}
                                     </a>
                                     @endcan
-
+                                    @can('dosen')
+                                        <a class="dropdown-item" href="{{route('dosen.index')}}">
+                                            {{__('Dashboard')}}
+                                        </a>
+                                    @endcan
                                     @can('mahasiswa')
                                         <a class="dropdown-item" href="{{route('mahasiswa.index')}}">
                                             {{__('Dashboard')}}

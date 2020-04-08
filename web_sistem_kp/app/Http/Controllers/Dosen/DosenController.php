@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Mahasiswa;
+namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 
-class UploadController extends Controller
+class DosenController extends Controller
 {
+    public function __construct(){
+        $this->middleware(['auth','verified']);;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +18,7 @@ class UploadController extends Controller
      */
     public function index()
     {
-        return view('mahasiswa.mhs_upload');
+        return view('dosen.index');
     }
 
     /**
@@ -23,9 +26,9 @@ class UploadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function laporan()
+    public function create()
     {
-        return view('mahasiswa.index');
+        //
     }
 
     /**
