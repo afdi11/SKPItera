@@ -11,12 +11,20 @@
         <th width="30%">Jadwal Seminar</th>
         <th width="10%">Lihat</th>
     </tr>
+        @foreach($row as $R)
         <tr>
-            <td>row->name</td>
-            <td>row->laporan</td>
-            <td>row->seminar</td>
-            <td><input type="button" name="view" value="Lihat" id="row->Nama" class="btn btn-info btn-xs view_data" /></td>
+            @if($R->mahasiswa->laporans['disetujui'] == 1)
+                <td>{{$R->name}}</td>    
+                <td>{{$R->mahasiswa->seminar['name']}}</td>
+                    @if($R->mahasiswa->seminar['pelaksanaan'] !=NULL )
+                        <td>{{$R->mahasiswa->seminar['pelaksanaan']}}</td>
+                    @else
+                        <td>Belum ditentukan</td>
+                    @endif
+                <td><a href="{{route('koor.laporan.show', $R->id )}}"type="button" class="btn btn-info btn-xs" >Lihat<a></td>
+            @endif
         </tr>
+        @endforeach
 </table>
 </div>
 @endsection

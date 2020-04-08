@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Koor;
 
 use App\Http\Controllers\Controller;
 use App\Laporan;
+use App\Mahasiswa;
+use App\User;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -18,7 +20,15 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        $row=Laporan::all();
+        $row=User::whereHas(
+            'roles', function($q){
+                $q->where('name', 'mahasiswa');
+            }
+        )->whereHas(
+            'mahasiswa', function($q){
+                $q->whereNotNull('dosen_id');
+            }
+        )->whereNotNull('email_verified_at')->get();
         return view('koor.laporan.index', compact('row'));
     }
 
@@ -50,8 +60,13 @@ class LaporanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $user=User::findOrFail($id);
+        $laporan=Laporan::where('mahasiswa_id',$user->mahasiswa->id)->first();
+        if($laporan != NULL)
+            return view('koor.laporan.koor_laporan_lihat',compact('laporan'));
+        else
+            return redirect()->route('koor.laporan.index');
     }
 
     /**

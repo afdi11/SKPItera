@@ -26,12 +26,11 @@
             <div class="container-fluid">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
-                    <li><a>
-                        <form action="{{ route('logout') }}" method="POST">
+                    <li><a><form action="{{ route('logout') }}" method="POST">
                             <span class="glyphicon glyphicon-log-out"></span>
-                            <input type="submit" value=" Logout"></input>
-                        </form>
-                    </a></li>
+                            @csrf
+                            <button type="submit"> Logout</button>
+                    </form></a></li>
                 </ul>
             </div>
         </nav>
@@ -105,7 +104,7 @@
 
 
 <script>
-    //Dosen Pembimbing
+    //Koor Dosen Pembimbing
     $(document).ready(function() {
         $('.modal-show').click(function(event){
         event.preventDefault();
@@ -127,7 +126,7 @@
         });
     });
 
-    //Mahasiswa
+    //Koor Mahasiswa
     $(document).ready(function() {
         $('.view_data_lihat').click(function(event){
         event.preventDefault();
@@ -149,7 +148,7 @@
         });
     });
 
-    //editValidasi
+    //Koor editValidasi
     $(document).ready(function() {
         $('.edit').click(function(event){
         event.preventDefault();
@@ -172,7 +171,7 @@
         });
     });
 
-    //assignDopem
+    //Koor assignDopem
     $(document).ready(function() {
         $('.assign').click(function(event){
         event.preventDefault();
@@ -195,7 +194,7 @@
         });
     });
 
-    //submit
+    //Koor submit
     $('#modal-btn-save').click(function(event){
         event.preventDefault();
         var me = $('#assign_detail form'),
@@ -207,13 +206,6 @@
             success: function(response) {
                 me.trigger('reset');
                 $('#assignModal').modal("hide");
-                $('#datatables').dataTables().ajax.reload();
-
-                swal({
-                    type:'success',
-                    title:'Success!',
-                    text:'Data has been saved!'
-                });
             },
             error: function(xhr){
                 var errors = xhr.responseJSON;
@@ -222,4 +214,25 @@
         });
     });
 
+    //KOOR lihat detail di cetak nilai
+    $(document).ready(function() {
+        $('.view_cetak_lihat').click(function(event){
+        event.preventDefault();
+        var me = $(this),
+                employee_id=me.attr("id"),
+                url=me.attr('href'),
+                title=me.attr('title');
+        $('#modal-title').text(title);
+        $.ajax({
+            url: url,
+            data: {
+                employee_id: employee_id
+            },
+            success: function(data) {
+                $('#employee_detail').html(data);
+                $('#dataModal').modal("show");
+            }
+        });
+        });
+    });
 </script>

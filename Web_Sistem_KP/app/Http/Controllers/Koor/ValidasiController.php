@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Koor;
 
 use App\Http\Controllers\Controller;
 use App\Mahasiswa;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -69,7 +70,8 @@ class ValidasiController extends Controller
      */
     public function edit($id)
     {
-        return view('koor.validasi.koor_validasi_validasi');
+        $user=User::findOrFail($id);
+        return view('koor.validasi.koor_validasi_validasi',compact('user'));
     }
 
     /**

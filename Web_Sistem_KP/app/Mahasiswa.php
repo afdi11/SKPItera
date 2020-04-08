@@ -28,9 +28,9 @@ class Mahasiswa extends Model
         return $this->belongsTo('App\Dosen');
     }
 
-    public function laporan()
+    public function laporans()
     {
-        return $this->hasMany('App\Laporan');
+        return $this->hasOne('App\Laporan');
     }
 
     public function unAssign()

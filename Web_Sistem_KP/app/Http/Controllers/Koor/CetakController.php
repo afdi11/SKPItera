@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Koor;
 
 use App\Http\Controllers\Controller;
+use App\Mahasiswa;
+use App\User;
 use Illuminate\Http\Request;
 
 class CetakController extends Controller
@@ -17,7 +19,22 @@ class CetakController extends Controller
      */
     public function index()
     {
-        return view('koor.cetak.index');
+        $mahasiswa=Mahasiswa::whereHas(
+            'seminar', function($q){
+                $q->whereNotNull('nilai');
+            }
+        )->pluck('user_id');
+        $user=User::whereIn('id',$mahasiswa)->get();
+        // $user=User::whereHas(
+        //     'mahasiswa',function($q){
+        //         $q->whereHas(
+        //             'seminar', function($q){
+        //                 $q->whereNotNull('nilai');
+        //             }
+        //         )->get();
+        //     }
+        // )->get();
+        return view('koor.cetak.index',compact('user'));
     }
 
     /**
@@ -49,7 +66,8 @@ class CetakController extends Controller
      */
     public function show($id)
     {
-        //
+        $row=User::findOrFail($id);
+        return view('koor.cetak.koor_cetak_lihat', compact('row'));
     }
 
     /**

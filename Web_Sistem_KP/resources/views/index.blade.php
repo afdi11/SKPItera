@@ -26,6 +26,7 @@
         </form>
 
         @else
+        <div class="col-12 col-s-12 abc">
         <form class="col-6 col-s-12 form" action="logout" method="POST">
             <h4>Website Resmi Kerja Praktik Teknik Informatika
                 Institut Teknologi Sumatera</h4>
