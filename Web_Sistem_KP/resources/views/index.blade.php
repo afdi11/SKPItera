@@ -7,21 +7,21 @@
 
 <div class="row">
     @guest
-        <form class="col-6 col-s-12 form" action="login">
-            <h4>Website Resmi Kerja Praktik Teknik Informatika
-                Institut Teknologi Sumatera</h4>
-            <button class="btn btn-primary" type="submit">Login</a></button>
-        </form>
+    <form class="col-6 col-s-12 form" action="login">
+        <h4>Website Resmi Kerja Praktik Teknik Informatika
+            Institut Teknologi Sumatera</h4>
+        <button class="btn btn-primary" type="submit">Login</a></button>
+    </form>
     @else
-        <form class="col-6 col-s-12 form" action="logout" method="POST">
-            <h4>Website Resmi Kerja Praktik Teknik Informatika
-                    Institut Teknologi Sumatera</h4>
-            <div class="row">
-                @csrf
-                <a href="login" class="btn btn-primary">Home</a>
-                <button class="btn btn-primary" type="submit">Logout</button>
-            </div>
-        </form>
+    <form class="col-6 col-s-12 form" action="logout" method="POST">
+        <h4>Website Resmi Kerja Praktik Teknik Informatika
+            Institut Teknologi Sumatera</h4>
+        <div class="row">
+            @csrf
+            <a href="login" class="btn btn-primary">Home</a>
+            <button class="btn btn-primary" type="submit">Logout</button>
+        </div>
+    </form>
     @endguest
 
     <div class="col-6 col-s-12 content">
@@ -31,7 +31,7 @@
                 <img src="{{ asset('/requirement/alur_kp.png') }}" alt="Foto Alur KP">
                 <p>Info Alur Kerja Praktik</p>
             </div>
-            
+
             <a href="{{ asset('/requirement/file_persetujuan.docx') }}">Unduh Surat Persetujuan</a>
         </div>
     </div>
