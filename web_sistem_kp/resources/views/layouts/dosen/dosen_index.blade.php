@@ -25,8 +25,12 @@
         <nav class="navbar navbar-custom navbar-static-top">
             <div class="container-fluid">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dhiko JangJaya Putra</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
+                    <li><a><form action="{{ route('logout') }}" method="POST">
+                            <span class="glyphicon glyphicon-log-out"></span>
+                            @csrf
+                            <button type="submit"> Logout</button>
+                    </form></a></li>
                 </ul>
             </div>
         </nav>
@@ -36,10 +40,10 @@
         <div class="col-3 col-s-12 menu">
             <ul>
                 <li><a href="{{route('dosen.index')}}">Beranda</a></li>
-                <li><a href="dopem_mhs.php">Mahasiswa</a></li>
-                <li><a href="dopem_laporan.php">Laporan</a></li>
-                <li><a href="dopem_nilai.php">Nilai</a></li>
-                <li><a href="dopem_seminar.php">Jadwal Seminar</a></li>
+                <li><a href="{{route('dosen.mahasiswa.index')}}">Mahasiswa</a></li>
+                <li><a href="{{route('dosen.laporan.index')}}">Laporan</a></li>
+                <li><a href="{{route('dosen.nilai.index')}}">Nilai</a></li>
+                <li><a href="{{route('dosen.seminar.index')}}">Jadwal Seminar</a></li>
             </ul>
         </div>
         @yield('content')
@@ -53,3 +57,39 @@
 </body>
 
 </html>
+<div id="dataModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"> Data Mahasiswa</h4>
+            </div>
+            <div class="modal-body" id="employee_detail">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //Mahasiswa
+    $(document).ready(function() {
+        $('.view_data_lihat').click(function(e) {
+            e.preventDefault();
+            var me = $(this),
+                employee_id = me.attr("id"),
+                url = me.attr('href');
+            $.ajax({
+                url: url,
+                data: {
+                    employee_id: employee_id
+                },
+                success: function(data) {
+                    $('#employee_detail').html(data);
+                    $('#dataModal').modal("show");
+                }
+            });
+        });
+    });
+</script>
