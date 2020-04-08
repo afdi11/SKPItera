@@ -27,6 +27,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//Verifikasi Email
+Auth::routes(['verify' => true]);
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('koor')->prefix('koor')->name('koor.')->middleware('can:manage-users')->group(function(){
