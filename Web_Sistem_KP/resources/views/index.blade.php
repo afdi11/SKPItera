@@ -25,21 +25,51 @@
             <a href="{{ asset('/requirement/file_persetujuan.docx') }}">Unduh Surat Persetujuan</a>
         </form>
 
-        @else
-        <form class="col-6 col-s-12 form" action="logout" method="POST">
-            <h4>Website Resmi Kerja Praktik Teknik Informatika
-                Institut Teknologi Sumatera</h4>
-            <div class="row">
-                @csrf
-                <a href="login" class="btn btn-primary">Home</a>
-                <button class="btn btn-primary" type="submit">Logout</button>
-                <a href="{{ asset('/requirement/file_persetujuan.docx') }}">Unduh Surat Persetujuan</a>
+
+        <div class="col-6 col-s-12 content">
+
+            <div class="col-9 col-12 content_satu">
+                <div class="col-9 col-s-12 foto_alur_kp">
+                    <img src="{{ asset('/requirement/alur_kp.png') }}" alt="Foto Alur KP">
+                    <p>Info Alur Kerja Praktik</p>
+                </div>
             </div>
-        </form>
+        </div>
+
     </div>
+
+    @else
+
+    <div class="col-12 col-s-12 abc">
+        <form class="col-6 col-s-12 form" action="logout" method="POST">
+            <strong>WEBSITE RESMI KERJA PRAKTIK TEKNIK INFORMATIKA</strong>
+            <br>
+            <strong>INSTITUT TEKNOLOGI SUMATERA</strong>
+            <br>
+            <br>
+
+            @csrf
+            <button class="btn btn-success"><a style="text-decoration: none" href="login">Home</a></button>
+            <button class="btn btn-success" type="submit">Logout</button>
+            <a href="{{ asset('/requirement/file_persetujuan.docx') }}">Unduh Surat Persetujuan</a>
+
+        </form>
+
+        <div class="col-6 col-s-12 content">
+
+            <div class="col-9 col-12 content_satu">
+                <div class="col-9 col-s-12 foto_alur_kp">
+                    <img src="{{ asset('/requirement/alur_kp.png') }}" alt="Foto Alur KP">
+                    <p>Info Alur Kerja Praktik</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     @endguest
 
-    <div class="col-6 col-s-12 content">
+    <!-- <div class="col-6 col-s-12 content">
 
         <div class="col-9 col-12 content_satu">
             <div class="col-9 col-s-12 foto_alur_kp">
@@ -47,7 +77,7 @@
                 <p>Info Alur Kerja Praktik</p>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <div style="color:black" class="info_kp">
