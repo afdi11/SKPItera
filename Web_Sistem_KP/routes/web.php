@@ -32,8 +32,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::namespace('koor')->prefix('koor')->name('koor.')->middleware('can:manage-users')->group(function(){
     Route::resource('/user','UserController',['except'=>['show','store']]);
     Route::resource('/','KoorController',['only'=>'index']);
-    Route::resource('/laporan','LaporanController',['only'=>'index']);
-    Route::resource('/cetak','CetakController',['only'=>'index']);
+    Route::resource('/laporan','LaporanController',['only'=>['index','show']]);
+    Route::resource('/cetak','CetakController',['only'=>['index','show']]);
     Route::resource('/validasi','ValidasiController',['only'=>['index','show','store','edit','update']]);
     Route::resource('/dopem','DopemController',['except'=>['store','create','destroy','update','edit']]);
     Route::resource('/mahasiswa','MhsController',['only'=>['show','index','update']]);
