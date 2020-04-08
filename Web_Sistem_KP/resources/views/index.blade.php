@@ -24,6 +24,16 @@
             <button class="btn btn-success" type="submit">Masuk</a></button>
             <a href="{{ asset('/requirement/file_persetujuan.docx') }}">Unduh Surat Persetujuan</a>
         </form>
+
+        <div class="col-6 col-s-12 content">
+
+            <div class="col-9 col-12 content_satu">
+                <div class="col-9 col-s-12 foto_alur_kp">
+                    <img src="{{ asset('/requirement/alur_kp.png') }}" alt="Foto Alur KP">
+                    <p>Info Alur Kerja Praktik</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     @else
@@ -33,23 +43,23 @@
                 Institut Teknologi Sumatera</h4>
             <div class="row">
                 @csrf
-                <a href="login" class="btn btn-primary">Home</a>
-                <button class="btn btn-primary" type="submit">Logout</button>
+                <button class="btn btn-success"><a style="text-decoration: none" href="login">Home</a></button>
+                <button class="btn btn-success" type="submit">Logout</button>
                 <a href="{{ asset('/requirement/file_persetujuan.docx') }}">Unduh Surat Persetujuan</a>
             </div>
         </form>
-    </div>
-    @endguest
 
-    <div class="col-6 col-s-12 content">
+        <div class="col-6 col-s-12 content">
 
-        <div class="col-9 col-12 content_satu">
-            <div class="col-9 col-s-12 foto_alur_kp">
-                <img src="{{ asset('/requirement/alur_kp.png') }}" alt="Foto Alur KP">
-                <p>Info Alur Kerja Praktik</p>
+            <div class="col-9 col-12 content_satu">
+                <div class="col-9 col-s-12 foto_alur_kp">
+                    <img src="{{ asset('/requirement/alur_kp.png') }}" alt="Foto Alur KP">
+                    <p>Info Alur Kerja Praktik</p>
+                </div>
             </div>
         </div>
     </div>
+    @endguest
 </div>
 
 <div style="color:black" class="info_kp">
