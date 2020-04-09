@@ -20,12 +20,21 @@ class ValidasiController extends Controller
      */
     public function index()
     {   
-        $mahasiswa= DB::table('mahasiswa')
+        /*$mahasiswa= DB::table('mahasiswa')
             ->join('users','users.id','=','mahasiswa.user_id')
             ->select('users.*','mahasiswa.*')
             ->whereNull('mahasiswa.dosen_id')
             ->orWhereNull('users.email_verified_at')
             ->get();
+        */$mahasiswa=User::whereHas(
+            'roles',function($q){
+                $q->where('name','mahasiswa');
+            }
+        )->whereHas(
+            'mahasiswa',function($q){
+                $q->whereNull('selesai');
+            }
+        )->get();
         return view('koor.validasi.index')->with('result',$mahasiswa);
     }
 
@@ -58,7 +67,7 @@ class ValidasiController extends Controller
      */
     public function show($id)
     {
-        $model = Mahasiswa::findOrFail($id);
+        $model = User::findOrFail($id);
         return view('koor.mahasiswa.koor_mhs_lihat', compact('model'));
     }
 

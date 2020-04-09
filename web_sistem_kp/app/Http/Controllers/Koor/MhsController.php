@@ -54,11 +54,12 @@ class MhsController extends Controller
     public function show($id)
     {
         //$model = Mahasiswa::findOrFail($id);
-        $model = DB::table('mahasiswa')
-            ->where('mahasiswa.id',$id)
-            ->join('users','users.id','=','mahasiswa.user_id')
-            ->select('users.*','mahasiswa.*')
-            ->get()->first();
+        // $model = DB::table('mahasiswa')
+        //     ->where('mahasiswa.id',$id)
+        //     ->join('users','users.id','=','mahasiswa.user_id')
+        //     ->select('users.*','mahasiswa.*')
+        //     ->get()->first();
+        $model=User::findOrFail($id);
         return view('koor.mahasiswa.koor_mhs_lihat', compact('model'));
     }
 

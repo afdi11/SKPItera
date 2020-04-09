@@ -22,6 +22,7 @@ class CreateMahasiswaTable extends Migration
             $table->string('nim',8)->unique()->nullable();
             $table->string('alamat',255)->nullable();
             $table->string('Kontak_Person',20)->nullable();
+            $table->dateTime('selesai')->nullable();
             $table->timestamps();
         });
     }

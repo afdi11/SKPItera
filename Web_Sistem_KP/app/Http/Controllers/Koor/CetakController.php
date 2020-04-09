@@ -25,15 +25,6 @@ class CetakController extends Controller
             }
         )->pluck('user_id');
         $user=User::whereIn('id',$mahasiswa)->get();
-        // $user=User::whereHas(
-        //     'mahasiswa',function($q){
-        //         $q->whereHas(
-        //             'seminar', function($q){
-        //                 $q->whereNotNull('nilai');
-        //             }
-        //         )->get();
-        //     }
-        // )->get();
         return view('koor.cetak.index',compact('user'));
     }
 

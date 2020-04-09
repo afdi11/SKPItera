@@ -33,5 +33,18 @@ class MahasiswaTableSeeder extends Seeder
                 ]);
             }
         }
+
+        //Update data Afdi Fauzul Bahar
+        $mhs=Mahasiswa::find('1');
+        $mhs->nim='14117149';
+        $mhs->alamat='Jln. Serbajadi II, Kec. Natar, Lampung Selatan, Lampung';
+        $mhs->Kontak_Person='(+62) 822 6995 8597';
+        $mhs->save();
+
+        //Mahasiswa dengan id 2
+        $mhs=Mahasiswa::find('2');
+        $users=User::find($mhs->user_id);
+        $users->email_verified_at=now();
+        $users->save();
     }
 }

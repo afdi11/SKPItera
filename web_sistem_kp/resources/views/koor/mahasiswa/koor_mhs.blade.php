@@ -11,7 +11,7 @@
                 <tr>
                     <td>{{$row->name}}</td>
                     <td>
-                        <a href="{{route('koor.mahasiswa.show',$row->id)}}" class="view_data_lihat" id="{{$row->name}}" title="Data Mahasiswa" >
+                        <a href="{{route('koor.mahasiswa.show',$row->user_id)}}" class="view_data_lihat" id="{{$row->id}}" title="Data Mahasiswa" >
                             <button class="btn btn-info btn-xs">lihat</button>
                         </a>
                     </td>

@@ -60,10 +60,13 @@ class AssignController extends Controller
      */
     public function edit($id)
     {
-        $mhs = Mahasiswa::findOrFail($id);
-        $user = User::findOrFail($mhs->user_id);
-        $pembimbing = Dosen::where('id',$user->mahasiswa->dosen_id)->first();
-        $dopem = Dosen::all();
+        $user = User::findOrFail($id);
+        $pembimbing = User::where('id',$user->mahasiswa->dosen->user_id)->first();
+        $dopem = User::whereHas(
+            'roles',function($q){
+                $q->where('name','dosen pembimbing');
+            }
+        )->get();
         return view('koor.validasi.koor_validasi_assign',compact('pembimbing','user','dopem'));
     }
 

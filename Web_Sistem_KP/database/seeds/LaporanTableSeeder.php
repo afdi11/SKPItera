@@ -17,7 +17,13 @@ class LaporanTableSeeder extends Seeder
             'name'=> 'LaporanKP_14117149',
             'mahasiswa_id'=>'1',
             'revisi'=>'1',
-            'disetujui'=>'0'
+            'disetujui'=>'1'
+        ]);
+        Laporan::create([
+            'name'=> 'LaporanKP_1000033',
+            'mahasiswa_id'=>'2',
+            'revisi'=>'3',
+            'disetujui'=>'1'
         ]);
     }
 }
