@@ -15,7 +15,7 @@ class CreateLaporansTable extends Migration
     {
         Schema::create('laporan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama laporan');
+            $table->string('name');
             $table->bigInteger('mahasiswa_id');
             $table->integer('revisi');
             $table->boolean('disetujui');

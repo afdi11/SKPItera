@@ -44,14 +44,19 @@ class UsersTableSeeder extends Seeder
         $koor->roles()->attach($dopemRole);
         $dopem->roles()->attach($dopemRole);
         $mhs->roles()->attach($mhsRole);
-
+        $koor['email_verified_at']=now();
+        $dopem['email_verified_at']=now();
+        $mhs['email_verified_at']=now();
+        $koor->save();
+        $dopem->save();
+        $mhs->save();
         $faker = Faker::create('id_ID');
         for($i = 1; $i <= 100; $i++){
             // insert data ke table pegawai menggunakan Faker
             $users=User::create([
                 'name'=>$faker->name,
                 'email'=>$faker->email,
-                'password'=>Hash::make('Faker123'),
+                'password'=>Hash::make('AfdiJaya'),
             ]);
             $UserRoles=(rand()%2)+2;
             $users->roles()->attach($UserRoles);

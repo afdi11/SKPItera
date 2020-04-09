@@ -16,7 +16,10 @@ class DopemController extends Controller
      */
     public function index()
     {
-        $dopem=Dosen::all();
+        $dopem=User::whereHas(
+            'roles', function($q){
+            $q->where('name', 'dosen pembimbing');
+        })->get();
         return view('koor.dopem.koor_dopem')->with('result',$dopem);
     }
 
@@ -49,7 +52,7 @@ class DopemController extends Controller
      */
     public function show($id)
     {
-        $model = Dosen::findOrFail($id);
+        $model = User::findOrFail($id);
         return view('koor.dopem.koor_dopem_lihat', compact('model'));
     }
 

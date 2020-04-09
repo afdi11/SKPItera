@@ -14,7 +14,7 @@ class LaporanTableSeeder extends Seeder
     {
         Laporan::truncate();
         Laporan::create([
-            'nama laporan'=> 'LaporanKP_14117149',
+            'name'=> 'LaporanKP_14117149',
             'mahasiswa_id'=>'1',
             'revisi'=>'1',
             'disetujui'=>'0'

@@ -14,7 +14,7 @@ class SeminarTableSeeder extends Seeder
     {
         seminar::truncate();
         $seminar_mhs=seminar::create([
-            'nama seminar'=> 'Visualisasi Dashboard Pemasukan dan Pengeluaran Yayasan Nurul Huda Lampung',
+            'name'=> 'Visualisasi Dashboard Pemasukan dan Pengeluaran Yayasan Nurul Huda Lampung',
             'pelaksanaan'=>'2020-04-9 10:00:00',
             'mahasiswa_id'=>'1',
         ]);

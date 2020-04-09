@@ -13,14 +13,11 @@ class CreateDosensTable extends Migration
      */
     public function up()
     {
-        $this->down();
         Schema::create('dosen', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->unique();
-            $table->string('name',50);
-            $table->bigInteger('users_id')->unsigned()->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->string('NIP_NRK',25)->unique()->nullable();
-            $table->string('Kontak_Person',13)->nullable();
+            $table->string('Kontak_Person',20)->nullable();
             $table->timestamps();
         });
     }

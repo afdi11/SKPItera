@@ -64,12 +64,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function Dosen()
     {
         if($this->hasRole('dosen pembimbing'))
-    	return $this->belongsTo('App\Dosen');
+    	return $this->hasOne('App\Dosen');
     }
-    public function unVerified()
-    {
-        if($this->whereNull('email_verified_at'))
-            return true;
-        return false;
-    }
+
 }

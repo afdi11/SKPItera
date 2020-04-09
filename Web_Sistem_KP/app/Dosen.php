@@ -10,7 +10,7 @@ class Dosen extends Model
 
     public function users()
     {
-        return $this->hasOne('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function mahasiswa()

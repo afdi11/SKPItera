@@ -13,7 +13,6 @@ class CreateInstansisTable extends Migration
      */
     public function up()
     {
-        $this->down();
         Schema::create('instansi', function (Blueprint $table) {
             $table->id();
             $table->string('nama',50);
