@@ -6,35 +6,47 @@
             <form class="col-12 col-s-12 form" action="#">
                 <div class="form-group">
                     <label for="nama">Nama:</label>
-                    <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama" name="nama" required>
+                    <input type="text" class="form-control" id="name" placeholder="Masukkan Nama" name="name" value="{{ Auth::user()->name }}" required>
                 </div>
                 <div class="form-group">
                     <label for="nim">NIM:</label>
-                    <input type="text" class="form-control" id="nim" placeholder="Masukkan NIM" name="nim" required>
+                    <input type="text" class="form-control" id="nim" placeholder="Masukkan NIM" name="nim" value="{{ Auth::user()->mahasiswa->nim }}"required>
                 </div>
                 <div class="form-group">
                     <label for="jurusan">Jurusan:</label>
-                    <input type="text" class="form-control" id="jurusan" placeholder="Masukkan Jurusan" name="jurusan" required>
+                    <input type="text" disabled value="Jurusan Teknik Elektro, Informatika dan Sistem Fisika" class="form-control" id="jurusan"  name="jurusan" required>
                 </div>
                 <div class="form-group">
                     <label for="prodi">Program Studi:</label>
-                    <input type="text" class="form-control" id="prodi" placeholder="Masukkan Program Studi" name="prodi" required>
+                    <input type="text" disabled value="Teknik Informatika"class="form-control" id="prodi" name="prodi" required>
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat:</label>
-                    <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat" name="alamat" required>
+                    <input type="text" class="form-control" id="alamat" name="alamat" 
+                        @if(Auth::user()->mahasiswa->alamat != NULL) 
+                            value="{{Auth::user()->mahasiswa->alamat}}"
+                        @else
+                            placeholder="Masukkan Alamat" 
+                        @endif
+                    required>
                 </div>
                 <div class="form-group">
                     <label for="telp">No. Telepon:</label>
-                    <input type="text" class="form-control" id="telp" placeholder="Masukkan No. Telepon" name="telp" required>
+                    <input type="text" class="form-control" id="Kontak_Person" name="Kontak_Person" 
+                        @if(Auth::user()->mahasiswa->Kontak_Person != NULL) 
+                            value="{{Auth::user()->mahasiswa->Kontak_Person}}"
+                        @else
+                            placeholder="Masukkan No. Telepon"
+                        @endif
+                    required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Masukkan Email" name="email" required>
+                    <input type="email" class="form-control" id="email" value="{{Auth::user()->email}}" disabled name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="nama_instansi">Nama Insatnsi:</label>
-                    <input type="text" class="form-control" id="nama_instansi" placeholder="Masukkan Nama Instansi" name="nama_instansi" required>
+                    <input type="text" class="form-control" id="nama_instansi" placeholder="Masukkan Nama Instansi" name="nama_instansi" value=""required>
                 </div>
                 <div class="form-group">
                     <label for="divisi">Divisi Instansi:</label>

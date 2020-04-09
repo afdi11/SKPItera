@@ -22,18 +22,21 @@ class KoorController extends Controller
     public function index()
     {
         //Kerja Praktik
-        $mahasiswa_sudah_KP=DB::table('mahasiswa')->count('instansi_id');
+        $mahasiswa_sudah_KP=DB::table('instansi_mahasiswa')->count();
         $total_mhs=DB::table('mahasiswa')->count();
         $mahasiswa_belum_KP=$total_mhs-$mahasiswa_sudah_KP;
 
         //Seminar
         $sudah_seminar=DB::table('seminar')
-            ->where('nilai','NOT NULL')
+            ->whereNotNull('nilai')
             ->count();
-        $seminar=DB::table('seminar')
+        $akan_seminar=DB::table('seminar')
+            ->whereNotNull('pelaksanaan')
+            ->whereNull('nilai')
             ->count();
-        $akan_seminar=$seminar-$sudah_seminar;
-        $belum_seminar=$mahasiswa_sudah_KP-$seminar;
+        $belum_seminar=DB::table('seminar')
+        ->whereNull('pelaksanaan')
+        ->count();
         return view('koor.index')->with([
             'belum_kp'=>$mahasiswa_belum_KP,
             'sudah_kp'=>$mahasiswa_sudah_KP,

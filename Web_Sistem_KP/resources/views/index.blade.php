@@ -78,7 +78,7 @@
                 @foreach($instansi as $p)
                 <tr>
                     <td>{{$p->id}}</td>
-                    <td>{{$p->nama}}</td>
+                    <td>{{$p->name}}</td>
                     <td>{{$p->alamat}}</td>
                     <td>{{$p->Telp}}</td>
                     <td>{{$p->email}}</td>

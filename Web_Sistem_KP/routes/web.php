@@ -1,5 +1,6 @@
 <?php
 
+use App\Instansi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     //Mengambil data
-        $instansi = DB::table('instansi')->get();
+        $instansi = Instansi::all();
     //Mengirim data
         return view('index',['instansi' => $instansi]);
 });

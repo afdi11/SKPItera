@@ -17,7 +17,7 @@ class InstansiTableSeeder extends Seeder
         $faker = Faker::create('id_ID');
         Instansi::truncate();
         DB::table('Instansi')->insert([
-            'nama' => 'Yayasan Nurul Huda Lampung',
+            'name' => 'Yayasan Nurul Huda Lampung',
             'alamat' => 'Jln. Serbajadi II, Kecamatan Natar, Lampung Selatan',
             'telp' => '0721 8013 610',
             'email' => 'admin@ynhl.org',
@@ -25,7 +25,7 @@ class InstansiTableSeeder extends Seeder
         for($i = 1; $i <= 49; $i++){
             // insert data ke table pegawai menggunakan Faker
             DB::table('Instansi')->insert([
-                'nama' => $faker->company,
+                'name' => $faker->company,
                 'alamat' => $faker->address,
                 'telp' => $faker->phoneNumber,
                 'email' => $faker->email,

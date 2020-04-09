@@ -15,7 +15,7 @@ class Mahasiswa extends Model
 
     public function instansi()
     {
-        return $this->belongsTo('App\Instansi');
+        return $this->belongsToMany('App\Instansi');
     }
 
     public function seminar()

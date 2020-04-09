@@ -15,7 +15,7 @@ class CreateInstansisTable extends Migration
     {
         Schema::create('instansi', function (Blueprint $table) {
             $table->id();
-            $table->string('nama',50);
+            $table->string('name',50);
             $table->string('alamat',255);
             $table->string('Telp',25)->nullable();
             $table->string('email')->nullable();
