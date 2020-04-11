@@ -41,7 +41,7 @@
                 freelance projects. But now since it’s done, I can relax for a while.</p>
         </div>
 
-        <form class="form_komen" action="#">
+        <form action="#">
             <small>Text</small>
             <div class="form-group">
                 <input type="text" class="form-control" id="komen" placeholder="Ketik Disini">
