@@ -33,7 +33,7 @@
         <h4>Catatan Dosen</h4>
 
         <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Mahasiswa
                 <span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li><a href="#">Afdi</a></li>
