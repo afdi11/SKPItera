@@ -83,6 +83,7 @@
         </div>
 
         <form class="form_komen" action="#">
+            <small>Text</small>
             <div class="form-group">
                 <input type="text" class="form-control" id="komen" placeholder="Ketik Disini">
             </div>
