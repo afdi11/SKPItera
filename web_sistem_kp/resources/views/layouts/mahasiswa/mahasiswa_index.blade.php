@@ -18,8 +18,15 @@
 
 <body>
 
-    <div class=" header">
-        <h1>Institut Teknologi Sumatera</h1>
+    <div class="header">
+        <div class="col-1 col-s-3 logo">
+            <img src="{{ asset('/requirement/logo_itera.png') }}">
+        </div>
+        <div class="sub">
+            <small>INSTITUT TEKNOLOGI</small>
+            <br>
+            <strong>SUMATERA</strong>
+        </div>
     </div>
 
     <div class="nav-bar">

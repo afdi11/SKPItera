@@ -131,9 +131,18 @@ body {
 /* HEADER */
 
 .header {
-
     color: black;
-    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub {
+    text-align: center;
+}
+
+strong {
+    font-size: 2rem;
 }
 
 /* HEADER */
