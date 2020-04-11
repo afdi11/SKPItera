@@ -17,8 +17,10 @@
 
 
     <div class="col-12 col-s-12 content_dua">
+
+        <h4>Komentar</h4>
+
         <div class="col-12 col-s-12 commentbox">
-            <h4>Chat Message</h4>
 
             <p>Hey Jackie! How have you been?</p>
             <p>What a surprise. I haven’t seen you in a long time. How have you been?</p>
@@ -27,7 +29,14 @@
                 freelance projects. But now since it’s done, I can relax for a while.</p>
         </div>
 
-        <button class="open-button" onclick="openForm()">Chat</button>
+        <form action="#">
+            <div class="form-group">
+                <small for="text">Ketik Disini</small>
+                <input type="text" class="form-control" id="komen">
+            </div>
+
+            <button class="btn btn-success" onclick="#">Chat</button>
+        </form>
     </div>
 </div>
 @endsection
