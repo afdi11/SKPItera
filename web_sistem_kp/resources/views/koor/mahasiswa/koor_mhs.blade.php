@@ -1,7 +1,14 @@
 @extends('layouts.koor.koor_index')
 
 @section('content')
+
 <div class="col-9 col-s-12 content">
+    <!-- Actual search box -->
+    <div class="form-group has-feedback has-search">
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Search">
+    </div>
+
     <table class=" col-12 col-s-12 table table-hover">
         <tr>
             <th width="30%">Mahasiswa</th>
