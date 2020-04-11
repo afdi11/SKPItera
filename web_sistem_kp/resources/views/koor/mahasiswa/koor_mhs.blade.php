@@ -30,7 +30,7 @@
                 </div>
             </td>
             <td>
-                <a href="{{route('koor.mahasiswa.show',$row->user_id)}}" class="view_data_lihat" id="{{$row->id}}" title="Data Mahasiswa">
+                <a href="{{route('koor.mahasiswa.show',$row->user_id)}}" class="view_data_validasi" id="{{$row->id}}" title="Validasi Data">
                     <button class="btn btn-info btn-xs">Validasi</button>
                 </a>
             </td>
