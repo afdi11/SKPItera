@@ -27,5 +27,28 @@
             <h2>600</h2>
         </div>
     </div>
+
+    <div class="col-12 col-s-12 content_tiga">
+
+        <h4>Catatan</h4>
+
+        <div class="col-12 col-s-12 commentbox">
+
+            <p>Hey Jackie! How have you been?</p>
+            <p>What a surprise. I haven’t seen you in a long time. How have you been?</p>
+            <p>I’m doing very well. How about you?</p>
+            <p>Well, I finally have some free time. I’m busy juggling between my full time job and
+                freelance projects. But now since it’s done, I can relax for a while.</p>
+        </div>
+
+        <form action="#">
+            <small>Text</small>
+            <div class="form-group">
+                <input type="text" class="form-control" id="komen" placeholder="Ketik Disini">
+            </div>
+
+            <button class="btn btn-success">Chat</button>
+        </form>
+    </div>
 </div>
 @endsection

@@ -26,12 +26,14 @@
         <nav class="navbar navbar-custom navbar-static-top">
             <div class="container-fluid">
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
-                    <li><a><form action="{{ route('logout') }}" method="POST">
-                            <span class="glyphicon glyphicon-log-out"></span>
-                            @csrf
-                            <button type="submit"> Logout</button>
-                    </form></a></li>
+                    <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
+                    <li><a>
+                            <form action="{{ route('logout') }}" method="POST">
+                                <span class="glyphicon glyphicon-log-out"></span>
+                                @csrf
+                                <button type="submit"> Logout</button>
+                            </form>
+                        </a></li>
                 </ul>
             </div>
         </nav>
@@ -48,7 +50,7 @@
                 <li><a href="{{route('mahasiswa.seminar.index')}}">Pengajuan Seminar</a></li>
             </ul>
         </div>
-    @yield('content')
+        @yield('content')
     </div>
     <div class="footer">
         <p><i class="fa fa-copyright" aria-hidden="true"></i> Copyright</p>
@@ -57,27 +59,3 @@
 </body>
 
 </html>
-
-<div class="chat-popup" id="myForm">
-    <form action="#" class="form-container">
-        <div class="form-group">
-            <h1>Chat</h1>
-
-            <label for="msg"><b>Message</b></label>
-            <textarea placeholder="Type message.." name="msg" required></textarea>
-
-            <button type="submit" class="btn btn-success">Send</button>
-            <button type="button" class="btn btn-danger" onclick="closeForm()">Close</button>
-        </div>
-    </form>
-</div>
-
-<script>
-    function openForm() {
-        document.getElementById("myForm").style.display = "block";
-    }
-
-    function closeForm() {
-        document.getElementById("myForm").style.display = "none";
-    }
-</script>
