@@ -18,7 +18,7 @@
 
     <div class="col-12 col-s-12 content_dua">
 
-        <h4>Komentar</h4>
+        <h4>Catatan Dosen</h4>
 
         <div class="col-12 col-s-12 commentbox">
 
@@ -28,15 +28,6 @@
             <p>Well, I finally have some free time. I’m busy juggling between my full time job and
                 freelance projects. But now since it’s done, I can relax for a while.</p>
         </div>
-
-        <form action="#">
-            <div class="form-group">
-                <small for="text">Ketik Disini</small>
-                <input type="text" class="form-control" id="komen">
-            </div>
-
-            <button class="btn btn-success" onclick="#">Chat</button>
-        </form>
     </div>
 </div>
 @endsection
