@@ -33,16 +33,15 @@
         <h4>Catatan Dosen</h4>
 
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Dhiko</a>
-                <a class="dropdown-item" href="#">Afdi</a>
-                <a class="dropdown-item" href="#">Dini</a>
-                <a class="dropdown-item" href="#">Dewa</a>
-                <a class="dropdown-item" href="#">Yosi</a>
-            </div>
+            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Afdi</a></li>
+                <li><a href="#">Yosi</a></li>
+                <li><a href="#">Dhiko</a></li>
+                <li><a href="#">Dewa</a></li>
+                <li><a href="#">Dini</a></li>
+            </ul>
         </div>
 
         <div class="col-12 col-s-12 commentbox">
