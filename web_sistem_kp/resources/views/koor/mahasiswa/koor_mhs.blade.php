@@ -5,8 +5,8 @@
     <table class=" col-12 col-s-12 table table-hover">
         <tr>
             <th width="30%">Mahasiswa</th>
-            <th width="25%">Laporan Seminar</th>
-            <th width="25%">Laporan Instansi</th>
+            <th width="25%">Nilai Seminar</th>
+            <th width="25%">Nilai Instansi</th>
             <th width="10%">Validasi</th>
             <th width="10%">Lihat</th>
         </tr>
