@@ -30,7 +30,7 @@
 
     <div class="col-12 col-s-12 content_tiga">
 
-        <h4>Catatan</h4>
+        <h4>Catatan Dosen</h4>
 
         <div class="col-12 col-s-12 commentbox">
 
