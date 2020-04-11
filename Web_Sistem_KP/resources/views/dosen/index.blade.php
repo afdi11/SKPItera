@@ -59,7 +59,7 @@
                 <input type="text" class="form-control" id="komen" placeholder="Ketik Disini">
             </div>
 
-            <button class="btn btn-success">Chat</button>
+            <button class="btn btn-success">Komentar</button>
         </form>
     </div>
 </div>
