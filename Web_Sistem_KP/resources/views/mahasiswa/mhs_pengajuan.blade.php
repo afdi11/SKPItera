@@ -1,8 +1,10 @@
 @extends('layouts.mahasiswa.mahasiswa_index')
 
 @section('content')
-        <div class="col-9 col-s-9 content">
-
+<div class="col-9 col-s-9 content">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Pendaftaran Seminar</div>
+        <div class="panel-body">
             <form class="col-12 col-s-12 form" action="#">
                 <div class="form-group">
                     <label for="nama">Nama:</label>
@@ -29,8 +31,10 @@
                     <input type="text" class="form-control" id="tempat_seminar" placeholder="Masukkan Tempat Seminar" name="tempat_seminar">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Daftar</button>
             </form>
 
         </div>
+    </div>
+</div>
 @endsection
