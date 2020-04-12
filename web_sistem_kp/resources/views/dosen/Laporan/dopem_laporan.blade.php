@@ -1,18 +1,26 @@
 @extends('layouts.dosen.dosen_index')
 @section('content')
-        <div class="col-9 col-s-12 content" id="content1">
+<div class="col-9 col-s-12 content" id="content1">
 
-            <table class=" col-12 col-s-12 table table-hover">
-                <tr>
-                    <th width="70%">Judul Laporan</th>
-                    <th width="30%">Lihat</th>
-                </tr>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Daftar Laporan</div>
+        <div class="panel-body">
+
+            <div class="table-responsive">
+                <table class=" col-12 col-s-12 table table-hover">
+                    <tr class="active">
+                        <th width="90%">Judul Laporan</th>
+                        <th width="10%">Lihat</th>
+                    </tr>
                     <tr>
                         <td>row["laporan"]</td>
-                        <td><input type="button" name="view" value="Lihat" id="row["laporan"]" class="btn btn-info btn-xs view_data" /></td>
+                        <td><input type="button" name="view" value="Lihat" id="row[" laporan"]" class="btn btn-info btn-xs view_data" /></td>
                     </tr>
-            </table>
+                </table>
+            </div>
         </div>
+    </div>
+</div>
 @endsection
 <script>
     $('.view_data').click(function() {
