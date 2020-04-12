@@ -62,6 +62,7 @@
     @endguest
 </div>
 
+
 <div style="color:black" class="info_kp">
     <h4 align="center">Info Tempat Kerja Praktik</h4>
     <br>
@@ -88,4 +89,5 @@
         </table>
     </div>
 </div>
+
 @endsection
