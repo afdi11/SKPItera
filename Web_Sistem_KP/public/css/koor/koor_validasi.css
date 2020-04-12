@@ -192,23 +192,6 @@ body {
 
 /* NAVBAR */
 
-.navbar-custom {
-    background-color: rgb(175, 108, 21);
-}
-
-.nav.navbar-nav.navbar-right li a {
-    color: white;
-}
-
-.nav.navbar-nav.navbar-right li a:hover {
-    background-color: rgb(141, 88, 18);
-}
-
-.nav.navbar-nav.navbar-right li a:focus {
-    background-color: rgb(175, 108, 21);
-    font-weight: bold;
-}
-
 /* NAVBAR */
 
 /* ---------------------- */
