@@ -34,20 +34,23 @@
 
     <div class="panel panel-primary">
 
-        <div style="display: flex; justify-content: space-between" class="panel-heading">
-            <div class="dropdown">
-                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Mahasiswa
-                    <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Afdi</a></li>
-                    <li><a href="#">Yosi</a></li>
-                    <li><a href="#">Dhiko</a></li>
-                    <li><a href="#">Dewa</a></li>
-                    <li><a href="#">Dini</a></li>
-                </ul>
+        <div class="panel-heading">
+            <div class="h-separated">
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Mahasiswa
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Afdi</a></li>
+                        <li><a href="#">Yosi</a></li>
+                        <li><a href="#">Dhiko</a></li>
+                        <li><a href="#">Dewa</a></li>
+                        <li><a href="#">Dini</a></li>
+                    </ul>
+                </div>
+                <div>Catatan Dosen</div>
             </div>
-            <div>Catatan Dosen</div>
         </div>
+
 
         <div class="separated">
             <div class="panel-body">

@@ -305,6 +305,11 @@ strong {
 
 /* PANEL & CHATBOXX */
 
+.panel-heading .h-separated {
+    display: flex;
+    justify-content: space-between;
+}
+
 .separated .panel-body {
     overflow: scroll;
     height: 500px;
