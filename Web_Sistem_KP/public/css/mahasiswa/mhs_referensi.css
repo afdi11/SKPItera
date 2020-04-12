@@ -201,6 +201,11 @@ strong {
     background-color: rgb(32, 30, 30);
 }
 
+.table-responsive {
+    overflow: scroll;
+    height: 500px;
+}
+
 /* CLASS ROW */
 
 /* ------------------------- */
