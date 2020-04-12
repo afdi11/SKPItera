@@ -4,7 +4,11 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Daftar Mahasiswa</div>
         <div class="panel-body">
-
+            <!-- Actual search box -->
+            <div class="form-group has-feedback has-search">
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
             <div class="table-responsive">
                 <table class=" col-12 col-s-12 table table-hover">
                     <tr class="active">
