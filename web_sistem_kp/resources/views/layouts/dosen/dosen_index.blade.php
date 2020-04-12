@@ -29,18 +29,39 @@
     </div>
 
     <div class="nav-bar">
-        <nav class="navbar navbar-custom navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container-fluid">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
-                    <li><a>
-                            <form action="{{ route('logout') }}" method="POST">
-                                <span class="glyphicon glyphicon-log-out"></span>
-                                @csrf
-                                <button type="submit"> Logout</button>
-                            </form>
-                        </a></li>
-                </ul>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">KERJA PRAKTIK TEKNIK INFORMATIKA</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="{{ route('home') }}">
+                                <button style="background: none; border: none;">
+                                    <span class="glyphicon glyphicon-user"></span> {{Auth::user()->name }}
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button style="background: none; border: none;" type="submit">
+                                        <span class="glyphicon glyphicon-log-out"></span> Logout
+                                    </button>
+                                </form>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </div>

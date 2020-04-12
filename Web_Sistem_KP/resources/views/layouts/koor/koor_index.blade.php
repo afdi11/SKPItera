@@ -28,6 +28,7 @@
             <strong>SUMATERA</strong>
         </div>
     </div>
+
     <div class="nav-bar">
         <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container-fluid">
@@ -39,6 +40,7 @@
                     </button>
                     <a class="navbar-brand" href="#">KERJA PRAKTIK TEKNIK INFORMATIKA</a>
                 </div>
+
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
