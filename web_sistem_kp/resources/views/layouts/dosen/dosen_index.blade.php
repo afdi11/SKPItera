@@ -25,12 +25,14 @@
         <nav class="navbar navbar-custom navbar-static-top">
             <div class="container-fluid">
                 <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
-                    <li><a><form action="{{ route('logout') }}" method="POST">
-                            <span class="glyphicon glyphicon-log-out"></span>
-                            @csrf
-                            <button type="submit"> Logout</button>
-                    </form></a></li>
+                    <li><a href="{{ route('home') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
+                    <li><a>
+                            <form action="{{ route('logout') }}" method="POST">
+                                <span class="glyphicon glyphicon-log-out"></span>
+                                @csrf
+                                <button type="submit"> Logout</button>
+                            </form>
+                        </a></li>
                 </ul>
             </div>
         </nav>
@@ -38,21 +40,22 @@
 
     <div class="row">
         <div class="col-3 col-s-12 menu">
-            <ul>
-                <li><a href="{{route('dosen.index')}}">Beranda</a></li>
-                <li><a href="{{route('dosen.mahasiswa.index')}}">Mahasiswa</a></li>
-                <li><a href="{{route('dosen.laporan.index')}}">Laporan</a></li>
-                <li><a href="#">Nilai</a></li>
-                <li><a href="#">Jadwal Seminar</a></li>
-            </ul>
+            <div class="list-group">
+                <a class="list-group-item active">Nama Menu</a>
+                <a href="{{route('dosen.index')}}" class="list-group-item">Beranda</a>
+                <a href="{{route('dosen.mahasiswa.index')}}" class="list-group-item">Mahasiswa</a>
+                <a href="{{route('dosen.laporan.index')}}" class="list-group-item">Laporan</a>
+                <a href="#" class="list-group-item">Nilai</a>
+                <a href="#" class="list-group-item">Jadwal Seminar</a>
+            </div>
         </div>
         @yield('content')
-        
+
     </div>
 
-<div class="footer">
-    <p><i class="fa fa-copyright" aria-hidden="true"></i> Copyright</p>
-</div>
+    <div class="footer">
+        <p><i class="fa fa-copyright" aria-hidden="true"></i> Copyright</p>
+    </div>
 
 </body>
 
