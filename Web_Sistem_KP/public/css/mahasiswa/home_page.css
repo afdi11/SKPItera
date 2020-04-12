@@ -151,21 +151,16 @@ strong {
 
 /* NAVBAR */
 
-.navbar-custom {
-    background-color: rgb(175, 108, 21);
-}
-
 .nav.navbar-nav.navbar-right li a {
     color: white;
 }
 
 .nav.navbar-nav.navbar-right li a:hover {
-    background-color: rgb(141, 88, 18);
+    color: rgb(231, 231, 231);
 }
 
-.nav.navbar-nav.navbar-right li a:focus {
-    background-color: rgb(175, 108, 21);
-    font-weight: bold;
+.nav-bar .navbar .container-fluid .navbar-header .navbar-brand {
+    color: white;
 }
 
 /* NAVBAR */
@@ -237,7 +232,7 @@ strong {
 /* CLASS FOOTER */
 
 .footer {
-    background-color: rgb(56, 52, 52);
+    background-color: rgb(27, 27, 27);
     color: #ffffff;
     text-align: center;
     font-size: 12px;
