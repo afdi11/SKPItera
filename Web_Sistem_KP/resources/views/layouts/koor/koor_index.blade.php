@@ -118,17 +118,17 @@
 </div>
 
 <div id="validasiModal" class="modal fade">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-confirm">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"> Data Mahasiswa</h4>
+                <h4 class="modal-title">Apakah Anda Yakin?</h4>
             </div>
-            <div class="modal-body" id="validasi_detail">
+            <div class="modal-body">
+                <p>Apakah anda yakin ingin melakukan validasi? Proses ini tidak bisa dibatalkan.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Batalkan</button>
+                <button type="button" class="btn btn-danger">Validasi</button>
             </div>
         </div>
     </div>
