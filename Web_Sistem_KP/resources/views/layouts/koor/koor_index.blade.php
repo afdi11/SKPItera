@@ -46,14 +46,15 @@
     </div>
     <div class="row">
         <div class="col-3 col-s-12 menu">
-            <ul>
-                <li><a href="{{route('koor.index')}}">Home</a></li>
-                <li><a href="{{route('koor.mahasiswa.index')}}">Mahasiswa</a></li>
-                <li><a href="{{route('koor.laporan.index')}}">Laporan</a></li>
-                <li><a href="{{route('koor.cetak.index')}}">Cetak Nilai</a></li>
-                <li><a href="{{route('koor.validasi.index')}}">Validasi</a></li>
-                <li><a href="{{route('koor.dopem.index')}}">Dosen Pembimbing</a></li>
-            </ul>
+            <div class="list-group">
+                <a class="list-group-item active">Nama Menu</a>
+                <a href="{{route('koor.index')}}" class="list-group-item">Beranda</a>
+                <a href="{{route('koor.mahasiswa.index')}}" class="list-group-item">Mahasiswa</a>
+                <a href="{{route('koor.laporan.index')}}" class="list-group-item">Laporan</a>
+                <a href="{{route('koor.cetak.index')}}" class="list-group-item">Cetak Nilai</a>
+                <a href="{{route('koor.validasi.index')}}" class="list-group-item">Validasi</a>
+                <a href="{{route('koor.dopem.index')}}" class="list-group-item">Dosen Pembimbing</a>
+            </div>
         </div>
         @yield('content')
     </div>
