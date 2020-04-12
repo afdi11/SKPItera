@@ -19,7 +19,7 @@
 <body>
 
     <div class="header">
-        <div class="col-1 col-s-3 logo">
+        <div class="col-1 col-ss-3 logo">
             <img src="{{ asset('/requirement/logo_itera.png') }}">
         </div>
         <div class="sub">
