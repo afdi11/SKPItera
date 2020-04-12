@@ -303,15 +303,15 @@ strong {
 
 /* CLASS FOOTER */
 
-/* CHATBOXX */
+/* PANEL & CHATBOXX */
 
-.commentbox p {
+.separated .panel-body {
+    overflow: scroll;
+    height: 500px;
+}
+
+.separated .panel-body p {
     padding: 5px;
     border: 1px solid rgb(163, 163, 163);
     border-radius: 20px;
-}
-
-.commentbox {
-    overflow: scroll;
-    border: 1px solid rgb(163, 163, 163);
 }
