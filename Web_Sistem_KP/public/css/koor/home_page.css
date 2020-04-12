@@ -206,10 +206,8 @@ strong {
 }
 
 .nav.navbar-nav.navbar-right li a:hover {
-    color: whitesmoke;
+    color: rgb(231, 231, 231);
 }
-
-.nav.navbar-nav.navbar-right li a:focus {}
 
 .nav-bar .navbar .container-fluid .navbar-header .navbar-brand {
     color: white;
