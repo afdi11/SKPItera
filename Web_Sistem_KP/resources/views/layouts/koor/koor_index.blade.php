@@ -37,20 +37,24 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Kerja Praktik Teknik Informatika</a>
+                    <a class="navbar-brand" href="#">KERJA PRAKTIK TEKNIK INFORMATIKA</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ route('home') }}">
-                                <span class="glyphicon glyphicon-user"></span>
-                                <button style="background: transparent"> {{Auth::user()->name }}</button>
+                        <li>
+                            <a href="{{ route('home') }}">
+                                <button style="background: none; border: none;">
+                                    <span class="glyphicon glyphicon-user"></span> {{Auth::user()->name }}
+                                </button>
                             </a>
                         </li>
-                        <li><a>
+                        <li>
+                            <a>
                                 <form action="{{ route('logout') }}" method="POST">
-                                    <span class="glyphicon glyphicon-log-out"></span>
                                     @csrf
-                                    <button style="background: transparent" type="submit"> Logout</button>
+                                    <button style="background: none; border: none;" type="submit">
+                                        <span class="glyphicon glyphicon-log-out"></span> Logout
+                                    </button>
                                 </form>
                             </a>
                         </li>

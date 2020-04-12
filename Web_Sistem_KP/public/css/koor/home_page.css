@@ -205,12 +205,14 @@ strong {
     color: white;
 }
 
-.nav.navbar-nav.navbar-right li a:hover {}
+.nav.navbar-nav.navbar-right li a:hover {
+    color: whitesmoke;
+}
 
 .nav.navbar-nav.navbar-right li a:focus {}
 
-.navbar-brand {
-    font-size: 100px;
+.nav-bar .navbar .container-fluid .navbar-header .navbar-brand {
+    color: white;
 }
 
 /* NAVBAR */
