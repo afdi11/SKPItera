@@ -48,14 +48,16 @@
 
     <div class="row">
         <div class="col-3 col-s-12 menu">
-            <ul>
-                <li><a href="{{route('mahasiswa.index')}}">Beranda</a></li>
-                <li><a href="{{route('mahasiswa.daftar.index')}}">Daftar</a></li>
-                <li><a href="{{route('mahasiswa.referensi.index')}}">Referensi</a></li>
-                <li><a href="{{route('mahasiswa.unduh.index')}}">Unduh Form</a></li>
-                <li><a href="{{route('mahasiswa.upload.index')}}">Upload</a></li>
-                <li><a href="{{route('mahasiswa.seminar.index')}}">Pengajuan Seminar</a></li>
-            </ul>
+            <div class="list-group">
+                <a class="list-group-item active">Nama Menu</a>
+                <a href="{{route('mahasiswa.index')}}" class="list-group-item">Beranda</a>
+                <a href="{{route('mahasiswa.daftar.index')}}" class="list-group-item">Daftar</a>
+                <a href="{{route('mahasiswa.referensi.index')}}" class="list-group-item">Referensi</a>
+                <a href="{{route('mahasiswa.unduh.index')}}" class="list-group-item">Unduh Form</a>
+                <a href="{{route('mahasiswa.upload.index')}}" class="list-group-item">Upload</a>
+                <a href="{{route('mahasiswa.seminar.index')}}" class="list-group-item">Pengajuan Seminar</a>
+
+            </div>
         </div>
         @yield('content')
     </div>
