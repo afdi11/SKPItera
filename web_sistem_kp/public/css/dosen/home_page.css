@@ -181,10 +181,17 @@ body {
 /* HEADER */
 
 .header {
-    color: black;
+    color: whitesmoke;
+    padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-image: url(../../requirement/cover.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: 100% 100%;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .sub {
