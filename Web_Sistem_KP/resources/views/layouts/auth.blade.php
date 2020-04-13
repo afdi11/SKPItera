@@ -17,6 +17,9 @@
 
         <div class="col-5 col-s-12 head">
             <h2>Kerja Praktik Teknik Informatika Institut Teknologi Sumatera</h2>
+            <div class="col-5 col-ss-5 logo">
+                <img class="logo-itera" src="{{ asset('/requirement/logo_itera.png') }}">
+            </div>
         </div>
         @yield('content')
     </div>
