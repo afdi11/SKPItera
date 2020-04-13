@@ -20,7 +20,7 @@
             </label>
         </div>
 
-        <button type="submit" class="btn btn-success">Login</button>
+        <button type="submit" class="btn btn-primary">Login</button>
         <br>
         <br>
         <a href="{{ route('register') }}">Belum Memiliki Akun? <b>Daftar!</b></a>
