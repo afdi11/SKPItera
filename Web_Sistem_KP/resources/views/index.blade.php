@@ -21,7 +21,7 @@
             <strong>INSTITUT TEKNOLOGI SUMATERA</strong>
             <br>
             <br>
-            <button class="btn btn-success" type="submit">Masuk</a></button>
+            <button class="btn btn-primary" type="submit">Masuk</a></button>
             <a href="{{ asset('/requirement/file_persetujuan.docx') }}">Unduh Surat Persetujuan</a>
         </form>
 
