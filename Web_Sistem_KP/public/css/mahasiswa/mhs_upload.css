@@ -181,21 +181,6 @@ body {
 
 /* HEADER */
 
-.header {
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.sub {
-    text-align: center;
-}
-
-strong {
-    font-size: 2rem;
-}
-
 /* HEADER */
 
 /* ----------------------------------- */
