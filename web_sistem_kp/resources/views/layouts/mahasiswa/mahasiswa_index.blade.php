@@ -87,3 +87,24 @@
 </body>
 
 </html>
+<script>
+    $(document).ready(function(){
+        $('#instansi').on('change', function() {
+        if (this.value == '1')
+        {
+            $("#nama_instansi").hide();
+            $("#alamat_instansi").hide();
+            $("#email_instansi").hide();
+            $("#telp_instansi").hide();
+            $("#instansi_id").show();
+        }else if( this.value == '2')
+        {
+            $("#nama_instansi").show();
+            $("#alamat_instansi").show();
+            $("#email_instansi").show();
+            $("#telp_instansi").show();
+            $("#instansi_id").hide();
+        }
+        });
+    });
+</script>

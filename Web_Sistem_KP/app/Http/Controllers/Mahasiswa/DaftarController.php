@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Mahasiswa;
 
 use App\Http\Controllers\Controller;
+use App\Instansi;
+use App\Mahasiswa;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,8 @@ class DaftarController extends Controller
      */
     public function index()
     {
-        return view('mahasiswa.mhs_daftar');
+        $instansi=Instansi::all();
+        return view('mahasiswa.mhs_daftar',compact('instansi'));
     }
 
     /**
@@ -68,9 +71,23 @@ class DaftarController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $mahasiswa=Mahasiswa::where('user_id',$id)->get();
+        $mahasiswa->name=$request->name;
+        $mahasiswa->nim=$request->nim;
+        $mahasiswa->tahun_masuk=$request->tahun_masuk;
+        $mahasiswa->alamat=$request->alamat;
+        $mahasiswa->kontak_person=$request->kontak_person;
+        if($request->instansi == 2){
+            //Kudu Create duluuu nih
+            //terus simpen idnya
+        }
+        // --->>> Kalau mahasiswa udah ada di tabel instansi_mahasiswa berarti sync kalau tidak pluck
+        
+        // $user->roles()->sync($request->roles);
+        // $user->save();
+        // redirect()->route('mahasiswa.daftar.index');
     }
 
     /**
