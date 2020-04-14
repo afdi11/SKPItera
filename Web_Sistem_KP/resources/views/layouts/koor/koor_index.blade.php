@@ -249,8 +249,9 @@
                 employee_id = me.attr("id"),
                 url = me.attr('href'),
                 title = me.attr('title'),
-                fungsi = me.attr = ('fungsi');
+                fungsi = me.attr('fungsi');
             $('#modal-title').text(title);
+            $('#modal-btn-save').text(fungsi);
             $.ajax({
                 url: url,
                 data: {

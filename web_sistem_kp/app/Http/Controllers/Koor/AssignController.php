@@ -61,7 +61,11 @@ class AssignController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        $pembimbing = User::where('id',$user->mahasiswa->dosen->user_id)->first();
+        if($user->mahasiswa->dosen_id != NULL){
+            $dopem=Dosen::findOrFail($user->mahasiswa->dosen_id);
+            $pembimbing = User::findOrFail($dopem->user_id);
+        }else
+        $pembimbing = User::findOrFail(1);
         $dopem = User::whereHas(
             'roles',function($q){
                 $q->where('name','dosen pembimbing');
