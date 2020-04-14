@@ -19,6 +19,7 @@ class CreateMahasiswaTable extends Migration
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->bigInteger('dosen_id')->unsigned()->nullable();
             $table->string('nim',8)->unique()->nullable();
+            $table->year('tahun_masuk')->index()->unsigned()->nullable();
             $table->string('alamat',255)->nullable();
             $table->string('Kontak_Person',20)->nullable();
             $table->dateTime('selesai')->nullable();

@@ -8,12 +8,24 @@
             <div class="col-9 col-12 content_satu">
                 <div class="col-3 col-s-12 semester">
                     <p>Semester</p>
-                    <h2>7</h2>
+                    <h2>
+                        @if(date('n')<'7')
+                            {{(date('Y')-$user->mahasiswa->tahun_masuk)*2}}
+                        @else
+                            {{(date('Y')-$user->mahasiswa->tahun_masuk)*2+1}}
+                        @endif
+                    </h2>
                 </div>
 
                 <div class="col-3 col-s-12 catatan">
                     <p>Status Kerja Praktik</p>
-                    <h2>Aktif</h2>
+                    <h2>
+                        @if($user->mahasiswa->selesai == NULL)
+                            Aktif
+                        @else
+                            Selesai
+                        @endif
+                    </h2>
                 </div>
             </div>
         </div>

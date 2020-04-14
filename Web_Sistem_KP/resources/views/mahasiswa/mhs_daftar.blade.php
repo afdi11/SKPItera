@@ -50,12 +50,12 @@
                     <input type="text" class="form-control" id="nama_instansi" placeholder="Masukkan Nama Instansi" name="nama_instansi" value="" required>
                 </div>
                 <div class="form-group">
-                    <label for="divisi">Divisi Instansi:</label>
-                    <input type="text" class="form-control" id="nim" placeholder="Masukkan Divisi Instansi" name="divisi" required>
-                </div>
-                <div class="form-group">
                     <label for="alamat_instansi">Alamat Instansi:</label>
                     <input type="text" class="form-control" id="alamat_instansi" placeholder="Masukkan Alamat Instansi" name="alamat_instansi" required>
+                </div>
+                <div class="form-group">
+                    <label for="divisi">Divisi Instansi:</label>
+                    <input type="text" class="form-control" id="nim" placeholder="Masukkan Divisi Instansi" name="divisi" required>
                 </div>
                 <div class="form-group">
                     <label for="waktu">Waktu Pelaksanaan:</label>
