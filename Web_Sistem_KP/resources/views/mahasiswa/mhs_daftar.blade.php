@@ -6,7 +6,9 @@
         <div class="panel-heading">Form Pendaftaran Kerja Praktik</div>
         <div class="panel-body">
 
-            <form class="col-12 col-s-12 form" action="#">
+            <form class="col-12 col-s-12 form" action="{{route('mahasiswa.daftar.update',Auth::user()->id)}}" method="POST">
+            @csrf
+            {{method_field('PUT')}}
                 <div class="form-group">
                     <label for="nama">Nama:</label>
                     <input type="text" class="form-control" id="name" placeholder="Masukkan Nama" name="name" value="{{ Auth::user()->name }}" required>
@@ -14,6 +16,9 @@
                 <div class="form-group">
                     <label for="nim">NIM:</label>
                     <input type="text" class="form-control" id="nim" placeholder="Masukkan NIM" name="nim" value="{{ Auth::user()->mahasiswa->nim }}" required>
+                </div><div class="form-group">
+                    <label for="tahun_masuk">Tahun Masuk (angkatan):</label>
+                    <input type="text" class="form-control" id="tahun_masuk" placeholder="Masukkan tahun masuk (Angkatan)" name="tahun_masuk" value="{{ Auth::user()->mahasiswa->tahun_masuk }}" required>
                 </div>
                 <div class="form-group">
                     <label for="jurusan">Jurusan:</label>
@@ -25,19 +30,21 @@
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat:</label>
-                    <input type="text" class="form-control" id="alamat" name="alamat" @if(Auth::user()->mahasiswa->alamat != NULL)
-                    value="{{Auth::user()->mahasiswa->alamat}}"
+                    <input type="text" class="form-control" id="alamat" name="alamat" 
+                    @if(Auth::user()->mahasiswa->alamat != NULL)
+                        value="{{Auth::user()->mahasiswa->alamat}}"
                     @else
-                    placeholder="Masukkan Alamat"
+                        value="" placeholder="Masukkan Alamat"
                     @endif
                     required>
                 </div>
                 <div class="form-group">
                     <label for="telp">No. Telepon:</label>
-                    <input type="text" class="form-control" id="Kontak_Person" name="Kontak_Person" @if(Auth::user()->mahasiswa->Kontak_Person != NULL)
-                    value="{{Auth::user()->mahasiswa->Kontak_Person}}"
+                    <input type="text" class="form-control" id="Kontak_Person" name="Kontak_Person" 
+                    @if(Auth::user()->mahasiswa->Kontak_Person != NULL)
+                        value="{{Auth::user()->mahasiswa->Kontak_Person}}"
                     @else
-                    placeholder="Masukkan No. Telepon"
+                        value="" placeholder="Masukkan No. Telepon"
                     @endif
                     required>
                 </div>
@@ -46,24 +53,51 @@
                     <input type="email" class="form-control" id="email" value="{{Auth::user()->email}}" disabled name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="nama_instansi">Nama Insatnsi:</label>
-                    <input type="text" class="form-control" id="nama_instansi" placeholder="Masukkan Nama Instansi" name="nama_instansi" value="" required>
+                    <label>Instansi:</label>
+                    <select id='instansi' name="instansi" class="form-control" required>
+                        <option value="">Pilih Metode</option>
+                        <option value="1">Pilih Instansi yang Ada</option>
+                        <option value="2">Tambahkan Instansi Baru</option>
+                    </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="nama_instansi" style='display:none'>
+                    <label for="nama_instansi">Nama Insatnsi:</label>
+                    <input type="text" class="form-control" id="nama_instansi" placeholder="Masukkan Nama Instansi" name="nama_instansi" >
+                </div>
+                <div class="form-group" id="alamat_instansi" style='display:none'>
                     <label for="alamat_instansi">Alamat Instansi:</label>
-                    <input type="text" class="form-control" id="alamat_instansi" placeholder="Masukkan Alamat Instansi" name="alamat_instansi" required>
+                    <input type="text" class="form-control" id="alamat_instansi" placeholder="Masukkan Alamat Instansi" name="alamat_instansi" >
+                </div>
+                <div class="form-group" id="email_instansi" style='display:none'>
+                    <label for="nama_instansi">Email Insatnsi:</label>
+                    <input type="email" class="form-control" id="email_instansi" placeholder="Masukkan Email Instansi" name="email_instansi">
+                </div>
+                <div class="form-group" id="telp_instansi" style='display:none'>
+                    <label for="nama_instansi">No Telpon Insatnsi:</label>
+                    <input type="tel" class="form-control" id="telp_instansi" placeholder="Masukkan Nomor Telephone Instansi" name="telp_instansi" >
+                </div>
+                <div class="form-group" id="instansi_id" style='display:none'>
+                    <label>Pilih Instansi:</label>
+                    <select id="instansi_id" class="form-control" name="instansi_id" placeholder="Pilih tempat KP">
+                        @foreach($instansi as $p)
+                                <option value="{{$p->id}}" @if($p->id == Auth::user()->mahasiswa->instansi_id) selected @endif>{{$p->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="divisi">Divisi Instansi:</label>
                     <input type="text" class="form-control" id="nim" placeholder="Masukkan Divisi Instansi" name="divisi" required>
                 </div>
                 <div class="form-group">
-                    <label for="waktu">Waktu Pelaksanaan:</label>
-                    <input type="text" class="form-control" id="waktu" placeholder="Masukkan Waktu Pelaksanaan" name="waktu" required>
+                    <label for="waktu">Tangal Mulai Pelaksanaan :</label>
+                    <input type="date" min="{{date('Y-M-d')}}"class="form-control" id="mulai" placeholder="Masukkan Tanggal Mulai Pelaksanaan" name="mulai" required>
+                </div>
+                <div class="form-group">
+                    <label for="waktu">Tanggal Selesai Pelaksanaan :</label>
+                    <input type="date" class="form-control" id="selesai" placeholder="Masukkan Tanggal Selesai Pelaksanaan" name="selesai" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Daftar</button>
             </form>
-
         </div>
     </div>
 </div>
