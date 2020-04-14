@@ -95,7 +95,7 @@
             <div class="modal-body" id="employee_detail">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
             </div>
         </div>
     </div>
@@ -111,7 +111,7 @@
             <div class="modal-body" id="employee_detail">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
             </div>
         </div>
     </div>
@@ -127,8 +127,8 @@
                 <p>Apakah anda yakin ingin melakukan validasi? Proses ini tidak bisa dibatalkan.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal">Batalkan</button>
-                <button type="button" class="btn btn-danger">Validasi</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batalkan</button>
+                <button type="button" class="btn btn-primary">Validasi</button>
             </div>
         </div>
     </div>
@@ -143,8 +143,8 @@
             <div class="modal-body" id="assign_detail">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" id="modal-btn-save">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batalkan</button>
+                <button type="submit" class="btn btn-primary" id="modal-btn-save">Assign</button>
             </div>
         </div>
     </div>
