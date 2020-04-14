@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-9 col-s-9 content">
     <div class="panel panel-primary">
-        <div class="panel-heading">Form Pendaftaran</div>
+        <div class="panel-heading">Form Pendaftaran Kerja Praktik</div>
         <div class="panel-body">
 
             <form class="col-12 col-s-12 form" action="#">

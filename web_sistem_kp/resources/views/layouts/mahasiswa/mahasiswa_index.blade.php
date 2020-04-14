@@ -54,7 +54,7 @@
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
                                     <button style="background: none; border: none;" type="submit">
-                                        <span class="glyphicon glyphicon-log-out"></span> Logout
+                                        <span class="glyphicon glyphicon-log-out"></span> Keluar
                                     </button>
                                 </form>
                             </a>
@@ -72,8 +72,8 @@
                 <a href="{{route('mahasiswa.index')}}" class="list-group-item">Beranda</a>
                 <a href="{{route('mahasiswa.daftar.index')}}" class="list-group-item">Daftar</a>
                 <a href="{{route('mahasiswa.referensi.index')}}" class="list-group-item">Referensi</a>
-                <a href="{{route('mahasiswa.unduh.index')}}" class="list-group-item">Unduh Form</a>
-                <a href="{{route('mahasiswa.upload.index')}}" class="list-group-item">Upload</a>
+                <a href="{{route('mahasiswa.unduh.index')}}" class="list-group-item">Unduh Berkas</a>
+                <a href="{{route('mahasiswa.upload.index')}}" class="list-group-item">Unggah Berkas</a>
                 <a href="{{route('mahasiswa.seminar.index')}}" class="list-group-item">Pengajuan Seminar</a>
 
             </div>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-9 col-s-9 content">
     <div class="panel panel-primary">
-        <div class="panel-heading">Unduh File</div>
+        <div class="panel-heading">Unduh Berkas</div>
         <div class="panel-body">
 
             <div class="col-12 col-s-12 content_satu">
