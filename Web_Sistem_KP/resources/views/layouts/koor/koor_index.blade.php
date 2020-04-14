@@ -55,7 +55,7 @@
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
                                     <button style="background: none; border: none;" type="submit">
-                                        <span class="glyphicon glyphicon-log-out"></span> Logout
+                                        <span class="glyphicon glyphicon-log-out"></span> Keluar
                                     </button>
                                 </form>
                             </a>
