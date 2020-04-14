@@ -8,7 +8,7 @@
             <!-- Actual search box -->
             <div class="form-group has-feedback has-search">
                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Cari">
             </div>
 
             <div class="table-responsive">
