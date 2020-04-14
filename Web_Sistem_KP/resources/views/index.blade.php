@@ -29,7 +29,7 @@
 
             <div class="col-9 col-12 content_satu">
                 <div class="col-9 col-s-12 foto_alur_kp">
-                    <img src="{{ asset('/requirement/alur_kp.png') }}" alt="Foto Alur KP">
+                    <img id="myImg" class="img-thumbnail" src="{{ asset('/requirement/alur_kp.png') }}" alt="Foto Alur KP">
                     <p>Info Alur Kerja Praktik</p>
                 </div>
             </div>
@@ -53,7 +53,7 @@
 
             <div class="col-9 col-12 content_satu">
                 <div class="col-9 col-s-12 foto_alur_kp">
-                    <img src="{{ asset('/requirement/alur_kp.png') }}" alt="Foto Alur KP">
+                    <img id="myImg" class="img-thumbnail" src="{{ asset('/requirement/alur_kp.png') }}" alt="Foto Alur KP">
                     <p>Info Alur Kerja Praktik</p>
                 </div>
             </div>
@@ -61,7 +61,6 @@
     </div>
     @endguest
 </div>
-
 
 <div style="color:black" class="info_kp">
     <h4 align="center">Info Tempat Kerja Praktik</h4>
