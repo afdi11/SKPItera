@@ -8,21 +8,21 @@
             <div class="col-12 col-s-12 content_satu">
                 <div class="col-3 col-s-12 nilai_akhir">
                     <p>Laporan Kerja Praktik</p>
-                    <a href="#">Upload</a>
+                    <a data-toggle="modal" data-target="#uploadModal1">Unggah</a>
                 </div>
             </div>
 
             <div class="col-12 col-s-12 content_satu">
                 <div class="col-3 col-s-12 semester">
                     <p>Nilai Instansi</p>
-                    <a href="#">Upload</a>
+                    <a data-toggle="modal" data-target="#uploadModal2">Unggah</a>
                 </div>
             </div>
 
             <div class="col-12 col-s-12 content_satu">
                 <div class="col-3 col-s-12 catatan">
                     <p>Log Sheet</p>
-                    <a href="#">Upload</a>
+                    <a data-toggle="modal" data-target="#uploadModal3">Unggah</a>
                 </div>
             </div>
         </div>

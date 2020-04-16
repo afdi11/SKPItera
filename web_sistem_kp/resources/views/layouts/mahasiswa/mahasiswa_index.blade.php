@@ -87,24 +87,128 @@
 </body>
 
 </html>
+
+<!-- Modal UPLOAD 1 -->
+<div id="uploadModal1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Unggah Laporan Kerja Praktik</h4>
+            </div>
+            <div class="modal-body">
+                <!-- Form -->
+                <form method='post' action='' enctype="multipart/form-data">
+                    <input type='file' name='file' id='file' class='form-control'><br>
+                    <input type='button' class='btn btn-primary' value='Unggah' id='btn_upload'>
+                </form>
+
+                <!-- Preview-->
+                <div id='preview'></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal UPLOAD 2 -->
+<div id="uploadModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Unggah Nilai Instansi</h4>
+            </div>
+            <div class="modal-body">
+                <!-- Form -->
+                <form method='post' action='' enctype="multipart/form-data">
+                    <input type='file' name='file' id='file' class='form-control'><br>
+                    <input type='button' class='btn btn-primary' value='Unggah' id='btn_upload'>
+                </form>
+
+                <!-- Preview-->
+                <div id='preview'></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal UPLOAD 3 -->
+<div id="uploadModal3" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Unggah Log Sheet</h4>
+            </div>
+            <div class="modal-body">
+                <!-- Form -->
+                <form method='post' action='' enctype="multipart/form-data">
+                    <input type='file' name='file' id='file' class='form-control'><br>
+                    <input type='button' class='btn btn-primary' value='Unggah' id='btn_upload'>
+                </form>
+
+                <!-- Preview-->
+                <div id='preview'></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
 <script>
-    $(document).ready(function(){
+    // MODAL UPLOAD
+    $(document).ready(function() {
+        $('#btn_upload').click(function() {
+
+            var fd = new FormData();
+            var files = $('#file')[0].files[0];
+            fd.append('file', files);
+
+            // AJAX request
+            $.ajax({
+                url: 'ajaxfile.php',
+                type: 'post',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    if (response != 0) {
+                        // Show image preview
+                        $('#preview').append("<img src='" + response + "' width='100' height='100' style='display: inline-block;'>");
+                    } else {
+                        alert('file not uploaded');
+                    }
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
         $('#instansi').on('change', function() {
-        if (this.value == '1')
-        {
-            $("#nama_instansi").hide();
-            $("#alamat_instansi").hide();
-            $("#email_instansi").hide();
-            $("#telp_instansi").hide();
-            $("#instansi_id").show();
-        }else if( this.value == '2')
-        {
-            $("#nama_instansi").show();
-            $("#alamat_instansi").show();
-            $("#email_instansi").show();
-            $("#telp_instansi").show();
-            $("#instansi_id").hide();
-        }
+            if (this.value == '1') {
+                $("#nama_instansi").hide();
+                $("#alamat_instansi").hide();
+                $("#email_instansi").hide();
+                $("#telp_instansi").hide();
+                $("#instansi_id").show();
+            } else if (this.value == '2') {
+                $("#nama_instansi").show();
+                $("#alamat_instansi").show();
+                $("#email_instansi").show();
+                $("#telp_instansi").show();
+                $("#instansi_id").hide();
+            }
         });
     });
 </script>
