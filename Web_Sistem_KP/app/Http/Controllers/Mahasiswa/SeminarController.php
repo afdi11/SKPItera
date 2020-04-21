@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Mahasiswa;
 
 use App\Http\Controllers\Controller;
+use App\Mahasiswa;
+use App\seminar;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,7 @@ class SeminarController extends Controller
      */
     public function index()
     {
-        return view('mahasiswa.mhs_pengajuan');
+        //
     }
 
     /**
@@ -56,9 +58,11 @@ class SeminarController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $mahasiswa=Mahasiswa::findOrFail($id);
+        $user=User::findOrFail($mahasiswa->user_id);
+        return view('mahasiswa.mhs_pengajuan',compact('user','mahasiswa'));
     }
 
     /**
@@ -68,9 +72,30 @@ class SeminarController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $mahasiswa=Mahasiswa::find($id);
+        if($request->instansi == NULL){
+            return "Lengkapi Laporan Terlebih dahulu";
+        }
+        if($mahasiswa->seminar()->exists()){
+            $mahasiswa->seminar->update([
+                'name'=>$request->name,
+                'pelaksanaan'=>$request->waktu_seminar,
+                'lokasi'=>$request->tempat_seminar,
+            ]);
+            return redirect()->route('mahasiswa.seminar.edit',$id);
+        }else{
+            $seminar= new seminar(array(
+                'name'=>$request->name,
+                'pelaksanaan'=>$request->waktu_seminar,
+                'lokasi'=>$request->tempat_seminar,
+            ));
+            $seminar->mahasiswa()->associate($mahasiswa);
+            $seminar->save();
+            return redirect()->route('mahasiswa.seminar.edit',$id);
+        }
+        
     }
 
     /**

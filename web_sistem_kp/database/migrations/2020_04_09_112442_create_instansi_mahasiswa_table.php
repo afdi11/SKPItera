@@ -15,11 +15,11 @@ class CreateInstansiMahasiswaTable extends Migration
     {
         Schema::create('instansi_mahasiswa', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('mahasiswa_id')->unsigned();
             $table->bigInteger('instansi_id')->unsigned();
+            $table->bigInteger('mahasiswa_id')->unsigned();
             $table->string('divisi',20)->nullable();
-            $table->datetime('mulai')->nullable();
-            $table->datetime('selesai')->nullable();
+            $table->date('mulai')->nullable();
+            $table->date('selesai')->nullable();
             $table->integer('nilai')->nullable();
         });
     }

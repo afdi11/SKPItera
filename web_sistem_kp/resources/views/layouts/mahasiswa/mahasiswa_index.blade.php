@@ -70,11 +70,11 @@
             <div class="list-group">
                 <a class="list-group-item active">Nama Menu</a>
                 <a href="{{route('mahasiswa.index')}}" class="list-group-item">Beranda</a>
-                <a href="{{route('mahasiswa.daftar.index')}}" class="list-group-item">Daftar</a>
+                <a href="{{route('mahasiswa.daftar.edit',Auth::user()->mahasiswa->id)}}" class="list-group-item">Daftar</a>
                 <a href="{{route('mahasiswa.referensi.index')}}" class="list-group-item">Referensi</a>
                 <a href="{{route('mahasiswa.unduh.index')}}" class="list-group-item">Unduh Berkas</a>
                 <a href="{{route('mahasiswa.upload.index')}}" class="list-group-item">Unggah Berkas</a>
-                <a href="{{route('mahasiswa.seminar.index')}}" class="list-group-item">Pengajuan Seminar</a>
+                <a href="{{route('mahasiswa.seminar.edit',Auth::user()->mahasiswa->id)}}" class="list-group-item">Pengajuan Seminar</a>
 
             </div>
         </div>

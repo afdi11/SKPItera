@@ -9,10 +9,14 @@
                 <div class="col-3 col-s-12 semester">
                     <p>Semester</p>
                     <h2>
-                        @if(date('n')<'7')
-                            {{(date('Y')-$user->mahasiswa->tahun_masuk)*2}}
+                        @if($user->email_verified_at != NULL && $user->mahasiswa->tahun_masuk !=NULL)
+                            @if(date('n')<'7')
+                                {{(date('Y')-$user->mahasiswa->tahun_masuk)*2}}
+                            @else
+                                {{(date('Y')-$user->mahasiswa->tahun_masuk)*2+1}}
+                            @endif
                         @else
-                            {{(date('Y')-$user->mahasiswa->tahun_masuk)*2+1}}
+                            NULL
                         @endif
                     </h2>
                 </div>

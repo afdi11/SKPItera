@@ -45,8 +45,8 @@ Route::namespace('koor')->prefix('koor')->name('koor.')->middleware('can:koordin
 
 Route::namespace('mahasiswa')->prefix('mahasiswa')->middleware('can:mahasiswa')->name('mahasiswa.')->group(function(){
     Route::resource('/','MahasiswaController',['only'=>'index']);
-    Route::resource('/daftar','DaftarController',['only'=>['index','update']]);
-    Route::resource('/seminar','SeminarController',['only'=>'index']);
+    Route::resource('/daftar','DaftarController',['only'=>['edit','update']]);
+    Route::resource('/seminar','SeminarController',['only'=>['edit','update']]);
     Route::resource('/referensi','ReferensiController',['only'=>'index']);
     Route::resource('/unduh','UnduhController',['only'=>'index']);
     Route::resource('/upload','UploadController',['only'=>['index','laporan']]);

@@ -6,7 +6,7 @@
         <div class="panel-heading">Form Pendaftaran Kerja Praktik</div>
         <div class="panel-body">
 
-            <form class="col-12 col-s-12 form" action="{{route('mahasiswa.daftar.update',Auth::user()->id)}}" method="POST">
+            <form class="col-12 col-s-12 form" action="{{route('mahasiswa.daftar.update',$mahasiswa->id)}}" method="POST">
             @csrf
             {{method_field('PUT')}}
                 <div class="form-group">
@@ -74,29 +74,33 @@
                 </div>
                 <div class="form-group" id="telp_instansi" style='display:none'>
                     <label for="nama_instansi">No Telpon Insatnsi:</label>
-                    <input type="tel" class="form-control" id="telp_instansi" placeholder="Masukkan Nomor Telephone Instansi" name="telp_instansi" >
+                    <input type="text" class="form-control" id="telp_instansi" placeholder="Masukkan Nomor Telephone Instansi" name="telp_instansi" >
                 </div>
                 <div class="form-group" id="instansi_id" style='display:none'>
-                    <label>Pilih Instansi:</label>
+                    <label>Pilih Instansi: </label>
                     <select id="instansi_id" class="form-control" name="instansi_id" placeholder="Pilih tempat KP">
                         @foreach($instansi as $p)
-                                <option value="{{$p->id}}" @if($p->id == Auth::user()->mahasiswa->instansi_id) selected @endif>{{$p->name}}</option>
+                                <option value="{{$p->id}}" @if($mahasiswa->instansi()->get()->contains($p->id)) selected @endif >{{$p->name}}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="divisi">Divisi Instansi:</label>
-                    <input type="text" class="form-control" id="nim" placeholder="Masukkan Divisi Instansi" name="divisi" required>
+                    <input type="text" class="form-control" id="divisi" placeholder="Masukkan Divisi Instansi" value="@if($mahasiswa->instansi()->exists()) {{$mahasiswa->instansi()->first()->pivot->divisi}} @endif" name="divisi" required>
                 </div>
                 <div class="form-group">
                     <label for="waktu">Tangal Mulai Pelaksanaan :</label>
-                    <input type="date" min="{{date('Y-M-d')}}"class="form-control" id="mulai" placeholder="Masukkan Tanggal Mulai Pelaksanaan" name="mulai" required>
+                    <input type="date" min="{{date('Y-M-d')}}"class="form-control" id="mulai" placeholder="Masukkan Tanggal Mulai Pelaksanaan" @if($mahasiswa->instansi()->exists()) value="{{$mahasiswa->instansi()->first()->pivot->mulai}}" @endif name="mulai" required>
                 </div>
                 <div class="form-group">
                     <label for="waktu">Tanggal Selesai Pelaksanaan :</label>
-                    <input type="date" class="form-control" id="selesai" placeholder="Masukkan Tanggal Selesai Pelaksanaan" name="selesai" required>
+                    <input type="date" class="form-control" id="selesai" placeholder="Masukkan Tanggal Selesai Pelaksanaan" @if($mahasiswa->instansi()->exists()) value="{{$mahasiswa->instansi()->first()->pivot->selesai}}"@endif name="selesai" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Daftar</button>
+                @if(!$mahasiswa->instansi()->exists() || $mahasiswa->instansi()->first()->pivot->selesai == NULL)
+                    <button type="submit" class="btn btn-primary">Daftar</button>
+                @else
+                    <button type="" class="btn btn-success">Terdaftar</button>
+                @endif
             </form>
         </div>
     </div>

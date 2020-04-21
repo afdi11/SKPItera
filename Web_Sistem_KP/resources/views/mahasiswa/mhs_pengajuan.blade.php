@@ -5,33 +5,35 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Pengajuan Seminar</div>
         <div class="panel-body">
-            <form class="col-12 col-s-12 form" action="#">
+            <form class="col-12 col-s-12 form" action="{{route('mahasiswa.seminar.update',$mahasiswa->id)}}" method="POST">
+            @csrf
+            {{method_field('PUT')}}
                 <div class="form-group">
-                    <label for="nama">Nama:</label>
-                    <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama" name="nama">
-                </div>
-                <div class="form-group">
-                    <label for="nim">NIM:</label>
-                    <input type="text" class="form-control" id="nim" placeholder="Masukkan NIM" name="nim">
-                </div>
+                    <label for="name">Nama Seminar:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Masukkan Nama Seminar" @if($mahasiswa->seminar()->exists())value="{{$mahasiswa->seminar->name}}"@endif name="name">
+                </div> 
                 <div class="form-group">
                     <label for="tmpt">Tempat Kerja Praktik:</label>
-                    <input type="text" class="form-control" id="tmpt" placeholder="Masukkan Tempat Kerja Praktik" name="tmpt">
+                    <input type="text" class="form-control" id="instansi" placeholder="Null" value="@if($mahasiswa->instansi()->exists()) {{$mahasiswa->instansi()->first()->name}} @endif" disabled name="instansi">
                 </div>
                 <div class="form-group">
                     <label for="waktu">Waktu Kerja Praktik:</label>
-                    <input type="text" class="form-control" id="waktu" placeholder="Masukkan Waktu Kerja Praktik" name="waktu">
+                    <input type="text" class="form-control" id="waktu" placeholder="Null" value="@if($mahasiswa->instansi()->exists()) {{$mahasiswa->instansi()->first()->pivot->mulai}} s.d {{$mahasiswa->instansi()->first()->pivot->selesai}} @endif" disabled name="waktu">
                 </div>
                 <div class="form-group">
-                    <label for="waktu_seminar">Waktu Seminar:</label>
-                    <input type="text" class="form-control" id="waktu_seminar" placeholder="Masukkan Waktu Seminar" name="waktu_seminar">
+                    <label for="waktu_seminar">Waktu Seminar: (YYYY/MM/DD HH:MM)</label>
+                    <input type="datetime-local" class="form-control" id="waktu_seminar" placeholder="YYYY/MM/DD HH:MM" value="@if($mahasiswa->seminar()->exists()){{$mahasiswa->seminar->pelaksanaan}}@endif" name="waktu_seminar" required>
                 </div>
                 <div class="form-group">
                     <label for="tempat_seminar">Tempat Seminar:</label>
-                    <input type="text" class="form-control" id="tempat_seminar" placeholder="Masukkan Tempat Seminar" name="tempat_seminar">
+                    <input type="text" class="form-control" id="tempat_seminar" placeholder="Masukkan Tempat Seminar"  value="@if($mahasiswa->seminar()->exists()){{$mahasiswa->seminar->lokasi}}@endif" name="tempat_seminar" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Daftar</button>
+                @if(!$mahasiswa->seminar()->exists())
+                    <button type="submit" class="btn btn-primary">Daftar</button>
+                @else
+                    <button type="" class="btn btn-success">Terdaftar</button>
+                @endif
             </form>
 
         </div>

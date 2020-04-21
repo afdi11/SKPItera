@@ -15,9 +15,10 @@ class CreateSeminarsTable extends Migration
     {
         Schema::create('seminar', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('mahasiswa_id')->unsigned();
             $table->string('name');
             $table->datetime('pelaksanaan')->nullable();
-            $table->bigInteger('mahasiswa_id')->unsigned();
+            $table->string('lokasi',10)->nullable();
             $table->integer('nilai')->nullable();
             $table->timestamps();
         });

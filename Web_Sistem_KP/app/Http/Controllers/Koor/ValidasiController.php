@@ -92,7 +92,9 @@ class ValidasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=User::findOrFail($id);
+        $user['email_verified_at']=now();
+        $user->save();
     }
 
     /**

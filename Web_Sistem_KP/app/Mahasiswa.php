@@ -15,7 +15,7 @@ class Mahasiswa extends Model
 
     public function instansi()
     {
-        return $this->belongsToMany('App\Instansi');
+        return $this->belongsToMany('App\Instansi')->withPivot('divisi','mulai','selesai','nilai');
     }
 
     public function seminar()

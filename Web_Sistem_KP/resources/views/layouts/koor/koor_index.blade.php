@@ -101,29 +101,13 @@
     </div>
 </div>
 
-<div id="mhs_validasiModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" id="modal-title">Validasi Nilai</h4>
-            </div>
-            <div class="modal-body" id="employee_detail">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div id="validasiModal" class="modal fade">
     <div class="modal-dialog modal-confirm">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Apakah Anda Yakin?</h4>
+                <h4 class="modal-title" id="modal-title">Apakah Anda Yakin?</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="validasi_detail">
                 <p>Apakah anda yakin ingin melakukan validasi? Proses ini tidak bisa dibatalkan.</p>
             </div>
             <div class="modal-footer">
@@ -195,29 +179,6 @@
             });
         });
     });
-
-    //Koor Mahasiswa Validasi
-    $(document).ready(function() {
-        $('.view_data_validasi_nilai').click(function(event) {
-            event.preventDefault();
-            var me = $(this),
-                employee_id = me.attr("id"),
-                url = me.attr('href'),
-                title = me.attr('title');
-            $('#modal-title').text(title);
-            $.ajax({
-                url: url,
-                data: {
-                    employee_id: employee_id
-                },
-                success: function(data) {
-                    $('#employee_detail').html(data);
-                    $('#mhs_validasiModal').modal("show");
-                }
-            });
-        });
-    });
-
     //Koor editValidasi
     $(document).ready(function() {
         $('.edit').click(function(event) {

@@ -15,12 +15,13 @@ class SeminarTableSeeder extends Seeder
         seminar::truncate();
         $seminar_mhs=seminar::create([
             'name'=> 'Visualisasi Dashboard Pemasukan dan Pengeluaran Yayasan Nurul Huda Lampung',
+            'lokasi'=>'D210',
             'pelaksanaan'=>'2020-04-9 10:00:00',
             'mahasiswa_id'=>'1',
             'nilai'=>'100',
         ]);
         $seminar_mhs=seminar::create([
-            'name'=> 'Web desa Kabupate Lampung Tengah',
+            'name'=> 'Web desa Kabupaten Lampung Tengah',
             'mahasiswa_id'=>'2',
         ]);
     }

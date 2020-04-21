@@ -7,6 +7,8 @@ use App\Instansi;
 use App\Mahasiswa;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DaftarController extends Controller
 {
@@ -17,8 +19,7 @@ class DaftarController extends Controller
      */
     public function index()
     {
-        $instansi=Instansi::all();
-        return view('mahasiswa.mhs_daftar',compact('instansi'));
+        //
     }
 
     /**
@@ -59,9 +60,19 @@ class DaftarController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $id=Auth::user()->mahasiswa->id;
+        $mahasiswa=Mahasiswa::find($id);
+        // if($mahasiswa->instansi()->exists()){
+        //     echo "Ada";
+        // }
+        // echo $mahasiswa->instansi()->first()->name;
+        $instansi=Instansi::all();
+        return view('mahasiswa.mhs_daftar')->with([
+            'mahasiswa'=>$mahasiswa,
+            'instansi'=>$instansi
+            ]);
     }
 
     /**
@@ -73,21 +84,38 @@ class DaftarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mahasiswa=Mahasiswa::where('user_id',$id)->get();
-        $mahasiswa->name=$request->name;
+        $mahasiswa=Mahasiswa::find($id);
+        $user=User::find($mahasiswa->user_id);
+        
+        //Update User
+        $user->name=$request->name;
+        $user->save();
+
+        //Update Mahasiswa
         $mahasiswa->nim=$request->nim;
         $mahasiswa->tahun_masuk=$request->tahun_masuk;
         $mahasiswa->alamat=$request->alamat;
-        $mahasiswa->kontak_person=$request->kontak_person;
-        if($request->instansi == 2){
-            //Kudu Create duluuu nih
-            //terus simpen idnya
+        $mahasiswa->Kontak_Person=$request->Kontak_Person;
+
+        //Update/Create Instansi_mahasiswa
+        if($request->instansi == 1){
+            $instansi_id=$request->instansi_id;
+        }else{
+            $instansi_new=Instansi::create([
+                'name'=>$request->nama_instansi,
+                'alamat'=>$request->alamat_instansi,
+                'Telp'=>$request->telp_instansi,
+                'email'=>$request->email_instansi,
+            ]);
+            $instansi_id=$instansi_new->id;
         }
-        // --->>> Kalau mahasiswa udah ada di tabel instansi_mahasiswa berarti sync kalau tidak pluck
-        
-        // $user->roles()->sync($request->roles);
-        // $user->save();
-        // redirect()->route('mahasiswa.daftar.index');
+        $mahasiswa->instansi()->sync($instansi_id);
+        $mahasiswa->instansi()->updateExistingPivot($instansi_id,
+                ['divisi' => $request->divisi,
+                'mulai'=>$request->mulai,
+                'selesai'=>$request->selesai]);
+        $mahasiswa->save();
+        return redirect()->route('mahasiswa.daftar.edit',$id);
     }
 
     /**

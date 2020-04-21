@@ -27,7 +27,7 @@
                         <td width="80%">{{$row->name}}</td>
                         <td>
                             @if($row->email_verified_at == NULL)
-                            <a href="{{route('koor.validasi.edit',$row->id)}}" class="edit" fungsi="validasi" id="{{$row->id}}" title="Validasi Pendaftaran Mahasiswa">
+                            <a href="{{route('koor.validasi.edit',$row->id)}}" class="view_data_validasi_nilai" fungsi="validasi" id="{{$row->id}}" title="Validasi Pendaftaran Mahasiswa">
                                 <button class="btn btn-info btn-xs">Validasi</button>
                             </a>
                             @else
