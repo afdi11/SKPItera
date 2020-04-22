@@ -105,14 +105,13 @@
     <div class="modal-dialog modal-confirm">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="modal-title">Apakah Anda Yakin?</h4>
+                <h4 class="modal-title" id="validasi-title">Apakah Anda Yakin?</h4>
             </div>
             <div class="modal-body" id="validasi_detail">
-                <p>Apakah anda yakin ingin melakukan validasi? Proses ini tidak bisa dibatalkan.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batalkan</button>
-                <button type="button" class="btn btn-primary">Validasi</button>
+                <button type="submit" class="btn btn-primary" id="modal-btn-validasi">Validasi</button>
             </div>
         </div>
     </div>
@@ -186,9 +185,8 @@
             var me = $(this),
                 employee_id = me.attr("id"),
                 url = me.attr('href'),
-                title = me.attr('title'),
-                fungsi = me.attr = ('fungsi');
-            $('#modal-title').text(title);
+                title = me.attr('title');
+            $('#validasi-title').text(title);
             $.ajax({
                 url: url,
                 data: {
@@ -230,14 +228,39 @@
     $('#modal-btn-save').click(function(event) {
         event.preventDefault();
         var me = $('#assign_detail form'),
-            action = me.attr('action');
+            url = me.attr('action');
         $.ajax({
-            url: action,
+            url: url,
             method: 'PUT',
             data: me.serialize(),
             success: function(response) {
                 me.trigger('reset');
                 $('#assignModal').modal("hide");
+            },
+            error: function(xhr) {
+                var errors = xhr.responseJSON;
+                console.log(errors);
+            }
+        });
+    });
+
+    //Koor Validasi
+    $('#modal-btn-validasi').click(function(event) {
+        event.preventDefault();
+        var me = $('#validasi_detail form'),
+            url = me.attr('action'),
+            user = me.attr('user');
+        $.ajax({
+            url: url,
+            method: 'PUT',
+            data: me.serialize(),
+            success: function(response) {
+                url="{{route('koor.validasi.edit',".user.")}}";
+                me.trigger('reset');
+                $('#validasiModal').modal("hide");
+                $("#validasiModal").on('hidden.bs.modal', function () {
+                    window.location.reload(true);
+                });
             },
             error: function(xhr) {
                 var errors = xhr.responseJSON;

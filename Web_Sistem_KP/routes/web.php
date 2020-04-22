@@ -37,7 +37,7 @@ Route::namespace('koor')->prefix('koor')->name('koor.')->middleware('can:koordin
     Route::resource('/','KoorController',['only'=>'index']);
     Route::resource('/laporan','LaporanController',['only'=>['index','show']]);
     Route::resource('/cetak','CetakController',['only'=>['index','show']]);
-    Route::resource('/validasi','ValidasiController',['only'=>['index','show','store','edit','update']]);
+    Route::resource('/validasi','ValidasiController',['only'=>['index','show','edit','update']]);
     Route::resource('/dopem','DopemController',['except'=>['store','create','destroy','update','edit']]);
     Route::resource('/mahasiswa','MhsController',['only'=>['show','index','update']]);
     Route::resource('/assign','AssignController',['only'=>['edit','update']]);

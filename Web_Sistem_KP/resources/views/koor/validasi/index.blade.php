@@ -1,7 +1,7 @@
 @extends('layouts.koor.koor_index')
 
 @section('content')
-<div class="col-9 col-s-12 content">
+<div class="col-9 col-s-12 content" id="validasiTable">
     <div class="panel panel-primary">
         <div class="panel-heading">Daftar Mahasiswa Validasi</div>
         <div class="panel-body">
@@ -27,7 +27,7 @@
                         <td width="80%">{{$row->name}}</td>
                         <td>
                             @if($row->email_verified_at == NULL)
-                            <a href="{{route('koor.validasi.edit',$row->id)}}" class="view_data_validasi_nilai" fungsi="validasi" id="{{$row->id}}" title="Validasi Pendaftaran Mahasiswa">
+                            <a href="{{route('koor.validasi.edit',$row->id)}}" class="edit" fungsi="validasi" id="{{$row->id}}" title="Validasi Pendaftaran Mahasiswa">
                                 <button class="btn btn-info btn-xs">Validasi</button>
                             </a>
                             @else
@@ -48,7 +48,7 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{route('koor.mahasiswa.show',$row->id)}}" class="view_data_lihat" id="{{$row->id}}" title="Data Mahasiswa">
+                            <a href="{{route('koor.mahasiswa.show',$row->id)}}" class="view_data_lihat" id="{{$row->id}}" title="Detail Data Mahasiswa">
                                 <button class="btn btn-info btn-xs">Lihat</button>
                             </a>
                         </td>

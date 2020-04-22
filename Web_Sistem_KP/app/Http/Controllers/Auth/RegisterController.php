@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mahasiswa;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Role;
@@ -70,7 +71,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -79,7 +79,9 @@ class RegisterController extends Controller
 
         $role=Role::select('id')->where('name','mahasiswa')->first();
         $user->roles()->attach($role);
-
+        $mhs=Mahasiswa::create([
+            'user_id'=>$user->id,
+        ]);
         return $user;
     }
 }
