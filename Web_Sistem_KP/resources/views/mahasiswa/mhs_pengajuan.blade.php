@@ -10,7 +10,7 @@
             {{method_field('PUT')}}
                 <div class="form-group">
                     <label for="name">Nama Seminar:</label>
-                    <input type="text" class="form-control" id="name" placeholder="Masukkan Nama Seminar" @if($mahasiswa->seminar()->exists())value="{{$mahasiswa->seminar->name}}"@endif name="name">
+                    <input type="text" class="form-control" id="name" placeholder="Masukkan Nama Seminar" @if($mahasiswa->seminar()->exists())value="{{$mahasiswa->seminar->name}}" @endif name="name" required>
                 </div> 
                 <div class="form-group">
                     <label for="tmpt">Tempat Kerja Praktik:</label>
