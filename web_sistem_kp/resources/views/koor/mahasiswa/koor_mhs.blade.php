@@ -16,8 +16,8 @@
                 <table class=" col-12 col-s-12 table table-hover">
                     <tr>
                         <th width="30%">Mahasiswa</th>
-                        <th width="25%">Nilai Seminar</th>
                         <th width="25%">Nilai Instansi</th>
+                        <th width="25%">Nilai Seminar</th>
                         <th width="10%">Validasi</th>
                         <th width="10%">Lihat</th>
                     </tr>
@@ -27,7 +27,11 @@
                         <td>
                             <div class="form-check">
                                 <label class="form-check-label" for="check1">
-                                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"
+                                        @if($row->mahasiswa->instansi()->first()['pivot']['nilai'] != NULL)
+                                            checked
+                                        @endif
+                                    >
                                 </label>
                                 <a href="#">Lihat Laporan</a>
                             </div>
@@ -35,18 +39,28 @@
                         <td>
                             <div class="form-check">
                                 <label class="form-check-label" for="check2">
-                                    <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something"
+                                        @if($row->mahasiswa->seminar()->first()['nilai'] != NULL)
+                                            checked disabled
+                                        @endif
+                                    >
                                 </label>
                                 <a href="#">Lihat Laporan</a>
                             </div>
                         </td>
                         <td>
-                            <a href="{{route('koor.mahasiswa.show',$row->user_id)}}" class="view_data_validasi_nilai" id="{{$row->id}}" title="Validasi Nilai">
-                                <button class="btn btn-info btn-xs">Validasi</button>
-                            </a>
+                            @if($row->mahasiswa->selesai == NULL)
+                                <a href="{{route('koor.mahasiswa.edit',$row->id)}}" class="edit" id="{{$row->id}}" title="Validasi Nilai">
+                                    <button class="btn btn-info btn-xs">Validasi</button>
+                                </a>
+                            @else
+                                <a href="#">
+                                    <button class="btn btn-success btn-xs">Tervalidasi</button>
+                                </a>
+                            @endif
                         </td>
                         <td>
-                            <a href="{{route('koor.mahasiswa.show',$row->user_id)}}" class="view_data_lihat" id="{{$row->id}}" title="Data Mahasiswa">
+                            <a href="{{route('koor.mahasiswa.show',$row->id)}}" class="view_data_lihat" id="{{$row->id}}" title="Data Mahasiswa">
                                 <button class="btn btn-info btn-xs">Lihat</button>
                             </a>
                         </td>

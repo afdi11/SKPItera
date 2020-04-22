@@ -13,17 +13,21 @@
                 <table class=" col-12 col-s-12 table table-hover">
                     <tr class="active">
                         <th width="40%">Mahasiswa</th>
-                        <th width="25%">Nilai Seminar</th>
                         <th width="25%">Nilai Instansi</th>
+                        <th width="25%">Nilai Seminar</th>
                         <th width="10%">Lihat</th>
                     </tr>
                     @foreach($user as $row)
                     <tr>
-                        <td>{{$row->name}}</td>
+                    <td>{{$row->name}}</td>
                         <td>
                             <div class="form-check">
                                 <label class="form-check-label" for="check1">
-                                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something">
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"
+                                        @if($row->mahasiswa->instansi()->first()['pivot']['nilai'] != NULL)
+                                            checked
+                                        @endif
+                                    >
                                 </label>
                                 <a href="#">Lihat Laporan</a>
                             </div>
@@ -31,7 +35,11 @@
                         <td>
                             <div class="form-check">
                                 <label class="form-check-label" for="check2">
-                                    <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                                    <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something"
+                                        @if($row->mahasiswa->seminar()->first()['nilai'] != NULL)
+                                            checked disabled
+                                        @endif
+                                    >
                                 </label>
                                 <a href="#">Lihat Laporan</a>
                             </div>

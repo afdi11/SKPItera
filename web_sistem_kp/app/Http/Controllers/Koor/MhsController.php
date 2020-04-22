@@ -17,10 +17,12 @@ class MhsController extends Controller
      */
     public function index()
     {   
-        $mahasiswa= DB::table('mahasiswa')
-            ->join('users','users.id','=','mahasiswa.user_id')
-            ->select('users.*','mahasiswa.*')
-            ->get();
+        $mahasiswa=User::whereNotNull('email_verified_at')
+        ->whereHas(
+            'roles',function($q){
+                $q->where('name','mahasiswa');
+            })
+        ->get();
         return view('koor.mahasiswa.koor_mhs')->with('result',$mahasiswa);
     }
 
@@ -69,9 +71,29 @@ class MhsController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $model=User::findOrFail($id);
+        $Nilai1 = $model->mahasiswa->instansi()->first()['pivot']['nilai'];
+        $Nilai2 = $model->mahasiswa->seminar()->first()['nilai'];
+        $nilaiAkhir= ($Nilai1*0.4)+($Nilai2*0.6);
+        $huruf="T";
+        if($Nilai1 == NULL || $Nilai2 == NULL);
+        else if($nilaiAkhir>=80)
+            $huruf="A";
+        else if($nilaiAkhir>=70)
+            $huruf="AB";
+        else if($nilaiAkhir>=60)
+            $huruf="B";
+        else if($nilaiAkhir>=50)
+            $huruf="BC";
+        else if($nilaiAkhir>=40)
+            $huruf="C";
+        else if($nilaiAkhir>=30)
+            $huruf="D";
+        else
+            $huruf="E";
+        return view('koor.mahasiswa.koor_mhs_validasi', compact('model','huruf'));
     }
 
     /**
@@ -81,9 +103,11 @@ class MhsController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $mahasiswa=Mahasiswa::findOrFail($id);
+        $mahasiswa->selesai=now();
+        $mahasiswa->save();
     }
 
     /**

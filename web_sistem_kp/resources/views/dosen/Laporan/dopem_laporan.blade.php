@@ -16,10 +16,12 @@
                         <th width="90%">Judul Laporan</th>
                         <th width="10%">Lihat</th>
                     </tr>
+                    @foreach($mahasiswa as $row)
                     <tr>
-                        <td>row["laporan"]</td>
-                        <td><input type="button" name="view" value="Lihat" id="row[" laporan"]" class="btn btn-info btn-xs view_data" /></td>
+                        <td>{{$row->seminar['name']}}</td>
+                        <td><input type="button" name="view" value="Lihat" id="row[laporan]" class="btn btn-info btn-xs view_data" /></td>
                     </tr>
+                    @endforeach
                 </table>
             </div>
         </div>

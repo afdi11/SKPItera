@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Laporan;
+use App\Mahasiswa;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LaporanController extends Controller
 {
@@ -15,7 +18,15 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        return view('dosen.laporan.dopem_laporan');
+        $dosen=Auth::user()->id;
+        $mahasiswa=Mahasiswa::where('dosen_id',$dosen)
+            ->whereHas(
+                'laporans',function($q){
+                    $q->where('disetujui','1');
+                })
+            ->get();
+        // $laporan=Laporan::whereIn('mahasiswa_id',$mahasiswa)->get();
+        return view('dosen.laporan.dopem_laporan',compact('mahasiswa'));
     }
 
     /**
