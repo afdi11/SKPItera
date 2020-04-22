@@ -236,6 +236,9 @@
             success: function(response) {
                 me.trigger('reset');
                 $('#assignModal').modal("hide");
+                $("#assignModal").on('hidden.bs.modal', function () {
+                    window.location.reload(true);
+                });
             },
             error: function(xhr) {
                 var errors = xhr.responseJSON;
@@ -255,7 +258,6 @@
             method: 'PUT',
             data: me.serialize(),
             success: function(response) {
-                url="{{route('koor.validasi.edit',".user.")}}";
                 me.trigger('reset');
                 $('#validasiModal').modal("hide");
                 $("#validasiModal").on('hidden.bs.modal', function () {
