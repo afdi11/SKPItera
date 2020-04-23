@@ -18,7 +18,7 @@
                         {{$row->mahasiswa->seminar['name']}}
                     @endif
                 </td>
-                <td><input type="button" name="view" value="Input" id="row->Nama" class="btn btn-info btn-xs view_data_lihat" /></td>
+                <td><a href="{{route('dosen.nilai.edit',$row->id)}}" type="button" name="view" fungsi="submit" id="{{$row->id}}" class="btn btn-info btn-xs view_data_lihat" >Input</a></td>
             </tr>
         @endif
         @endforeach
@@ -43,7 +43,7 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('.view_data_lihat').click(function() {
+        $('.editNilai').click(function() {
             var employee_id = $(this).attr("id");
             $.ajax({
                 url: "dopem_nilai_lihat.php",

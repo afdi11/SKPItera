@@ -44,7 +44,7 @@
                                 <a href="#">Lihat Laporan</a>
                             </div>
                         </td>
-                        <td><a href="{{route('dosen.mahasiswa.show',$row->id)}}" type="button" name="view" id="{{$row->name}}" class="btn btn-info btn-xs view_data_lihat">Lihat</a></td>
+                        <td><a href="{{route('dosen.mahasiswa.show',$row->id)}}" type="button" fungsi="view" name="view" id="{{$row->name}}" class="btn btn-info btn-xs view_data_lihat">Lihat</a></td>
                     </tr>
                     @endforeach
                 </table>

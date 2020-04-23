@@ -99,6 +99,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
             </div>
         </div>
     </div>
@@ -110,7 +111,10 @@
             e.preventDefault();
             var me = $(this),
                 employee_id = me.attr("id"),
-                url = me.attr('href');
+                url = me.attr('href'),
+                fungsi=me.attr('fungsi');
+            if(fungsi!="submit")
+                $('#submitButton').remove();
             $.ajax({
                 url: url,
                 data: {
@@ -121,6 +125,29 @@
                     $('#dataModal').modal("show");
                 }
             });
+        });
+    });
+
+    //Submit Button
+    $('#submitButton').click(function(event) {
+        event.preventDefault();
+        var me = $('#employee_detail form'),
+            url = me.attr('action');
+        $.ajax({
+            url: url,
+            method: 'PUT',
+            data: me.serialize(),
+            success: function(response) {
+                me.trigger('reset');
+                $('#dataModal').modal("hide");
+                $("#dataModal").on('hidden.bs.modal', function () {
+                    window.location.reload(true);
+                });
+            },
+            error: function(xhr) {
+                var errors = xhr.responseJSON;
+                console.log(errors);
+            }
         });
     });
 </script>

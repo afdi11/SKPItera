@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
 use App\Mahasiswa;
+use App\seminar;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,9 +65,10 @@ class NilaiController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $user=User::findOrFail($id);
+        return view('dosen.nilai.dopem_nilai_lihat',compact('user'));
     }
 
     /**
@@ -76,9 +78,11 @@ class NilaiController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $seminar=seminar::findOrFail($id);
+        $seminar->nilai=$request->nilai_seminar;
+        $seminar->save();
     }
 
     /**
