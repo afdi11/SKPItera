@@ -112,8 +112,8 @@
             var me = $(this),
                 employee_id = me.attr("id"),
                 url = me.attr('href'),
-                fungsi=me.attr('fungsi');
-            if(fungsi!="submit")
+                fungsi = me.attr('fungsi');
+            if (fungsi != "submit")
                 $('#submitButton').remove();
             $.ajax({
                 url: url,
@@ -146,5 +146,17 @@
                 console.log(errors);
             }
         });
+    });
+
+    //SCRIPT DOPEM LAPORAN
+    $('.view_data').click(function() {
+        var laporan_id = $(this).attr("id");
+
+        $.post('dopem_laporan_lihat.php', {
+                postid: laporan_id
+            },
+            function(data) {
+                $('#content1').html(data);
+            });
     });
 </script>
