@@ -140,9 +140,6 @@
             success: function(response) {
                 me.trigger('reset');
                 $('#dataModal').modal("hide");
-                $("#dataModal").on('hidden.bs.modal', function () {
-                    window.location.reload(true);
-                });
             },
             error: function(xhr) {
                 var errors = xhr.responseJSON;

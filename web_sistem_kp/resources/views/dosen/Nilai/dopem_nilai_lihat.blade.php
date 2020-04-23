@@ -27,7 +27,7 @@
             <form action="{{route('dosen.nilai.update',$user->mahasiswa->id)}}" method="POST">
             @csrf
             {{method_field('PUT')}}
-                <input type="text" min="0" max="100" class="form-control" id="nilai_seminar" value="{{$user->mahasiswa->seminar->nilai}}" name="nilai_seminar" >
+                <input type="text" id="nilai_seminar" name="nilai_seminar" min="0" max="100" class="form-control" value="{{$user->mahasiswa->seminar->nilai}}">
             </form>
         </td> 
     </tr> 

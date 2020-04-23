@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Laporan;
 use App\Mahasiswa;
 use App\seminar;
 use App\User;
@@ -80,9 +81,12 @@ class NilaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $seminar=seminar::findOrFail($id);
-        $seminar->nilai=$request->nilai_seminar;
-        $seminar->save();
+        $mahasiswa=Mahasiswa::findOrFail($id);
+        $mahasiswa->laporans->disetujui=1;
+        $mahasiswa->laporans->save();
+        $mahasiswa->seminar->nilai=$request->nilai_seminar;
+        $mahasiswa->seminar->save();
+        $mahasiswa->save();
     }
 
     /**
