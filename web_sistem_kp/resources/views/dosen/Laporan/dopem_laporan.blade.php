@@ -17,10 +17,17 @@
                         <th width="10%">Lihat</th>
                     </tr>
                     @foreach($mahasiswa as $row)
+                    @if($row->laporans()->exists())
                     <tr>
-                        <td>{{$row->seminar['name']}}</td>
-                        <td><input type="button" name="view" value="Lihat" id="row[laporan]" class="btn btn-info btn-xs view_data" /></td>
+                        <td>@if($row->seminar['name'] == NULL)
+                                {{$row->laporans['name']}}
+                            @else
+                                {{$row->seminar['name']}}
+                            @endif
+                        </td>
+                        <td><a href="{{route('dosen.laporan.show', $row->id )}}"type="button" name="view" value="Lihat" id="$row->id" class="btn btn-info btn-xs">Lihat</a></td>
                     </tr>
+                    @endif
                     @endforeach
                 </table>
             </div>

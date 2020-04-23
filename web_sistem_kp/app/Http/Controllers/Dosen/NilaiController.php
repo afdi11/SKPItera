@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Mahasiswa;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NilaiController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +20,10 @@ class NilaiController extends Controller
      */
     public function index()
     {
-        return view('dosen.nilai.dopem_nilai');
+        $dosen=Auth::user()->id;
+        $mahasiswa=Mahasiswa::where('dosen_id',$dosen)->pluck('user_id')->toArray();
+        $user=User::whereIn('id',$mahasiswa)->get();
+        return view('dosen.nilai.dopem_nilai',compact('user'));
     }
 
     /**

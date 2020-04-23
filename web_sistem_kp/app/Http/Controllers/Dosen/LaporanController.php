@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class LaporanController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,12 +22,7 @@ class LaporanController extends Controller
     public function index()
     {
         $dosen=Auth::user()->id;
-        $mahasiswa=Mahasiswa::where('dosen_id',$dosen)
-            ->whereHas(
-                'laporans',function($q){
-                    $q->where('disetujui','1');
-                })
-            ->get();
+        $mahasiswa=Mahasiswa::where('dosen_id',$dosen)->get();
         // $laporan=Laporan::whereIn('mahasiswa_id',$mahasiswa)->get();
         return view('dosen.laporan.dopem_laporan',compact('mahasiswa'));
     }
@@ -56,9 +54,14 @@ class LaporanController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $mahasiswa=Mahasiswa::findOrFail($id);
+        $laporan=Laporan::where('mahasiswa_id',$mahasiswa->id)->first();
+        if($laporan != NULL)
+            return view('dosen.laporan.dopem_laporan_lihat',compact('laporan'));
+        else
+            return redirect()->route('dosen.laporan.index');
     }
 
     /**

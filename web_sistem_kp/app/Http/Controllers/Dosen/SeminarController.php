@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Mahasiswa;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SeminarController extends Controller
 {
@@ -15,7 +17,19 @@ class SeminarController extends Controller
      */
     public function index()
     {
-        return view('dosen.mahasiswa.dopem_seminar');
+        $dosen=Auth::user()->id;
+        $mahasiswa=Mahasiswa::where('dosen_id',$dosen)
+            ->whereHas(
+                'laporans',function($q){
+                    $q->where('disetujui',1);
+                })
+            ->whereHas(
+                'seminar',function($q){
+                    $q->orderBy('pelaksanaan');
+                })
+            ->pluck('user_id')->toArray();
+        $user=User::whereIn('id',$mahasiswa)->get();
+        return view('dosen.seminar.dopem_seminar',compact('user'));
     }
 
     /**

@@ -73,8 +73,8 @@
                 <a href="{{route('dosen.index')}}" class="list-group-item">Beranda</a>
                 <a href="{{route('dosen.mahasiswa.index')}}" class="list-group-item">Mahasiswa</a>
                 <a href="{{route('dosen.laporan.index')}}" class="list-group-item">Laporan</a>
-                <a href="#" class="list-group-item">Nilai</a>
-                <a href="#" class="list-group-item">Jadwal Seminar</a>
+                <a href="{{route('dosen.nilai.index')}}" class="list-group-item">Nilai</a>
+                <a href="{{route('dosen.seminar.index')}}" class="list-group-item">Jadwal Seminar</a>
             </div>
         </div>
         @yield('content')
