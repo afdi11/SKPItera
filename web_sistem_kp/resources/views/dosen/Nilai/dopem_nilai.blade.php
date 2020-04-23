@@ -9,7 +9,7 @@
             <th width="30%">Lainnya</th>
         </tr>
         @foreach($user as $row)
-        @if($row->mahasiswa->laporans()->exists())
+        @if($row->mahasiswa->laporans()->exists() && $row->mahasiswa->selesai != 1)
             <tr>   
                 <td>{{$row->name}}</td>
                 <td>@if($row->mahasiswa->seminar['name'] == NULL)

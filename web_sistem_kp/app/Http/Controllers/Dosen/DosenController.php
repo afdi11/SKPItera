@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
+use App\Mahasiswa;
+use App\seminar;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DosenController extends Controller
 {
     public function __construct(){
-        $this->middleware(['auth','verified']);;
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -18,7 +21,16 @@ class DosenController extends Controller
      */
     public function index()
     {
-        return view('dosen.index');
+        $dosen=Auth::user()->id;
+        $mahasiswa_id=Mahasiswa::where('dosen_id',$dosen)->pluck('id')->toArray();
+        $mahasiswa=Mahasiswa::whereIn('id',$mahasiswa_id)->get();
+        $seminar=seminar::whereIn('mahasiswa_id',$mahasiswa_id)->get();
+        $mhs=[];
+        $mhs['telahSeminar']=$seminar->whereNotNull('nilai')->count();//telahSeminar
+        $mhs['akanSeminar']=$seminar->whereNull('nilai')->whereNotNull('pelaksanaan')->count();//akanSeminar
+        $mhs['belumSeminar']=0;//belumSeminar
+        $mhs['totalMahasiswa']=0;//totalMahasiswa
+        return view('dosen.index',compact('mhs'));
     }
 
     /**
