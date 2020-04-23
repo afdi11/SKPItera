@@ -37,10 +37,10 @@
                     <h2>{{$belum_seminar}}</h2>
                 </div>
 
-                <div class="col-3 col-s-12 catatan">
+                <!-- <div class="col-3 col-s-12 catatan">
                     <p>Jumlah Mahasiswa Belum Kerja Praktik</p>
                     <h2>200</h2>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
