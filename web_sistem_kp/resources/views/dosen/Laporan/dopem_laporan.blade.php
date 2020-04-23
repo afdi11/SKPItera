@@ -20,12 +20,12 @@
                     @if($row->laporans()->exists())
                     <tr>
                         <td>@if($row->seminar['name'] == NULL)
-                                {{$row->laporans['name']}}
+                            {{$row->laporans['name']}}
                             @else
-                                {{$row->seminar['name']}}
+                            {{$row->seminar['name']}}
                             @endif
                         </td>
-                        <td><a href="{{route('dosen.laporan.show', $row->id )}}"type="button" name="view" value="Lihat" id="$row->id" class="btn btn-info btn-xs">Lihat</a></td>
+                        <td><a href="{{route('dosen.laporan.show', $row->id )}}" type="button" name="view" value="Lihat" id="$row->id" class="btn btn-info btn-xs">Lihat</a></td>
                     </tr>
                     @endif
                     @endforeach
