@@ -6,10 +6,10 @@
         <div class="panel-heading">Daftar Cetak Nilai</div>
         <div class="panel-body">
             <!-- Actual search box -->
-            <div class="form-group has-feedback has-search">
+            <!-- <div class="form-group has-feedback has-search">
                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 <input type="text" class="form-control" placeholder="Cari">
-            </div>
+            </div> -->
 
             <div class="table-responsive">
                 <table class=" col-12 col-s-12 table table-hover">
