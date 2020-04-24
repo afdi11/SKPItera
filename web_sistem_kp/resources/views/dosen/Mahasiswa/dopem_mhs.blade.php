@@ -5,10 +5,10 @@
         <div class="panel-heading">Daftar Mahasiswa</div>
         <div class="panel-body">
             <!-- Actual search box -->
-            <div class="form-group has-feedback has-search">
+            <!-- <div class="form-group has-feedback has-search">
                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 <input type="text" class="form-control" placeholder="Search">
-            </div>
+            </div> -->
             <div class="table-responsive">
                 <table class=" col-12 col-s-12 table table-hover">
                     <tr class="active">
@@ -19,14 +19,13 @@
                     </tr>
                     @foreach($user as $row)
                     <tr>
-                    <td>{{$row->name}}</td>
+                        <td>{{$row->name}}</td>
                         <td>
                             <div class="form-check">
                                 <label class="form-check-label" for="check1">
-                                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"
-                                        @if($row->mahasiswa->instansi()->first()['pivot']['nilai'] != NULL)
-                                            checked
-                                        @endif
+                                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" @if($row->mahasiswa->instansi()->first()['pivot']['nilai'] != NULL)
+                                    checked
+                                    @endif
                                     >
                                 </label>
                                 <a href="#">Lihat Laporan</a>
@@ -35,10 +34,9 @@
                         <td>
                             <div class="form-check">
                                 <label class="form-check-label" for="check2">
-                                    <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something"
-                                        @if($row->mahasiswa->seminar()->first()['nilai'] != NULL)
-                                            checked disabled
-                                        @endif
+                                    <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something" @if($row->mahasiswa->seminar()->first()['nilai'] != NULL)
+                                    checked disabled
+                                    @endif
                                     >
                                 </label>
                                 <a href="#">Lihat Laporan</a>
