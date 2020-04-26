@@ -8,12 +8,12 @@
             <div class="col-12 col-12 content_satu">
                 <div class="col-3 col-s-12 semester">
                     <p>Jumlah Mahasiswa Telah Seminar</p>
-                    <h2>{{$mhs['telahSeminar']}}</h2>
+                    <h2>{{$data['telahSeminar']}}</h2>
                 </div>
 
                 <div class="col-3 col-s-12 catatan">
                     <p>Jumlah Mahasiswa Belum Seminar</p>
-                    <h2>{{$mhs['belumSeminar']}}</h2>
+                    <h2>{{$data['belumSeminar']}}</h2>
                 </div>
             </div>
 
@@ -21,12 +21,12 @@
             <div class="col-12 col-s-12 content_dua">
                 <div class="col-3 col-s-12 semester">
                     <p>Jumlah Mahasiswa Akan Seminar</p>
-                    <h2>{{$mhs['akanSeminar']}}</h2>
+                    <h2>{{$data['akanSeminar']}}</h2>
                 </div>
 
                 <div class="col-3 col-s-12 catatan">
                     <p>Jumlah Mahasiswa Kerja Praktik</p>
-                    <h2>{{$mhs['totalMahasiswa']}}</h2>
+                    <h2>{{$data['totalMahasiswa']}}</h2>
                 </div>
             </div>
         </div>

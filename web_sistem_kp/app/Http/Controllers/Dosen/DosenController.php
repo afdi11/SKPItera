@@ -22,15 +22,16 @@ class DosenController extends Controller
     public function index()
     {
         $dosen=Auth::user()->id;
-        $mahasiswa_id=Mahasiswa::where('dosen_id',$dosen)->pluck('id')->toArray();
-        $mahasiswa=Mahasiswa::whereIn('id',$mahasiswa_id)->get();
+        $mahasiswa=Mahasiswa::where('dosen_id',$dosen)->whereNull('selesai')->get();
+        $mahasiswa_id=$mahasiswa->pluck('id')->toArray();
         $seminar=seminar::whereIn('mahasiswa_id',$mahasiswa_id)->get();
-        $mhs=[];
-        $mhs['telahSeminar']=$seminar->whereNotNull('nilai')->count();//telahSeminar
-        $mhs['akanSeminar']=$seminar->whereNull('nilai')->whereNotNull('pelaksanaan')->count();//akanSeminar
-        $mhs['belumSeminar']=0;//belumSeminar
-        $mhs['totalMahasiswa']=0;//totalMahasiswa
-        return view('dosen.index',compact('mhs'));
+        // dd($seminar);
+        $data=[];
+        $data['telahSeminar']=$seminar->whereNotNull('nilai')->count();//telahSeminar
+        $data['akanSeminar']=$seminar->whereNull('nilai')->whereNotNull('pelaksanaan')->count();//akanSeminar
+        $data['totalMahasiswa']=$mahasiswa->count();//totalMahasiswa
+        $data['belumSeminar']=$data['totalMahasiswa']-$data['telahSeminar'];//belumSeminar
+        return view('dosen.index',compact('data','mahasiswa'));
     }
 
     /**

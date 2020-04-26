@@ -19,6 +19,8 @@ class CreateSeminarsTable extends Migration
             $table->string('name');
             $table->datetime('pelaksanaan')->nullable();
             $table->string('lokasi',10)->nullable();
+            $table->boolean('disetujui')->nullable();
+            $table->string('catatan')->nullable();
             $table->integer('nilai')->nullable();
             $table->timestamps();
         });

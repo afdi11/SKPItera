@@ -26,9 +26,13 @@ class LaporanController extends Controller
             }
         )->whereHas(
             'mahasiswa', function($q){
-                $q->whereNotNull('dosen_id');
+                $q->whereHas(
+                    'seminar',function($r){
+                        $r->where('disetujui',1);
+                    }
+                )->whereNull('selesai');
             }
-        )->whereNotNull('email_verified_at')->get();
+        )->get();
         return view('koor.laporan.index', compact('row'));
     }
 

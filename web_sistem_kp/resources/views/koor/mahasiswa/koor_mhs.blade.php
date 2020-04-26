@@ -28,7 +28,7 @@
                             <div class="form-check">
                                 <label class="form-check-label" for="check1">
                                     <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" @if($row->mahasiswa->instansi()->first()['pivot']['nilai'] != NULL)
-                                    checked
+                                    checked disabled
                                     @endif
                                     >
                                 </label>

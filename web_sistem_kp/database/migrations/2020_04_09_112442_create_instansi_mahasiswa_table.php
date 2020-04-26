@@ -20,6 +20,8 @@ class CreateInstansiMahasiswaTable extends Migration
             $table->string('divisi',20)->nullable();
             $table->date('mulai')->nullable();
             $table->date('selesai')->nullable();
+            $table->string('file_nilai')->nullable();
+            $table->string('file_logsheet')->nullable();
             $table->integer('nilai')->nullable();
         });
     }

@@ -21,11 +21,13 @@ class DosenTableSeeder extends Seeder
         $employee=Faker::create('en_US');
         foreach($users as $user){
             if($user->hasRole('dosen pembimbing')){
+                $user['email_verified_at']=now();
                 Dosen::create([
                     'user_id'=>$user['id'],
                     'NIP_NRK'=> $employee->ein,
                     'Kontak_Person'=>$faker->phoneNumber,
                 ]);
+                $user->save();
             }
         }
     }

@@ -100,9 +100,12 @@
             </div>
             <div class="modal-body">
                 <!-- Form -->
-                <form method='post' action='' enctype="multipart/form-data">
+                <form method='POST' action="{{route('mahasiswa.upload.update',Auth::user()->id)}}" enctype="multipart/form-data">
+                    @csrf
+                    {{method_field('PUT')}}
+                    <input type='number' name="jenis" id="jenis" value="1" hidden>
                     <input type='file' name='file' id='file' class='form-control'><br>
-                    <input type='button' class='btn btn-primary' value='Unggah' id='btn_upload'>
+                    <input type='submit' class='btn btn-primary' value='Unggah' id='btn_upload'>
                 </form>
 
                 <!-- Preview-->
@@ -126,9 +129,14 @@
             </div>
             <div class="modal-body">
                 <!-- Form -->
-                <form method='post' action='' enctype="multipart/form-data">
+                <form method='POST' action="{{route('mahasiswa.upload.update',Auth::user()->id)}}" enctype="multipart/form-data">
+                    @csrf
+                    {{method_field('PUT')}}
+                    <input type='number' name="jenis" id="jenis" value="2" hidden>
+                    <label for="nilai">Masukkan Nilai</label>
+                    <input type='number' name='nilai' id='nilai' placeholder="Masukkan nilai sesuai dengan file yang diberikan Jika berbeda maka nilai instansi dianggap 0"class='form-control' required><br>
                     <input type='file' name='file' id='file' class='form-control'><br>
-                    <input type='button' class='btn btn-primary' value='Unggah' id='btn_upload'>
+                    <input type='submit' class='btn btn-primary' value='Unggah' id='btn_upload'>
                 </form>
 
                 <!-- Preview-->
@@ -152,9 +160,12 @@
             </div>
             <div class="modal-body">
                 <!-- Form -->
-                <form method='post' action='' enctype="multipart/form-data">
+                <form method='POST' action="{{route('mahasiswa.upload.update',Auth::user()->id)}}" enctype="multipart/form-data">
+                    @csrf
+                    {{method_field('PUT')}}
+                    <input type='number' name="jenis" id="jenis" value="3" hidden>
                     <input type='file' name='file' id='file' class='form-control'><br>
-                    <input type='button' class='btn btn-primary' value='Unggah' id='btn_upload'>
+                    <input type='submit' class='btn btn-primary' value='Unggah' id='btn_upload'>
                 </form>
 
                 <!-- Preview-->

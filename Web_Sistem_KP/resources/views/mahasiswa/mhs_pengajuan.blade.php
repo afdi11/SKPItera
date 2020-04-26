@@ -14,11 +14,11 @@
                 </div> 
                 <div class="form-group">
                     <label for="tmpt">Tempat Kerja Praktik:</label>
-                    <input type="text" class="form-control" id="instansi" placeholder="Null" value="@if($mahasiswa->instansi()->exists()) {{$mahasiswa->instansi()->first()->name}} @endif" disabled name="instansi">
+                    <input type="text" class="form-control" id="instansi" placeholder="Null" @if($mahasiswa->instansi()->exists()) value="{{$mahasiswa->instansi()->first()->name}}"  disabled @endif name="instansi">
                 </div>
                 <div class="form-group">
                     <label for="waktu">Waktu Kerja Praktik:</label>
-                    <input type="text" class="form-control" id="waktu" placeholder="Null" value="@if($mahasiswa->instansi()->exists()) {{$mahasiswa->instansi()->first()->pivot->mulai}} s.d {{$mahasiswa->instansi()->first()->pivot->selesai}} @endif" disabled name="waktu">
+                    <input type="text" class="form-control" id="waktu" placeholder="Null" @if($mahasiswa->instansi()->exists()) value="{{$mahasiswa->instansi()->first()->pivot->mulai}} s.d {{$mahasiswa->instansi()->first()->pivot->selesai}}" disabled @endif name="waktu">
                 </div>
                 <div class="form-group">
                     <label for="waktu_seminar">Waktu Seminar: (YYYY/MM/DD HH:MM)</label>
@@ -29,13 +29,17 @@
                     <input type="text" class="form-control" id="tempat_seminar" placeholder="Masukkan Tempat Seminar"  value="@if($mahasiswa->seminar()->exists()){{$mahasiswa->seminar->lokasi}}@endif" name="tempat_seminar" required>
                 </div>
 
-                @if(!$mahasiswa->seminar()->exists())
-                    <button type="submit" class="btn btn-primary">Daftar</button>
+                @if($mahasiswa->seminar->disetujui == 1)
+                    <a href="#" type="button" class="btn btn-success">Terdaftar</a>
                 @else
-                    <button type="" class="btn btn-success">Terdaftar</button>
+                    <button type="submit" class="btn btn-primary">Daftar</button>
+                    @if($mahasiswa->seminar->disetujui == NULL)
+                        Pengajuan sedang menunggu persetujuan
+                    @elseif($mahasiswa->seminar->disetujui == 0)
+                        Pengajuan Ditolak. Silahkan cek catatan dari dosen.
+                    @endif
                 @endif
             </form>
-
         </div>
     </div>
 </div>

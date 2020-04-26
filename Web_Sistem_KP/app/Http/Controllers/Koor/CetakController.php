@@ -23,7 +23,8 @@ class CetakController extends Controller
             'seminar', function($q){
                 $q->whereNotNull('nilai');
             }
-        )->pluck('user_id');
+        )->whereNotNull('selesai')
+        ->pluck('user_id');
         $user=User::whereIn('id',$mahasiswa)->get();
         return view('koor.cetak.index',compact('user'));
     }

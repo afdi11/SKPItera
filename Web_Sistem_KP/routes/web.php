@@ -49,7 +49,7 @@ Route::namespace('mahasiswa')->prefix('mahasiswa')->middleware('can:mahasiswa')-
     Route::resource('/seminar','SeminarController',['only'=>['edit','update']]);
     Route::resource('/referensi','ReferensiController',['only'=>'index']);
     Route::resource('/unduh','UnduhController',['only'=>'index']);
-    Route::resource('/upload','UploadController',['only'=>['index','laporan']]);
+    Route::resource('/upload','UploadController',['only'=>['index','laporan','update']]);
 });
 
 Route::namespace('dosen')->prefix('dosen')->middleware('can:dosen')->name('dosen.')->group(function(){

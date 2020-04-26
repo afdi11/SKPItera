@@ -27,29 +27,64 @@ class UsersTableSeeder extends Seeder
             'email'=>'mugi.praseptiawan@if.itera.ac.id',
             'password'=>Hash::make('AfdiJaya'),
         ]);
+        $koor->roles()->attach($koorRole);
+        $koor->roles()->attach($dopemRole);
+        $koor['email_verified_at']=now();
+        $koor->save();
 
         $dopem=User::create([
             'name'=>'Rahman Indra Kesuma',
             'email'=>'rahman.indra@if.itera.ac.id',
             'password'=>Hash::make('AfdiJaya'),
         ]);
+        $dopem->roles()->attach($dopemRole);
+        $dopem['email_verified_at']=now();
+        $dopem->save();
 
         $mhs=User::create([
             'name'=>'Afdi Fauzul Bahar',
             'email'=>'afdi.14117149@student.itera.ac.id',
             'password'=>Hash::make('AfdiJaya'),
         ]);
-        
-        $koor->roles()->attach($koorRole);
-        $koor->roles()->attach($dopemRole);
-        $dopem->roles()->attach($dopemRole);
         $mhs->roles()->attach($mhsRole);
-        $koor['email_verified_at']=now();
-        $dopem['email_verified_at']=now();
         $mhs['email_verified_at']=now();
-        $koor->save();
-        $dopem->save();
         $mhs->save();
+
+        $mhs=User::create([
+            'name'=>'Dewa Ayu',
+            'email'=>'dewa.14117033@student.itera.ac.id',
+            'password'=>Hash::make('AfdiJaya'),
+        ]);
+        $mhs->roles()->attach($mhsRole);
+        $mhs['email_verified_at']=now();
+        $mhs->save();
+
+        $mhs=User::create([
+            'name'=>'Maria Andini',
+            'email'=>'maria.14117041@student.itera.ac.id',
+            'password'=>Hash::make('AfdiJaya'),
+        ]);
+        $mhs->roles()->attach($mhsRole);
+        $mhs['email_verified_at']=now();
+        $mhs->save();
+
+        $mhs=User::create([
+            'name'=>'Yosi Mardianti',
+            'email'=>'Yosi.14117096@student.itera.ac.id',
+            'password'=>Hash::make('AfdiJaya'),
+        ]);
+        $mhs->roles()->attach($mhsRole);
+        $mhs['email_verified_at']=now();
+        $mhs->save();
+        
+        $mhs=User::create([
+            'name'=>'Dhiko Jangjaya Putra',
+            'email'=>'Dhiko.14117016@student.itera.ac.id',
+            'password'=>Hash::make('AfdiJaya'),
+        ]);
+        $mhs->roles()->attach($mhsRole);
+        $mhs->save();
+
         $faker = Faker::create('id_ID');
         for($i = 1; $i <= 100; $i++){
             // insert data ke table pegawai menggunakan Faker

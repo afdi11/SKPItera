@@ -75,7 +75,7 @@ class SeminarController extends Controller
     public function update(Request $request, $id)
     {
         $mahasiswa=Mahasiswa::find($id);
-        if($request->instansi == NULL){
+        if(!$mahasiswa->instansi()->exists() || !$mahasiswa->laporans()->exists()){
             return "Lengkapi Laporan Terlebih dahulu";
         }
         if($mahasiswa->seminar()->exists()){
@@ -83,6 +83,7 @@ class SeminarController extends Controller
                 'name'=>$request->name,
                 'pelaksanaan'=>$request->waktu_seminar,
                 'lokasi'=>$request->tempat_seminar,
+                'disetujui'=>NULL,
             ]);
             return redirect()->route('mahasiswa.seminar.edit',$id);
         }else{
@@ -90,6 +91,7 @@ class SeminarController extends Controller
                 'name'=>$request->name,
                 'pelaksanaan'=>$request->waktu_seminar,
                 'lokasi'=>$request->tempat_seminar,
+                'disetujui'=>NULL,
             ));
             $seminar->mahasiswa()->associate($mahasiswa);
             $seminar->save();
