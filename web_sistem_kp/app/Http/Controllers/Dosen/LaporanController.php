@@ -22,7 +22,7 @@ class LaporanController extends Controller
     public function index()
     {
         $dosen=Auth::user()->id;
-        $mahasiswa=Mahasiswa::where('dosen_id',$dosen)->get();
+        $mahasiswa=Mahasiswa::where('dosen_id',$dosen)->whereNull('selesai')->get();
         // $laporan=Laporan::whereIn('mahasiswa_id',$mahasiswa)->get();
         return view('dosen.laporan.dopem_laporan',compact('mahasiswa'));
     }

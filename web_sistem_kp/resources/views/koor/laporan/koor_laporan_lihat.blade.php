@@ -8,7 +8,7 @@
             <a href="{{route('koor.laporan.index')}}" type="button" class="btn btn-primary">Back</a>
             <br>
             <br>
-            <iframe src="{{URL::to('/upload')}}/{{$laporan->name}}.pdf" width='100%' height='500px'></iframe>
+            <iframe src="{{URL::to('/laporan')}}/{{$laporan->name}}" width='100%' height='500px'></iframe>
         </div>
     </div>
 </div>

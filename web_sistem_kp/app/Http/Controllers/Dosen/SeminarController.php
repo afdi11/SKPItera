@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
 use App\Mahasiswa;
+use App\seminar;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,12 +24,8 @@ class SeminarController extends Controller
         $dosen=Auth::user()->id;
         $mahasiswa=Mahasiswa::where('dosen_id',$dosen)
             ->whereHas(
-                'laporans',function($q){
-                    $q->where('disetujui',1);
-                })
-            ->whereHas(
                 'seminar',function($q){
-                    $q->orderBy('pelaksanaan');
+                    $q->whereNull('nilai')->orderBy('pelaksanaan','desc');
                 })
             ->pluck('user_id')->toArray();
         $user=User::whereIn('id',$mahasiswa)->get();
@@ -73,9 +70,10 @@ class SeminarController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $row=User::findOrFail($id);
+        return view('dosen.seminar.dopem_seminar_lihat',compact('row'));
     }
 
     /**
@@ -85,9 +83,13 @@ class SeminarController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $user=User::findOrFail($id);
+        $seminar=seminar::findOrFail($user->mahasiswa->seminar->id);
+        $seminar->disetujui=$request->seminar_acc;
+        $seminar->catatan=$request->catatanSeminarIsi;
+        $seminar->save();
     }
 
     /**

@@ -24,6 +24,7 @@ class DosenController extends Controller
         $dosen=Auth::user()->id;
         $mahasiswa=Mahasiswa::where('dosen_id',$dosen)->whereNull('selesai')->get();
         $mahasiswa_id=$mahasiswa->pluck('id')->toArray();
+        $user=User::whereIn('id',$mahasiswa->pluck('user_id'))->get();
         $seminar=seminar::whereIn('mahasiswa_id',$mahasiswa_id)->get();
         // dd($seminar);
         $data=[];
@@ -31,7 +32,7 @@ class DosenController extends Controller
         $data['akanSeminar']=$seminar->whereNull('nilai')->whereNotNull('pelaksanaan')->count();//akanSeminar
         $data['totalMahasiswa']=$mahasiswa->count();//totalMahasiswa
         $data['belumSeminar']=$data['totalMahasiswa']-$data['telahSeminar'];//belumSeminar
-        return view('dosen.index',compact('data','mahasiswa'));
+        return view('dosen.index',compact('data','user'));
     }
 
     /**

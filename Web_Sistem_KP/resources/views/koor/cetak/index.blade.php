@@ -20,10 +20,28 @@
                         <th width="10%">Lihat</th>
                     </tr>
                     @foreach($user as $row)
+                    @php ($nilaiAkhir=(0.6*$row->mahasiswa->seminar['nilai'])+(0.4*$row->mahasiswa->instansi()->first()->pivot->nilai))
                     <tr>
                         <td>{{$row->name}}</td>
                         <td>{{$row->mahasiswa->seminar['name']}}</td>
-                        <td>{{$row->mahasiswa->seminar['nilai']}}</td>
+                        <td>
+                            @if($nilaiAkhir>=80)
+                                @php ($huruf="A")
+                            @elseif($nilaiAkhir>=70)
+                                @php ($huruf="AB")
+                            @elseif($nilaiAkhir>=60)
+                                @php ($huruf="B")
+                            @elseif($nilaiAkhir>=50)
+                                @php ($huruf="BC")
+                            @elseif($nilaiAkhir>=40)
+                                @php ($huruf="C")
+                            @elseif($nilaiAkhir>=30)
+                                @php ($huruf="D")
+                            @else
+                                @php ($huruf="E")
+                            @endif
+                            {{$huruf}}
+                        </td>
                         <td>
                             <a href="{{route('koor.cetak.show',$row->id)}}" class="view_cetak_lihat" id="{{$row->name}}" title="Data Mahasiswa">
                                 <button class="btn btn-info btn-xs">Lihat</button>
@@ -33,7 +51,9 @@
                     @endforeach
                 </table>
             </div>
-            <button type="submit" class="btn btn-primary" data-dismiss="modal">Cetak</button>
+            <a href="{{route('koor.cetak.show',0)}}" >
+                <button class="btn btn-primary">Cetak</button>
+            </a>
 
         </div>
     </div>

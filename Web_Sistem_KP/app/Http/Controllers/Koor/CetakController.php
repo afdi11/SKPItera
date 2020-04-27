@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mahasiswa;
 use App\User;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class CetakController extends Controller
 {
@@ -58,8 +59,21 @@ class CetakController extends Controller
      */
     public function show($id)
     {
-        $row=User::findOrFail($id);
-        return view('koor.cetak.koor_cetak_lihat', compact('row'));
+        if($id>0){
+            $row=User::findOrFail($id);
+            return view('koor.cetak.koor_cetak_lihat', compact('row'));
+        }else{
+            $mahasiswa=Mahasiswa::whereHas(
+                'seminar', function($q){
+                    $q->whereNotNull('nilai');
+                }
+            )->whereNotNull('selesai')
+            ->pluck('user_id');
+            $user=User::whereIn('id',$mahasiswa)->get();
+            $pdf=PDF::loadView('koor.cetak.koor_cetak_rekap',compact('user'));
+
+            return $pdf->download('Rekap-Nilai-KP-IF.pdf');
+        }
     }
 
     /**

@@ -140,6 +140,9 @@
             success: function(response) {
                 me.trigger('reset');
                 $('#dataModal').modal("hide");
+                $("#dataModal").on('hidden.bs.modal', function () {
+                    window.location.reload(true);
+                });
             },
             error: function(xhr) {
                 var errors = xhr.responseJSON;
@@ -158,5 +161,16 @@
             function(data) {
                 $('#content1').html(data);
             });
+    });
+
+    //Scrip Acc Jadwal Seminar
+    $(document).ready(function() {
+        $('#seminar_acc').on('change', function() {
+            if (this.value == '1') {
+                $("#seminarCatatanLabel").hide();
+            } else if (this.value == '2') {
+                $("#seminarCatatanLabel").show();
+            }
+        });
     });
 </script>

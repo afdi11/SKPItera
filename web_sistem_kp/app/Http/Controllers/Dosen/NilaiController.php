@@ -23,7 +23,7 @@ class NilaiController extends Controller
     public function index()
     {
         $dosen=Auth::user()->id;
-        $mahasiswa=Mahasiswa::where('dosen_id',$dosen)->pluck('user_id')->toArray();
+        $mahasiswa=Mahasiswa::where('dosen_id',$dosen)->whereNull('selesai')->pluck('user_id')->toArray();
         $user=User::whereIn('id',$mahasiswa)->get();
         return view('dosen.nilai.dopem_nilai',compact('user'));
     }

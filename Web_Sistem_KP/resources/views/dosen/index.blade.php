@@ -37,15 +37,14 @@
         <div class="panel-heading">
             <div class="h-separated">
                 <div class="dropdown">
-                    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Mahasiswa
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Afdi</a></li>
-                        <li><a href="#">Yosi</a></li>
-                        <li><a href="#">Dhiko</a></li>
-                        <li><a href="#">Dewa</a></li>
-                        <li><a href="#">Dini</a></li>
-                    </ul>
+                    <select class="btn btn-success dropdown-toggle">
+                        <ul class="dropdown-menu">
+                        <option value="" hidden>Catatan Untuk Mahasiswa</option>
+                        @foreach($user as $row)
+                            <option value="$row->id">{{$row->name}}</option>
+                        @endforeach
+                        </ul>
+                    </select>
                 </div>
                 <div>Catatan Dosen</div>
             </div>

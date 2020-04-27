@@ -22,7 +22,6 @@
                     </tr>
                     @foreach($row as $R)
                     <tr>
-                        @if($R->mahasiswa->laporans['disetujui'] == 1)
                         <td>{{$R->name}}</td>
                         <td>{{$R->mahasiswa->seminar['name']}}</td>
                         @if($R->mahasiswa->seminar['pelaksanaan'] !=NULL )
@@ -31,7 +30,6 @@
                         <td>Belum ditentukan</td>
                         @endif
                         <td><a href="{{route('koor.laporan.show', $R->id )}}" type="button" class="btn btn-info btn-xs">Lihat<a></td>
-                        @endif
                     </tr>
                     @endforeach
                 </table>

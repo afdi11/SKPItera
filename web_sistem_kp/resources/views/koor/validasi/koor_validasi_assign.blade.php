@@ -21,7 +21,7 @@
             {{method_field('PUT')}}
                 <select id="dosen_id" name="dosen_id" placeholder="Assign Dosen Pembimbing">
                     @foreach($dopem as $p)
-                            <option value="{{$p->id}}" @if($p->id == $pembimbing->id) selected @endif>{{$p->name}}</option>
+                            <option value="{{$p->dosen->id}}" @if($p->id == $pembimbing->id) selected @endif>{{$p->name}}</option>
                     @endforeach
                 </select>
             </form>

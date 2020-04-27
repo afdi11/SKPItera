@@ -57,5 +57,5 @@ Route::namespace('dosen')->prefix('dosen')->middleware('can:dosen')->name('dosen
     Route::resource('/mahasiswa','MahasiswaController',['only'=>['index','show']]);
     Route::resource('/laporan','LaporanController',['only'=>['index','show']]);
     Route::resource('/nilai','NilaiController',['only'=>['index','edit','update']]);
-    Route::resource('/seminar','SeminarController',['only'=>'index']);
+    Route::resource('/seminar','SeminarController',['only'=>['index','edit','update']]);
 });
