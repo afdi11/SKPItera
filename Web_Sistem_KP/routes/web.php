@@ -53,7 +53,7 @@ Route::namespace('mahasiswa')->prefix('mahasiswa')->middleware('can:mahasiswa')-
 });
 
 Route::namespace('dosen')->prefix('dosen')->middleware('can:dosen')->name('dosen.')->group(function(){
-    Route::resource('/','DosenController',['only'=>'index']);
+    Route::resource('/','DosenController',['only'=>['index','store']]);
     Route::resource('/mahasiswa','MahasiswaController',['only'=>['index','show']]);
     Route::resource('/laporan','LaporanController',['only'=>['index','show']]);
     Route::resource('/nilai','NilaiController',['only'=>['index','edit','update']]);

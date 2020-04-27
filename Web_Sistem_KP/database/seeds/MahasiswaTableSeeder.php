@@ -80,7 +80,7 @@ class MahasiswaTableSeeder extends Seeder
 
         //Mahasiswa dengan id 2
         $mhs=Mahasiswa::find('2');
-        $mhs->dosen_id=2;
+        $mhs->dosen_id=1;
         $mhs->nim='14117033';
         $mhs->tahun_masuk='2017';
         $mhs->alamat='Lampung Timur';

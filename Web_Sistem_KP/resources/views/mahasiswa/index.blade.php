@@ -39,13 +39,14 @@
         <div class="panel-heading">Catatan Dosen</div>
         <div class="pemisah">
             <div class="panel-body">
-
-                <p>Hey Jackie! How have you been?</p>
-                <p>What a surprise. I haven’t seen you in a long time. How have you been?</p>
-                <p>I’m doing very well. How about you?</p>
-                <p>Well, I finally have some free time. I’m busy juggling between my full time job and
-                    freelance projects. But now since it’s done, I can relax for a while.</p>
-
+            @foreach($user->mahasiswa->laporans->catatans as $Catatan)
+                <p>{{$Catatan->catatan}}</p>
+            @endforeach
+            @if($user->mahasiswa->seminar->exists())
+                @if($user->mahasiswa->seminar->catatan != NULL)
+                    <p>{{$user->mahasiswa->seminar->catatan}}</p>
+                @endif
+            @endif
             </div>
         </div>
     </div>

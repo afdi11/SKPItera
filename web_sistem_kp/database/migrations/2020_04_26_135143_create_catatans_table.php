@@ -15,6 +15,8 @@ class CreateCatatansTable extends Migration
     {
         Schema::create('catatans', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('laporan_id');
+            $table->string('catatan');
             $table->timestamps();
         });
     }

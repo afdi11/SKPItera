@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(InstansiTableSeeder::class);
         $this->call(MahasiswaTableSeeder::class);
         $this->call(LaporanTableSeeder::class);
+        $this->call(CatatansTableSeeder::class);
         $this->call(SeminarTableSeeder::class);
     }
 }

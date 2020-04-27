@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dosen;
 
+use App\Catatan;
 use App\Http\Controllers\Controller;
 use App\Mahasiswa;
 use App\seminar;
@@ -53,7 +54,11 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Catatan::create([
+            'laporan_id'=>$request->userId,
+            'catatan'=>$request->komen,
+        ]);
+        return redirect()->back();
     }
 
     /**

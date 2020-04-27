@@ -31,17 +31,19 @@
             </div>
         </div>
     </div>
-
+    <form action="{{route('dosen.store')}}" method="POST">
+    @csrf
+    {{method_field('POST')}}
     <div class="panel panel-primary">
 
         <div class="panel-heading">
             <div class="h-separated">
                 <div class="dropdown">
-                    <select class="btn btn-success dropdown-toggle">
+                    <select name="userId"class="btn btn-success dropdown-toggle" required>
                         <ul class="dropdown-menu">
                         <option value="" hidden>Catatan Untuk Mahasiswa</option>
                         @foreach($user as $row)
-                            <option value="$row->id">{{$row->name}}</option>
+                            <option value="{{$row->mahasiswa->laporans->id}}">{{$row->name}}</option>
                         @endforeach
                         </ul>
                     </select>
@@ -53,22 +55,24 @@
 
         <div class="separated">
             <div class="panel-body">
-                <p>Hey Jackie! How have you been?</p>
-                <p>What a surprise. I haven’t seen you in a long time. How have you been?</p>
-                <p>I’m doing very well. How about you?</p>
-                <p>Well, I finally have some free time. I’m busy juggling between my full time job and
-                    freelance projects. But now since it’s done, I can relax for a while.</p>
+            @foreach($user as $row)
+                {{$row->name}}
+                @foreach($row->mahasiswa->laporans->catatans as $catatan)
+                <p>
+                    {{$catatan->catatan}}
+                </p>
+                @endforeach
+            @endforeach
             </div>
         </div>
 
         <div class="panel-footer">
-            <form action="#">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="komen" placeholder="Ketik Disini">
+                    <input type="text" class="form-control" id="komen" name="komen" placeholder="Ketik Disini" required>
                 </div>
-                <button class="btn btn-primary">Komentar</button>
-            </form>
+                <button type="submit" class="btn btn-primary">Komentar</button>
         </div>
     </div>
+    </form>
 </div>
 @endsection
