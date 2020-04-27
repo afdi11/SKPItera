@@ -20,11 +20,7 @@ class CetakController extends Controller
      */
     public function index()
     {
-        $mahasiswa=Mahasiswa::whereHas(
-            'seminar', function($q){
-                $q->whereNotNull('nilai');
-            }
-        )->whereNotNull('selesai')
+        $mahasiswa=Mahasiswa::whereNotNull('selesai')
         ->pluck('user_id');
         $user=User::whereIn('id',$mahasiswa)->get();
         return view('koor.cetak.index',compact('user'));
