@@ -38,7 +38,7 @@
                         <td>
                             <div class="form-check">
                                 <label class="form-check-label" for="check2">
-                                    <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something" @if($row->mahasiswa->seminar()->first()['nilai'] != NULL) checked disabled @endif >
+                                    <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something" @if($row->mahasiswa->seminar['nilai'] != NULL) checked disabled @endif >
                                 </label>
                                 <a href="#">Lihat Laporan</a>
                             </div>
