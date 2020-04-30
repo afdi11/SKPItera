@@ -8,7 +8,7 @@ class seminar extends Model
 {
     protected $table = "seminar";
     protected $fillable = [
-        'name', 'pelaksanaan', 'lokasi','nilai'
+        'name', 'pelaksanaan', 'lokasi','nilai','disetujui'
     ];
     public function mahasiswa()
     {

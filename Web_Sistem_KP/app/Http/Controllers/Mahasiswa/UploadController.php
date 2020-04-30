@@ -81,9 +81,18 @@ class UploadController extends Controller
         $file = $request->file('file');
         if($request->jenis==1){
             $lokasi_simpan='laporan';
-            $this->destroy($id,$lokasi_simpan);
             $nama_file=$file->getClientOriginalName();
-            $laporan=Laporan::findOrFail($user->mahasiswa->laporans->id);
+            if($user->mahasiswa->laporans != NULL){
+                $this->destroy($id,$lokasi_simpan);
+                $laporan=Laporan::findOrFail($user->mahasiswa->laporans['id']);
+            }else{
+                $laporan=Laporan::create([
+                    'name'=> $nama_file,
+                    'mahasiswa_id'=>$user->mahasiswa->id,
+                    'revisi'=>'-1',
+                    'disetujui'=>'0'
+                ]);
+            }
             $revisi=$laporan->revisi;
             $file->move($lokasi_simpan,$nama_file);
             $laporan->name=$nama_file;
@@ -92,18 +101,20 @@ class UploadController extends Controller
             return redirect()->back();
         }elseif($request->jenis==2){
             $lokasi_simpan='nilai';
-            $this->destroy($id,$lokasi_simpan);
             $nama_file=$user->mahasiswa->nim." - ".$user->mahasiswa->instansi[$instansi_id]->name.".".$file->getClientOriginalExtension();
+            if($user->mahasiswa->instansi()->first()->pivot->file_nilai != NULL)
+                $this->destroy($id,$lokasi_simpan);
             $file->move($lokasi_simpan,$nama_file);
-            $user->mahasiswa->instansi()->updateExistingPivot($user->mahasiswa->instansi[$instansi_id]->id,
+            $user->mahasiswa->instansi()->updateExistingPivot($user->mahasiswa->instansi[$instansi_id]['id'],
                 ['file_nilai' => $nama_file,
                 'nilai'=>$request->nilai]);
             $user->save();
             return redirect()->back();
         }else{
             $lokasi_simpan='logSheet';
-            $this->destroy($id,$lokasi_simpan);
             $nama_file=$user->mahasiswa->nim." - logSheet.".$file->getClientOriginalExtension();
+            if($user->mahasiswa->instansi()->first()->pivot->file_logsheet != NULL)
+                $this->destroy($id,$lokasi_simpan);
             $file->move($lokasi_simpan,$nama_file);
             $user->mahasiswa->instansi()->updateExistingPivot($user->mahasiswa->instansi[$instansi_id]->id,['file_logsheet' => $nama_file,]);
             $user->save();
@@ -120,7 +131,7 @@ class UploadController extends Controller
     public function destroy($id,$lokasi_simpan)
     {
         $user=User::findOrFail($id);
-        $laporan=Laporan::findOrFail($user->mahasiswa->laporans->id);
+        $laporan=Laporan::findOrFail($user->mahasiswa->laporans['id']);
         File::delete($lokasi_simpan.'/'.$laporan->name);
     }
 }

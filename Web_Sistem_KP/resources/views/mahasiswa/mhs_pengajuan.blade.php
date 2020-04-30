@@ -29,14 +29,16 @@
                     <input type="text" class="form-control" id="tempat_seminar" placeholder="Masukkan Tempat Seminar"  value="@if($mahasiswa->seminar()->exists()){{$mahasiswa->seminar->lokasi}}@endif" name="tempat_seminar" required>
                 </div>
 
-                @if($mahasiswa->seminar->disetujui == 1)
+                @if($mahasiswa->seminar['disetujui'] == 1)
                     <a href="#" type="button" class="btn btn-success">Terdaftar</a>
                 @else
                     <button type="submit" class="btn btn-primary">Daftar</button>
-                    @if($mahasiswa->seminar->disetujui == NULL)
-                        Pengajuan sedang menunggu persetujuan
-                    @elseif($mahasiswa->seminar->disetujui == 0)
-                        Pengajuan Ditolak. Silahkan cek catatan dari dosen.
+                    @if($mahasiswa->seminar()->exists())
+                        @if($mahasiswa->seminar['disetujui'] === NULL)
+                            Pengajuan sedang menunggu persetujuan
+                        @elseif($mahasiswa->seminar['disetujui'] === 0)
+                            Pengajuan Ditolak. Silahkan cek catatan dari dosen.
+                        @endif
                     @endif
                 @endif
             </form>

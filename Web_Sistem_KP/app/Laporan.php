@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Laporan extends Model
 {
     protected $table='laporan';
+    protected $fillable = [
+        'name','mahasiswa_id','revisi','disetujui',
+    ];
     public function catatans(){
         return $this->hasMany('App\Catatan');
     }
