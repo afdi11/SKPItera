@@ -85,7 +85,7 @@ class MahasiswaTableSeeder extends Seeder
         $mhs->tahun_masuk='2017';
         $mhs->alamat='Lampung Timur';
         $mhs->Kontak_Person='(+62) 813 6701 3438';
-        $instansi_id=(rand()%50);
+        $instansi_id=(rand()%50+1);
         $mhs->instansi()->sync($instansi_id);
         $mhs->instansi()->updateExistingPivot($instansi_id,
                 ['divisi' => "Quality Assurance",
@@ -103,7 +103,7 @@ class MahasiswaTableSeeder extends Seeder
         $mhs->tahun_masuk='2017';
         $mhs->alamat='Tanjung Bintang, Lampung Selatan';
         $mhs->Kontak_Person='(+62) 858 4153 3174';
-        $instansi_id=(rand()%50);
+        $instansi_id=(rand()%50+1);
         $mhs->instansi()->sync($instansi_id);
         $mhs->instansi()->updateExistingPivot($instansi_id,
                 ['divisi' => "Programmer",

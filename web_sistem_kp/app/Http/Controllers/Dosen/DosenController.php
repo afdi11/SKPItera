@@ -22,7 +22,7 @@ class DosenController extends Controller
      */
     public function index()
     {
-        $dosen=Auth::user()->id;
+        $dosen=Auth::user()->dosen->id;
         $mahasiswa=Mahasiswa::where('dosen_id',$dosen)->whereNull('selesai')->get();
         $mahasiswa_id=$mahasiswa->pluck('id')->toArray();
         $user=User::whereIn('id',$mahasiswa->pluck('user_id'))->get();

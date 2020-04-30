@@ -20,7 +20,7 @@
                         <th width="10%">Lihat</th>
                     </tr>
                     @foreach($user as $row)
-                    @php ($nilaiAkhir=(0.6*$row->mahasiswa->seminar['nilai'])+(0.4*$row->mahasiswa->instansi()->first()->pivot->nilai))
+                    @php ($nilaiAkhir=(0.6*$row->mahasiswa->seminar['nilai'])+(0.4*$row->mahasiswa->instansi()->first()['pivot']['nilai']))
                     <tr>
                         <td>{{$row->name}}</td>
                         <td>{{$row->mahasiswa->seminar['name']}}</td>
@@ -43,7 +43,7 @@
                             {{$huruf}}
                         </td>
                         <td>
-                            <a href="{{route('koor.cetak.show',$row->id)}}" class="view_cetak_lihat" id="{{$row->name}}" title="Data Mahasiswa">
+                            <a href="{{route('koor.cetak.show',$row->id)}}" class="view_cetak_lihat" id="{{$row->id}}" title="Data Mahasiswa">
                                 <button class="btn btn-info btn-xs">Lihat</button>
                             </a>
                         </td>

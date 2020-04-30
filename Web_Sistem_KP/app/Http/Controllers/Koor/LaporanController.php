@@ -26,11 +26,7 @@ class LaporanController extends Controller
             }
         )->whereHas(
             'mahasiswa', function($q){
-                $q->whereHas(
-                    'seminar',function($r){
-                        $r->where('disetujui',1);
-                    }
-                )->whereNull('selesai');
+                $q->whereNull('selesai');
             }
         )->get();
         return view('koor.laporan.index', compact('row'));

@@ -21,9 +21,14 @@
                         <th width="10%">Lihat</th>
                     </tr>
                     @foreach($row as $R)
+                    @if($R->mahasiswa->laporans()->exists())
                     <tr>
                         <td>{{$R->name}}</td>
-                        <td>{{$R->mahasiswa->seminar['name']}}</td>
+                        <td>@if($R->mahasiswa->seminar['name'] == NULL)
+                            {{$R->mahasiswa->laporans['name']}}
+                            @else
+                            {{$R->mahasiswa->seminar['name']}}
+                            @endif</td>
                         @if($R->mahasiswa->seminar['pelaksanaan'] !=NULL )
                         <td>{{$R->mahasiswa->seminar['pelaksanaan']}}</td>
                         @else
@@ -31,6 +36,7 @@
                         @endif
                         <td><a href="{{route('koor.laporan.show', $R->id )}}" type="button" class="btn btn-info btn-xs">Lihat<a></td>
                     </tr>
+                    @endif
                     @endforeach
                 </table>
             </div>
