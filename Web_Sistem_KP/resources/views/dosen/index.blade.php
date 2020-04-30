@@ -43,7 +43,7 @@
                         <ul class="dropdown-menu">
                         <option value="" hidden>Catatan Untuk Mahasiswa</option>
                         @foreach($user as $row)
-                            <option value="{{$row->mahasiswa->laporans->id}}">{{$row->name}}</option>
+                            <option value="{{$row->id}}">{{$row->name}}</option>
                         @endforeach
                         </ul>
                     </select>
@@ -57,11 +57,13 @@
             <div class="panel-body">
             @foreach($user as $row)
                 {{$row->name}}
-                @foreach($row->mahasiswa->laporans->catatans as $catatan)
-                <p>
-                    {{$catatan->catatan}}
-                </p>
-                @endforeach
+                @if($row->mahasiswa->laporans()->exists())
+                    @foreach($row->mahasiswa->laporans->catatans as $catatan)
+                    <p>
+                        {{$catatan->catatan}}
+                    </p>
+                    @endforeach
+                @endif
             @endforeach
             </div>
         </div>

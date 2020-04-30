@@ -39,10 +39,14 @@
         <div class="panel-heading">Catatan Dosen</div>
         <div class="pemisah">
             <div class="panel-body">
-            @foreach($user->mahasiswa->laporans->catatans as $Catatan)
-                <p>{{$Catatan->catatan}}</p>
-            @endforeach
-            @if($user->mahasiswa->seminar->exists())
+            @if($user->mahasiswa->laporans != NULL)
+                @if($user->mahasiswa->laporans->catatans != NULL)
+                    @foreach($user->mahasiswa->laporans->catatans as $Catatan)
+                        <p>{{$Catatan->catatan}}</p>
+                    @endforeach
+                @endif
+            @endif
+            @if($user->mahasiswa->seminar != NULL)
                 @if($user->mahasiswa->seminar->catatan != NULL)
                     <p>{{$user->mahasiswa->seminar->catatan}}</p>
                 @endif

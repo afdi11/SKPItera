@@ -54,8 +54,9 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
+        $row=User::findOrFail($request->userId);
         Catatan::create([
-            'laporan_id'=>$request->userId,
+            'laporan_id'=>$row->mahasiswa->laporans->id,
             'catatan'=>$request->komen,
         ]);
         return redirect()->back();

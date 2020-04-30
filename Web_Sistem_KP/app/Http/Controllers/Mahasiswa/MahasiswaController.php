@@ -19,7 +19,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $user=Auth::user();
+        $user=User::findOrFail(Auth::user()->id);
         return view('mahasiswa.index',compact('user'));
     }
 

@@ -21,7 +21,7 @@
                         <th width="10%">Validasi</th>
                         <th width="10%">Lihat</th>
                     </tr>
-                    @foreach ($result as $row)
+                    @foreach ($user as $row)
                     <tr>
                         <td>{{$row->name}}</td>
                         <td>
