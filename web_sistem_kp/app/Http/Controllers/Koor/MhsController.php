@@ -17,13 +17,13 @@ class MhsController extends Controller
      */
     public function index()
     {   
-        $mahasiswa=User::whereNotNull('email_verified_at')
+        $user=User::whereNotNull('email_verified_at')
         ->whereHas(
             'roles',function($q){
                 $q->where('name','mahasiswa');
             })
         ->get();
-        return view('koor.mahasiswa.koor_mhs')->with('result',$mahasiswa);
+        return view('koor.mahasiswa.koor_mhs',compact('user'));
     }
 
     /**
