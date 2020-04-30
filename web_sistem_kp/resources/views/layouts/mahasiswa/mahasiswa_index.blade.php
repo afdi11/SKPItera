@@ -68,7 +68,7 @@
     <div class="row">
         <div class="col-3 col-s-12 menu">
             <div class="list-group">
-                <a class="list-group-item active">Nama Menu</a>
+                <a class="list-group-item active">Menu Utama</a>
                 <a href="{{route('mahasiswa.index')}}" class="list-group-item">Beranda</a>
                 <a href="{{route('mahasiswa.daftar.edit',Auth::user()->mahasiswa->id)}}" class="list-group-item">Daftar</a>
                 <a href="{{route('mahasiswa.referensi.index')}}" class="list-group-item">Referensi</a>
@@ -134,7 +134,7 @@
                     {{method_field('PUT')}}
                     <input type='number' name="jenis" id="jenis" value="2" hidden>
                     <label for="nilai">Masukkan Nilai</label>
-                    <input type='number' name='nilai' id='nilai' placeholder="Masukkan nilai sesuai dengan file yang diberikan Jika berbeda maka nilai instansi dianggap 0"class='form-control' required><br>
+                    <input type='number' name='nilai' id='nilai' placeholder="Masukkan nilai sesuai dengan file yang diberikan Jika berbeda maka nilai instansi dianggap 0" class='form-control' required><br>
                     <input type='file' name='file' id='file' class='form-control'><br>
                     <input type='submit' class='btn btn-primary' value='Unggah' id='btn_upload'>
                 </form>

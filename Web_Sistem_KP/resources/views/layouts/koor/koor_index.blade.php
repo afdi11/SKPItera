@@ -68,7 +68,7 @@
     <div class="row">
         <div class="col-3 col-s-12 menu">
             <div class="list-group">
-                <a class="list-group-item active">Nama Menu</a>
+                <a class="list-group-item active">Menu Utama</a>
                 <a href="{{route('koor.index')}}" class="list-group-item">Beranda</a>
                 <a href="{{route('koor.mahasiswa.index')}}" class="list-group-item">Mahasiswa</a>
                 <a href="{{route('koor.laporan.index')}}" class="list-group-item">Laporan</a>
@@ -236,7 +236,7 @@
             success: function(response) {
                 me.trigger('reset');
                 $('#assignModal').modal("hide");
-                $("#assignModal").on('hidden.bs.modal', function () {
+                $("#assignModal").on('hidden.bs.modal', function() {
                     window.location.reload(true);
                 });
             },
@@ -260,7 +260,7 @@
             success: function(response) {
                 me.trigger('reset');
                 $('#validasiModal').modal("hide");
-                $("#validasiModal").on('hidden.bs.modal', function () {
+                $("#validasiModal").on('hidden.bs.modal', function() {
                     window.location.reload(true);
                 });
             },
