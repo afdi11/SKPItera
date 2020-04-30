@@ -20,7 +20,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $dosen=Auth::user()->id;
+        $dosen=Auth::user()->dosen->id;
         $mahasiswa=Mahasiswa::where('dosen_id',$dosen)->whereNull('selesai')->pluck('user_id');
         $user=User::whereIn('id',$mahasiswa)->get();
         return view('dosen.mahasiswa.dopem_mhs',compact('user'));
