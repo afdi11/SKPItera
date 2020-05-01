@@ -147,7 +147,7 @@
 
     //Koor Dosen Pembimbing
     $(document).ready(function() {
-        $('body').on('click', '.modal-show', function() {
+        $('body').on('click', '.modal-show', function(event) {
             event.preventDefault();
             var me = $(this),
                 employee_id = me.attr("id"),
