@@ -12,7 +12,7 @@
             </div> -->
 
             <div class="table-responsive">
-                <table id="dtBasicExample" class="table table-striped table-bordered table-sm">
+                <table id="datatables" class="table table-striped table-bordered table-sm">
                     <thead>
                         <tr>
                             <th class="th-sm" width="90%">Nama</th>
