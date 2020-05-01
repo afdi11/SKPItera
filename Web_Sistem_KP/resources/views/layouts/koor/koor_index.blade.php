@@ -169,7 +169,7 @@
 
     //Koor Mahasiswa
     $(document).ready(function() {
-        $('body').on('click', '.view_data_lihat', function() {
+        $('body').on('click', '.view_data_lihat', function(event) {
             event.preventDefault();
             var me = $(this),
                 employee_id = me.attr("id"),
