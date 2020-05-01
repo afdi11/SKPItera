@@ -66,14 +66,16 @@
     <h4 align="center">Info Tempat Kerja Praktik</h4>
     <br>
     <div class="table-responsive">
-        <table class=" table table-hover">
-            <tr class="active">
-                <th width="5%">No</th>
-                <th width="25%">Nama Instansi</th>
-                <th width="35%">Alamat</th>
-                <th width="15%">No. Telepon</th>
-                <th width="20%">Email</th>
-            </tr>
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+                <tr class="active">
+                    <th class="th-sm" width="5%">No</th>
+                    <th class="th-sm" width="25%">Nama Instansi</th>
+                    <th class="th-sm" width="35%">Alamat</th>
+                    <th class="th-sm" width="15%">No. Telepon</th>
+                    <th class="th-sm" width="20%">Email</th>
+                </tr>
+            </thead>
             <tbody>
                 @foreach($instansi as $p)
                 <tr>

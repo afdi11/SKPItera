@@ -193,9 +193,16 @@ strong {
     color: rgb(231, 225, 225);
 }
 
-.table-responsive {
-    overflow: scroll;
-    height: 500px;
+table {
+    color: black;
+}
+
+label {
+    color: black;
+}
+
+.dataTables_info {
+    color: black;
 }
 
 /* CLASS ROW */
