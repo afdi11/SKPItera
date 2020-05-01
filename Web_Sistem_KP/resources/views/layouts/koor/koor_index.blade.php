@@ -235,7 +235,7 @@
     });
 
     //Koor submit
-    $('#modal-btn-save').click(function(event) {
+    $('body').on('click', '#modal-btn-save', function(event) {
         event.preventDefault();
         var me = $('#assign_detail form'),
             url = me.attr('action');
@@ -258,7 +258,7 @@
     });
 
     //Koor Validasi
-    $('#modal-btn-validasi').click(function(event) {
+    $('body').on('click', '#modal-btn-validasi', function(event) {
         event.preventDefault();
         var me = $('#validasi_detail form'),
             url = me.attr('action'),
@@ -283,7 +283,7 @@
 
     //KOOR lihat detail di cetak nilai
     $(document).ready(function() {
-        $('body').on('click', '.view_cetak_lihat', function() {
+        $('body').on('click', '.view_cetak_lihat', function(event) {
             event.preventDefault();
             var me = $(this),
                 employee_id = me.attr("id"),
