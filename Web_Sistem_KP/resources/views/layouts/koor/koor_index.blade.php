@@ -190,7 +190,7 @@
     });
     //Koor editValidasi
     $(document).ready(function() {
-        $('.edit').click(function(event) {
+        $('body').on('click', '.edit.', function() {
             event.preventDefault();
             var me = $(this),
                 employee_id = me.attr("id"),
