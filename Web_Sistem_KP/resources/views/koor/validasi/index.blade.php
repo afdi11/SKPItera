@@ -12,49 +12,50 @@
             </div> -->
 
             <div class="table-responsive">
-                <table id="datatables" class=" col-12 col-s-12 table table-hover">
+                <table id="datatables" class="table table-striped table-bordered table-sm">
+                    <thead>
+                        <tr class="active">
+                            <th class="th-sm">Mahasiswa</th>
+                            <th class="th-sm">Validasi</th>
+                            <th class="th-sm">Assign</th>
+                            <th class="th-sm">Lihat</th>
+                        </tr>
+                    </thead>
 
-                    <tr>
-                        <th>Mahasiswa</th>
-                        <th>Validasi</th>
-                        <th>Assign</th>
-                        <th>Lihat</th>
-                    </tr>
-
-
-                    @foreach($result as $row)
-                    <tr>
-                        <td width="80%">{{$row->name}}</td>
-                        <td>
-                            @if($row->email_verified_at == NULL)
-                            <a href="{{route('koor.validasi.edit',$row->id)}}" class="edit" fungsi="validasi" id="{{$row->id}}" title="Validasi Pendaftaran Mahasiswa">
-                                <button class="btn btn-info btn-xs">Validasi</button>
-                            </a>
-                            @else
-                            <a href="#">
-                                <button class="btn btn-success btn-xs">Tervalidasi</button>
-                            </a>
-                            @endif
-                        </td>
-                        <td>
-                            @if($row->mahasiswa->dosen_id == NULL)
-                            <a href="{{route('koor.assign.edit',$row->id)}}" class="assign" fungsi="assign" id="{{$row->id}}" title="Assign Dosen Pembimbing">
-                                <button class="btn btn-info btn-xs">Assign</button>
-                            </a>
-                            @else
-                            <a href="{{route('koor.assign.edit',$row->id)}}" class="assign" fungsi="ubah" id="{{$row->id}}" title="Assign Dosen Pembimbing">
-                                <button class="btn btn-success btn-xs">Ubah Dopem</button>
-                            </a>
-                            @endif
-                        </td>
-                        <td>
-                            <a href="{{route('koor.mahasiswa.show',$row->id)}}" class="view_data_lihat" id="{{$row->id}}" title="Detail Data Mahasiswa">
-                                <button class="btn btn-info btn-xs">Lihat</button>
-                            </a>
-                        </td>
-                    </tr>
-                    @endforeach
-
+                    <tbody>
+                        @foreach($result as $row)
+                        <tr>
+                            <td width="80%">{{$row->name}}</td>
+                            <td>
+                                @if($row->email_verified_at == NULL)
+                                <a href="{{route('koor.validasi.edit',$row->id)}}" class="edit" fungsi="validasi" id="{{$row->id}}" title="Validasi Pendaftaran Mahasiswa">
+                                    <button class="btn btn-info btn-xs">Validasi</button>
+                                </a>
+                                @else
+                                <a href="#">
+                                    <button class="btn btn-success btn-xs">Tervalidasi</button>
+                                </a>
+                                @endif
+                            </td>
+                            <td>
+                                @if($row->mahasiswa->dosen_id == NULL)
+                                <a href="{{route('koor.assign.edit',$row->id)}}" class="assign" fungsi="assign" id="{{$row->id}}" title="Assign Dosen Pembimbing">
+                                    <button class="btn btn-info btn-xs">Assign</button>
+                                </a>
+                                @else
+                                <a href="{{route('koor.assign.edit',$row->id)}}" class="assign" fungsi="ubah" id="{{$row->id}}" title="Assign Dosen Pembimbing">
+                                    <button class="btn btn-success btn-xs">Ubah Dopem</button>
+                                </a>
+                                @endif
+                            </td>
+                            <td>
+                                <a href="{{route('koor.mahasiswa.show',$row->id)}}" class="view_data_lihat" id="{{$row->id}}" title="Detail Data Mahasiswa">
+                                    <button class="btn btn-info btn-xs">Lihat</button>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>
