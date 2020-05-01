@@ -212,7 +212,7 @@
 
     //Koor assignDopem
     $(document).ready(function() {
-        $('.assign').click(function(event) {
+        $('body').on('click', '.assign', function(event) {
             event.preventDefault();
             var me = $(this),
                 employee_id = me.attr("id"),
