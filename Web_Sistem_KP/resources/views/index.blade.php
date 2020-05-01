@@ -66,7 +66,7 @@
     <h4 align="center">Info Tempat Kerja Praktik</h4>
     <br>
     <div class="table-responsive">
-        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm">
             <thead>
                 <tr class="active">
                     <th class="th-sm" width="5%">No</th>
