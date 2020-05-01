@@ -190,7 +190,7 @@
     });
     //Koor editValidasi
     $(document).ready(function() {
-        $('body').on('click', '.edit.', function() {
+        $('body').on('click', '.edit', function(event) {
             event.preventDefault();
             var me = $(this),
                 employee_id = me.attr("id"),
@@ -283,7 +283,7 @@
 
     //KOOR lihat detail di cetak nilai
     $(document).ready(function() {
-        $('.view_cetak_lihat').click(function(event) {
+        $('body').on('click', '.view_cetak_lihat', function() {
             event.preventDefault();
             var me = $(this),
                 employee_id = me.attr("id"),
