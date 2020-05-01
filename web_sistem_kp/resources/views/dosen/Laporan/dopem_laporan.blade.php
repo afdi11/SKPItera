@@ -11,24 +11,28 @@
                 <input type="text" class="form-control" placeholder="Search">
             </div> -->
             <div class="table-responsive">
-                <table class=" col-12 col-s-12 table table-hover">
-                    <tr class="active">
-                        <th width="90%">Judul Laporan</th>
-                        <th width="10%">Lihat</th>
-                    </tr>
-                    @foreach($mahasiswa as $row)
-                    @if($row->laporans()->exists())
-                    <tr>
-                        <td>@if($row->seminar['name'] == NULL)
-                            {{$row->laporans['name']}}
-                            @else
-                            {{$row->seminar['name']}}
-                            @endif
-                        </td>
-                        <td><a href="{{route('dosen.laporan.show', $row->id )}}" type="button" name="view" value="Lihat" id="$row->id" class="btn btn-info btn-xs">Lihat</a></td>
-                    </tr>
-                    @endif
-                    @endforeach
+                <table id="datatables" class="table table-striped table-bordered table-sm">
+                    <thead>
+                        <tr class="active">
+                            <th class="th-sm" width="90%">Judul Laporan</th>
+                            <th class="th-sm" width="10%">Lihat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($mahasiswa as $row)
+                        @if($row->laporans()->exists())
+                        <tr>
+                            <td>@if($row->seminar['name'] == NULL)
+                                {{$row->laporans['name']}}
+                                @else
+                                {{$row->seminar['name']}}
+                                @endif
+                            </td>
+                            <td><a href="{{route('dosen.laporan.show', $row->id )}}" type="button" name="view" value="Lihat" id="$row->id" class="btn btn-info btn-xs">Lihat</a></td>
+                        </tr>
+                        @endif
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>
