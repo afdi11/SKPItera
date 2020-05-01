@@ -12,21 +12,26 @@
             </div> -->
 
             <div class="table-responsive">
-                <table class=" col-12 col-s-12 table table-hover">
-                    <tr>
-                        <th width="90%">Nama</th>
-                        <th width="10%">Lihat</th>
-                    </tr>
-                    @foreach ($result as $row)
-                    <tr>
-                        <td>{{$row->name}}</td>
-                        <td>
-                            <a href="{{route('koor.dopem.show',$row->id)}}" class="modal-show" id="{{$row->name}}" title="Data Dosen Pembimbing">
-                                <button class="btn btn-info btn-xs">Lihat</button>
-                            </a>
-                        </td>
-                    </tr>
-                    @endforeach
+                <table id="dtBasicExample" class="table table-striped table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <th class="th-sm" width="90%">Nama</th>
+                            <th class="th-sm" width="10%">Lihat</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach ($result as $row)
+                        <tr>
+                            <td>{{$row->name}}</td>
+                            <td>
+                                <a href="{{route('koor.dopem.show',$row->id)}}" class="modal-show" id="{{$row->name}}" title="Data Dosen Pembimbing">
+                                    <button class="btn btn-info btn-xs">Lihat</button>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>

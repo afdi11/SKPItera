@@ -141,7 +141,7 @@
 <script>
     // script pagination
     $(document).ready(function() {
-        $('#datatables').DataTable();
+        $('#dtBasicExample').DataTable();
         $('.dataTables_length').addClass('bs-select');
     });
 
