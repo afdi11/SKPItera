@@ -139,7 +139,7 @@
     });
 
     //Submit Button
-    $('#submitButton').click(function(event) {
+    $('body').on('click', '#submitButton', function(event) {
         event.preventDefault();
         var me = $('#employee_detail form'),
             url = me.attr('action');
@@ -162,7 +162,7 @@
     });
 
     //SCRIPT DOPEM LAPORAN
-    $('.view_data').click(function() {
+    $('body').on('click', '.view_data', function(event) {
         var laporan_id = $(this).attr("id");
 
         $.post('dopem_laporan_lihat.php', {
@@ -175,7 +175,7 @@
 
     //Scrip Acc Jadwal Seminar
     $(document).ready(function() {
-        $('#seminar_acc').on('change', function() {
+        $('body').on('change', '#seminar_acc', function(event) {
             if (this.value == '1') {
                 $("#seminarCatatanLabel").hide();
             } else if (this.value == '2') {
