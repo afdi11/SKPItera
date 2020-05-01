@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="{{asset('css/dosen/dopem_nilai.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/dosen/dopem_seminar.css')}}" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -105,9 +109,15 @@
     </div>
 </div>
 <script>
+    //Script pagination
+    $(document).ready(function() {
+        $('#datatables').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+    });
+
     //Mahasiswa
     $(document).ready(function() {
-        $('.view_data_lihat').click(function(e) {
+        $('body').on('click', '.view_data_lihat', function(e) {
             e.preventDefault();
             var me = $(this),
                 employee_id = me.attr("id"),
