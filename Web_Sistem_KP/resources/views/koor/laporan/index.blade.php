@@ -13,31 +13,35 @@
             </div> -->
 
             <div class="table-responsive">
-                <table class=" col-12 col-s-12 table table-hover">
-                    <tr>
-                        <th width="30%">Nama</th>
-                        <th width="30%">Judul Laporan</th>
-                        <th width="30%">Jadwal Seminar</th>
-                        <th width="10%">Lihat</th>
-                    </tr>
-                    @foreach($row as $R)
-                    @if($R->mahasiswa->laporans()->exists())
-                    <tr>
-                        <td>{{$R->name}}</td>
-                        <td>@if($R->mahasiswa->seminar['name'] == NULL)
-                            {{$R->mahasiswa->laporans['name']}}
+                <table id="datatables" class="table table-striped table-bordered table-sm">
+                    <thead>
+                        <tr class="active">
+                            <th class="th-sm" width="30%">Nama</th>
+                            <th class="th-sm" width="30%">Judul Laporan</th>
+                            <th class="th-sm" width="30%">Jadwal Seminar</th>
+                            <th class="th-sm" width="10%">Lihat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($row as $R)
+                        @if($R->mahasiswa->laporans()->exists())
+                        <tr>
+                            <td>{{$R->name}}</td>
+                            <td>@if($R->mahasiswa->seminar['name'] == NULL)
+                                {{$R->mahasiswa->laporans['name']}}
+                                @else
+                                {{$R->mahasiswa->seminar['name']}}
+                                @endif</td>
+                            @if($R->mahasiswa->seminar['pelaksanaan'] !=NULL )
+                            <td>{{$R->mahasiswa->seminar['pelaksanaan']}}</td>
                             @else
-                            {{$R->mahasiswa->seminar['name']}}
-                            @endif</td>
-                        @if($R->mahasiswa->seminar['pelaksanaan'] !=NULL )
-                        <td>{{$R->mahasiswa->seminar['pelaksanaan']}}</td>
-                        @else
-                        <td>Belum ditentukan</td>
+                            <td>Belum ditentukan</td>
+                            @endif
+                            <td><a href="{{route('koor.laporan.show', $R->id )}}" type="button" class="btn btn-info btn-xs">Lihat<a></td>
+                        </tr>
                         @endif
-                        <td><a href="{{route('koor.laporan.show', $R->id )}}" type="button" class="btn btn-info btn-xs">Lihat<a></td>
-                    </tr>
-                    @endif
-                    @endforeach
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
         </div>
