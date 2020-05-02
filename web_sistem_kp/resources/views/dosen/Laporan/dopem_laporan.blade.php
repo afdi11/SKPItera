@@ -1,4 +1,5 @@
 @extends('layouts.dosen.dosen_index')
+@section('title') Laporan @stop
 @section('content')
 <div class="col-9 col-s-12 content" id="content1">
 
