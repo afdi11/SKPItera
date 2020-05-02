@@ -87,6 +87,12 @@ class DaftarController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $x=$this->validate($request,[
+            'nim'=>'unique:mahasiswa,nim',
+        ]);
+        if($x)
+            return redirect()->route('mahasiswa.daftar.edit',$id);
+
         $mahasiswa=Mahasiswa::find($id);
         $user=User::find($mahasiswa->user_id);
         

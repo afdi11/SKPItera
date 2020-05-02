@@ -1,5 +1,5 @@
 @extends('layouts.mahasiswa.mahasiswa_index')
-
+@section('title') Beranda @stop
 @section('content')
 <div class="col-9 col-s-12 content">
     <div class="panel panel-primary">

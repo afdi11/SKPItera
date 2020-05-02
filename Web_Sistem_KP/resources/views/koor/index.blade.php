@@ -1,5 +1,5 @@
 @extends('layouts.koor.koor_index')
-
+@section('title') Beranda @stop
 @section('content')
 <div class="col-9 col-s-12 content">
 

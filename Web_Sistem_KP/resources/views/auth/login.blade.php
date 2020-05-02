@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-
+@section('title') Masuk @stop
 @section('content')
 <div class="col-3 col-s-12 content">
 

@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>@yield('title') | Mahasiswa</title>
     <link rel="stylesheet" href="{{asset('css/mahasiswa/home_page.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/mahasiswa/mhs_daftar.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/mahasiswa/mhs_pengajuan.css')}}" type="text/css">

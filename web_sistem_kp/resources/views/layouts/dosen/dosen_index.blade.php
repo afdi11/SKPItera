@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>@yield('title') | Dosen Pembimbing</title>
     <link rel="stylesheet" href="{{asset('css/dosen/home_page.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/dosen/dopem_laporan.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/dosen/dopem_mhs.css')}}" type="text/css">

@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-
+@section('title') Daftar @stop
 @section('content')
 <div class="col-3 col-s-12 content">
     <h3 style="text-align: center">Daftar</h3>

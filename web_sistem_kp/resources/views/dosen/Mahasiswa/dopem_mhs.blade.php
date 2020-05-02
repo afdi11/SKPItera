@@ -1,4 +1,5 @@
 @extends('layouts.dosen.dosen_index')
+@section('title') Daftar Mahasiswa @stop
 @section('content')
 <div class="col-9 col-s-12 content">
     <div class="panel panel-primary">

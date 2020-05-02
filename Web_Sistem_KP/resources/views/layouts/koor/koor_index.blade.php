@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koordinator | Kerja Praktik</title>
+    <title>@yield('title') | Koordinator</title>
     <link rel="stylesheet" href="{{asset('css/koor/home_page.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/koor/koor_dopem.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/koor/koor_cetak.css')}}" type="text/css">
