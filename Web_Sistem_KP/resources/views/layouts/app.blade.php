@@ -65,17 +65,17 @@
                                         {{__('User Management')}}
                                     </a>
                                     <a class="dropdown-item" href="{{route('koor.index')}}">
-                                        {{__('Dashboard')}}
+                                        {{__('Dashboard Koordinator')}}
                                     </a>
                                     @endcan
                                     @can('dosen')
                                         <a class="dropdown-item" href="{{route('dosen.index')}}">
-                                            {{__('Dashboard')}}
+                                            {{__('Dashboard Dosen')}}
                                         </a>
                                     @endcan
                                     @can('mahasiswa')
                                         <a class="dropdown-item" href="{{route('mahasiswa.index')}}">
-                                            {{__('Dashboard')}}
+                                            {{__('Dashboard Mahasiswa')}}
                                         </a>
                                     @endcan
 
