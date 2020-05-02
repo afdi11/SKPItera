@@ -22,21 +22,28 @@ class KoorController extends Controller
     public function index()
     {
         //Kerja Praktik
-        $mahasiswa_sudah_KP=DB::table('instansi_mahasiswa')->count();
-        $total_mhs=DB::table('mahasiswa')->count();
+        $mahasiswa_sudah_KP=Mahasiswa::whereNull('selesai')->has('instansi')->count();
+        $total_mhs=Mahasiswa::whereNull('selesai')->count();
         $mahasiswa_belum_KP=$total_mhs-$mahasiswa_sudah_KP;
 
         //Seminar
-        $sudah_seminar=DB::table('seminar')
-            ->whereNotNull('nilai')
-            ->count();
-        $akan_seminar=DB::table('seminar')
-            ->whereNotNull('pelaksanaan')
-            ->whereNull('nilai')
-            ->count();
-        $belum_seminar=DB::table('seminar')
-        ->whereNull('pelaksanaan')
-        ->count();
+        $sudah_seminar=Mahasiswa::whereNull('selesai')->whereHas(
+            'seminar',function($q){
+                $q->whereNotNull('nilai');
+            }
+        )->count();
+        $akan_seminar=Mahasiswa::whereNull('selesai')->whereHas(
+            'seminar',function($q){
+                $q->whereNull('nilai')
+                ->where('disetujui',1);
+            }
+        )->count();
+        $belum_seminar=Mahasiswa::whereNull('selesai')->whereHas(
+            'seminar',function($q){
+                $q->where('disetujui',0)
+                ->orWhereNull('disetujui');
+            }
+        )->count();
         return view('koor.index')->with([
             'belum_kp'=>$mahasiswa_belum_KP,
             'sudah_kp'=>$mahasiswa_sudah_KP,
