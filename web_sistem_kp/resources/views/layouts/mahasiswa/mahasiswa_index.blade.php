@@ -108,7 +108,7 @@
                     @csrf
                     {{method_field('PUT')}}
                     <input type='number' name="jenis" id="jenis" value="1" hidden>
-                    <input type='file' name='file' id='file' class='form-control'><br>
+                    <input type='file' name='file' id='file' class='form-control'required><br>
                     <input type='submit' class='btn btn-primary' value='Unggah' id='btn_upload'>
                 </form>
 
@@ -139,7 +139,7 @@
                     <input type='number' name="jenis" id="jenis" value="2" hidden>
                     <label for="nilai">Masukkan Nilai</label>
                     <input type='number' name='nilai' id='nilai' placeholder="Masukkan nilai sesuai dengan file yang diberikan Jika berbeda maka nilai instansi dianggap 0" class='form-control' required><br>
-                    <input type='file' name='file' id='file' class='form-control'><br>
+                    <input type='file' name='file' id='file' class='form-control'required><br>
                     <input type='submit' class='btn btn-primary' value='Unggah' id='btn_upload'>
                 </form>
 
@@ -168,7 +168,7 @@
                     @csrf
                     {{method_field('PUT')}}
                     <input type='number' name="jenis" id="jenis" value="3" hidden>
-                    <input type='file' name='file' id='file' class='form-control'><br>
+                    <input type='file' name='file' id='file' class='form-control'required><br>
                     <input type='submit' class='btn btn-primary' value='Unggah' id='btn_upload'>
                 </form>
 
