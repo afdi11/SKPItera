@@ -1,4 +1,4 @@
-@extends('layouts.koor.koor_index')
+@extends('layouts.dosen.dosen_index')
 
 @section('content')
 <div class="col-9 col-s-12 content" id="content1">

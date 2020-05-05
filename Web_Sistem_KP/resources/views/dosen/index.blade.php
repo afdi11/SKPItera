@@ -56,7 +56,7 @@
         <div class="separated">
             <div class="panel-body">
             @foreach($user as $row)
-                {{$row->name}}
+                {{$row->name}}</br>
                 @if($row->mahasiswa->laporans()->exists())
                     @foreach($row->mahasiswa->laporans->catatans as $catatan)
                     <p>
