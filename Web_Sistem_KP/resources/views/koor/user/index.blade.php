@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header container">
+                <div class="card-header">
                     <div class="row align-items-center">
                         <div class="col">
                             User
@@ -20,7 +20,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                        <th scope="col">#</th>
+                        <th scope="col" >#</th>
                         <th scope="col" class="col-3">Name</th>
                         <th scope="col" >Email</th>
                         <th scope="col" class="col-3">Roles</th>
@@ -49,8 +49,7 @@
                             </tr>
                         @endforeach
                     </tbody>
-                    </table>
-                    
+                </table>
                 </div>
             </div>
         </div>

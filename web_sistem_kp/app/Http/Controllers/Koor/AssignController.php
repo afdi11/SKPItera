@@ -68,6 +68,11 @@ class AssignController extends Controller
         $dopem = User::whereHas(
             'roles',function($q){
                 $q->where('name','dosen pembimbing');
+            })->whereHas(
+            'dosen',function($q){
+                $q->whereHas('mahasiswa',function($r){
+                    $r->whereNull('selesai');
+                },'<',8);
             }
         )->get();
         return view('koor.validasi.koor_validasi_assign',compact('pembimbing','user','dopem'));
