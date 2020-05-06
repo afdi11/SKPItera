@@ -178,7 +178,7 @@
         $('body').on('change', '#seminar_acc', function(event) {
             if (this.value == '1') {
                 $("#seminarCatatanLabel").hide();
-            } else if (this.value == '2') {
+            } else if (this.value == '0') {
                 $("#seminarCatatanLabel").show();
             }
         });
